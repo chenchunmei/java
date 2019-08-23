@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration 
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 全局配置 -->
+	<settings>
+		<!-- 设置开启二级缓存 -->
+		<setting name="cacheEnabled" value="true"/>
+		
+		<!-- 配置日志 -->
+		<setting name="logImpl" value="STDOUT_LOGGING"/>
+		<!-- 设置延时加载为true -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 设置积极加载为false -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+	</settings>
+	
+	<!-- 定义配置文件中需要的所有别名 -->
+	<typeAliases>
+		<!-- 批量扫描别名 -->
+		<package name="com.remarkable.entity"></package>
+	</typeAliases>
+	
+</configuration>
