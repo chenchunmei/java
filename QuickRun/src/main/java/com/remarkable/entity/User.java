@@ -2,6 +2,10 @@ package com.remarkable.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class User {
 	
 	//用户id
@@ -15,6 +19,7 @@ public class User {
 	//性别
 	private int u_sex;
 	//出生年月日
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date u_birthday;
 	//状态
 	private int  u_state;
