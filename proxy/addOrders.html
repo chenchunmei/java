@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--
 	用户发布下单
+	王慧
 -->
 <html>
 	<head>
@@ -166,7 +167,7 @@
 		  </div>
 		  <div class="content-block">
 		    <div class="row">
-		      <div class="col-50"><a href="#" class="button button-big button-fill button-success">提交</a></div>
+		      <div class="col-50" id="sendOrder"><a href="#" class="button button-big button-fill button-success">提交</a></div>
 		      <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div>
 		    </div>
 		  </div>
@@ -183,6 +184,41 @@
                     $(viewBox).html(this.value.length + "/" + textLength)
                 })
             }
+             
+             //添加发单信息
+			$("#sendOrder").click(function(){
+				//取值
+				var ord_rec_name = $("#ord_rec_name").val();
+				var ord_pick_code = $("#ord_pick_code").val();
+				var ord_phone = $("#ord_phone").val();
+				var com_id = $("#com_id:checked").val();
+				var add_id = $("#add_id:checked").val();
+				var ord_wight = $("#ord_wight").val();
+				var rec_id = $("#rec_id:checked").val();
+				var ord_remark = $("#ord_remark").val();
+				var jsonObject={
+					"ord_rec_name": ord_rec_name,
+					"ord_pick_code": ord_pick_code,
+					"ord_phone": ord_phone,
+					"com_id":com_id,
+					"add_id":add_id,
+					"ord_wight":ord_wight,
+					"rec_id":rec_id,
+					"ord_remark":ord_remark,
+					"m": "add"
+				}
+				sendRequest("POST", "send/SendServlet", jsonObject, function(result) {
+					if(result.code==0){
+						layer.msg("添加发单信息成功");
+						//关闭
+						layer.closeAll("iframe");
+						//刷新父类
+						parent.location.reload();
+					}else{
+						layer.msg("添加发单信息失败："+result.msg);
+					}
+				});
+			});
 	    </script>
 	</body>
 </html>
