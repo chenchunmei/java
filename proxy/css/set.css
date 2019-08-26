@@ -1,0 +1,11 @@
+.head{
+	margin-top: 15px;
+	margin-left: 5px;
+	border-radius: 50%;
+	height: 90px;
+	width: 90px;
+}
+.bar-nav{
+	height: 130px;
+	background-image: url(../img/head.jpg);
+}
