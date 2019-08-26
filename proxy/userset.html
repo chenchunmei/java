@@ -63,14 +63,6 @@
 									<li>
 										<div class="item-content">
 											<div class="item-inner">
-												<span class="icon icon-card"></span>
-												<span style="position: absolute; margin-left:20px;">收获地址</span>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="item-content">
-											<div class="item-inner">
 												 <span class="icon icon-code"></span>
 												<span style="position: absolute; margin-left:20px;">退出登录</span>
 											</div>
@@ -99,7 +91,6 @@
 
 				<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
 				<script>
-					$.init()
 					$(document).on('click', '.open-indicator', function() {
 						$.showIndicator();
 						setTimeout(function() {
@@ -107,11 +98,11 @@
 						}, 2000);
 					});
 				</script>
+				<script type="text/javascript" src="//g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
 				<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 				<!--下面的JS放在 body 的最后-->
-				<script type="text/javascript" src="//g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
 				<script type="text/javascript" src="//g.alicdn.com/sui/sui3/0.0.18/js/sui-prefixed.min.js"></script>
 	</body>
 
