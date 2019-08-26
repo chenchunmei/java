@@ -4,6 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
 		<title>我的生活</title>
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 		<link rel="shortcut icon" href="/favicon.ico">
@@ -60,7 +64,7 @@
 										<div class="item-content">
 											<div class="item-inner">
 												<span class="icon icon-edit"></span>
-												<span style="position: absolute; margin-left:20px;">修改资料</span>
+												<a href="userData.html" style="position: absolute; margin-left:25px; color: grey;">修改资料</a>
 											</div>
 										</div>
 									</li>
@@ -68,15 +72,33 @@
 										<div class="item-content">
 											<div class="item-inner">
 												<span class="icon icon-me"></span>
-												<a href="address.html" style="position: absolute; margin-left:25px; color: grey;">账号管理</a>
+												<a href="#" style="position: absolute; margin-left:25px; color: grey;" id="btn">账号管理</a>
 											</div>
 										</div>
+										<ul style="display: none;" id="menu">
+											<li style="visibility: inherit;">
+												<div class="item-content">
+													<div class="item-inner">
+														<span class="icon icon-me"></span>
+														<a href="#" style="position: absolute; margin-left:25px; color: grey;">修改密码</a>
+													</div>
+												</div>
+											</li>
+											<li style="visibility: inherit;">
+												<div class="item-content">
+													<div class="item-inner">
+														<span class="icon icon-me"></span>
+														<a href="#" style="position: absolute; margin-left:25px; color: grey;" class="create-actions">切换登录</a>
+													</div>
+												</div>
+											</li>
+										</ul>
 									</li>
 									<li>
 										<div class="item-content">
 											<div class="item-inner">
 												 <span class="icon icon-code"></span>
-												<span style="position: absolute; margin-left:20px;">退出登录</span>
+												 <a href="#" style="position: absolute; margin-left:25px; color: grey;" class="create-actions">退出登录</a></span>
 											</div>
 										</div>
 									</li>
@@ -96,13 +118,56 @@
 					<!-- 其他的单个page内联页（如果有） -->
 					<div class="page">...</div>
 				</div>
-
+				
 				<!-- popup, panel 等放在这里 -->
 				<div class="panel-overlay"></div>
 				<!-- Left Panel with Reveal effect -->
 				<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
     			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    			<script type="text/javascript" src="js/jquery.js"></script>
+    			<script type="text/javascript">
+					$(function(){
+						$("#btn").click(function(){
+							if($("#menu").css("display")=="block"){
+								$("#menu").css("display","none");
+							}else{
+								$("#menu").css("display","block");
+							}
+						})
+						
+						$(document).on('click','.create-actions', function () {
+					      var buttons1 = [
+					        {
+					          text: '请选择',
+					          label: true
+					        },
+					        {
+					          text: '卖出',
+					          bold: true,
+					          color: 'danger',
+					          onClick: function() {
+					            $.alert("你选择了“卖出“");
+					          }
+					        },
+					        {
+					          text: '买入',
+					          onClick: function() {
+					            $.alert("你选择了“买入“");
+					          }
+					        }
+					      ];
+					      var buttons2 = [
+					        {
+					          text: '取消',
+					          bg: 'danger'
+					        }
+					      ];
+					      var groups = [buttons1, buttons2];
+					      $.actions(groups);
+					  });
+					});
+				</script>
 	</body>
 
 </html>
