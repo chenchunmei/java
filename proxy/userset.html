@@ -37,8 +37,12 @@
 						<span class="tab-label">首页</span>
 					</a>
 					<a class="tab-item external" href="#">
-						<span class="icon icon-star"></span>
-						<span class="tab-label">收藏</span>
+						<span class="icon icon-edit"></span>
+						<span class="tab-label">发布</span>
+					</a>
+					<a class="tab-item external" href="#">
+						<span class="icon icon-card"></span>
+						<span class="tab-label">订单</span>
 					</a>
 					<a class="tab-item external active" href="#">
 						<span class="icon icon-settings"></span>
@@ -63,6 +67,14 @@
 									<li>
 										<div class="item-content">
 											<div class="item-inner">
+												<span class="icon icon-me"></span>
+												<a href="address.html" style="position: absolute; margin-left:25px; color: grey;">账号管理</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
 												 <span class="icon icon-code"></span>
 												<span style="position: absolute; margin-left:20px;">退出登录</span>
 											</div>
@@ -73,7 +85,7 @@
 										<div class="item-content">
 											<div class="item-inner">
 												<span class="icon icon-phone"></span>
-												<span style="position: absolute; margin-left:20px;">联系我们</span>
+												<span style="position: absolute; margin-left:20px;">联系我们</span>1528996265
 											</div>
 										</div>
 									</li>
@@ -88,22 +100,9 @@
 				<!-- popup, panel 等放在这里 -->
 				<div class="panel-overlay"></div>
 				<!-- Left Panel with Reveal effect -->
-
-				<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
-				<script>
-					$(document).on('click', '.open-indicator', function() {
-						$.showIndicator();
-						setTimeout(function() {
-							$.hideIndicator();
-						}, 2000);
-					});
-				</script>
-				<script type="text/javascript" src="//g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
 				<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
-				<!--下面的JS放在 body 的最后-->
-				<script type="text/javascript" src="//g.alicdn.com/sui/sui3/0.0.18/js/sui-prefixed.min.js"></script>
+    			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 	</body>
 
 </html>
