@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--
+	用户发布下单
+-->
+<html>
+	<head>
+		<header class="bar bar-nav">
+		  <h1 class='title'>发单</h1>
+		</header>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	    <link rel="shortcut icon" href="/favicon.ico">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	
+	    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+	    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	</head>
+	<body>
+		<div class="content">
+		  <div class="list-block">
+		    <ul>
+		      <li>
+		        <div class="item-content">
+		          <div class="item-media"><i class="icon icon-form-name"></i></div>
+		          <div class="item-inner">
+		            <div class="item-title label">收件人</div>
+		            <div class="item-input">
+		              <input type="text" id="ord_rec_name">
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		      <li>
+		        <div class="item-content">
+		          <div class="item-media"><i class="icon icon-form-comment"></i></div>
+		          <div class="item-inner">
+		            <div class="item-title label">取货码</div>
+		            <div class="item-input">
+		              <input type="text" id="ord_pick_code">
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		       <li>
+		        <div class="item-content">
+		          <div class="item-media"><i class="icon icon-form-comment"></i></div>
+		          <div class="item-inner">
+		            <div class="item-title label">联系电话</div>
+		            <div class="item-input">
+		              <input type="text" id="ord_phone">
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		       <li>
+		        <div class="item-content">
+		          <div class="item-media"><i class="icon icon-form-gender"></i></div>
+		          <div class="item-inner">
+		            <div class="item-title label">快递公司</div>
+		            <div class="item-input">
+		              <select id="com_id">
+		                <option value="0">申通快递</option>
+		              	<option value="1">中通快递</option>
+		              	<option value="2">圆通速递</option>
+		              	<option value="3">百世</option>
+		              	<option value="4">邮政</option>
+		              	<option value="5">顺丰</option>
+		              	<option value="6">韵达</option>
+		              	<option value="7">万象</option>
+		              </select>
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+			   <li>
+		        <div class="item-content">
+		          <div class="item-media"><i class="icon icon-form-gender"></i></div>
+		          <div class="item-inner">
+		            <div class="item-title label">送达地址</div>
+		            <div class="item-input">
+		              <select id="add_id">
+		              	<optgroup label="顺枫公寓A区">
+		              		<option value="0">A1</option>
+		              		<option value="1">A2</option>
+		              		<option value="2">A3</option>
+		              		<option value="3">A4</option>
+		              		<option value="4">A5</option>
+		              		<option value="5">A6</option>
+		              	</optgroup>
+		              	<optgroup label="顺枫公寓B区">
+		              		<option value="6">B1</option>
+		              		<option value="7">B2</option>
+		              		<option value="8">B3</option>
+		              		<option value="9">B4</option>
+		              		<option value="10">B5</option>
+		              		<option value="11">B6</option>
+		              	</optgroup>
+		              	<optgroup label="润泽公寓C区">
+		              		<option value="12">C1</option>
+		              		<option value="13">C2</option>
+		              		<option value="14">C3</option>
+		              		<option value="15">C4</option>
+		              		<option value="16">C5</option>
+		              		<option value="17">C6</option>
+		              	</optgroup>
+		              	<optgroup label="润泽公寓D区">
+		              		<option value="18">D1</option>
+		              		<option value="19">D2</option>
+		              		<option value="20">D3</option>
+		              		<option value="21">D4</option>
+		              		<option value="22">D5</option>
+		              		<option value="23">D6</option>
+		              	</optgroup>
+		              	<optgroup label="润泽公寓E区">
+		              		<option value="24">E1</option>
+		              		<option value="25">E2</option>
+		              		<option value="26">E3</option>
+		              		<option value="27">E4</option>
+		              		<option value="28">E5</option>
+		              		<option value="29">E6</option>
+		              	</optgroup>
+		              </select>
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		      <li>
+		        <div class="item-content">
+		          <div class="item-media"><i class="icon icon-form-comment"></i></div>
+		          <div class="item-inner">
+		            <div class="item-title label">包裹重量</div>
+		            <div class="item-input">
+		              <input type="text" id="ord_wight" placeholder="只填写数字">
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		       <li>
+		        <div class="item-content">
+		          <div class="item-media"><i class="icon icon-form-gender"></i></div>
+		          <div class="item-inner">
+		            <div class="item-title label">接收时间</div>
+		            <div class="item-input">
+		              <select id="rec_id">
+		                <option value="0">上午 12:00-14:00</option>
+		                <option value="1">下午 18:00-20:00</option>
+		              </select>
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		      <li class="align-top">
+		        <div class="item-content">
+		          <div class="item-media"><i class="icon icon-form-comment"></i></div>
+		          <div class="item-inner">
+		            <div class="item-title label">订单备注</div>
+		            <div class="item-input">
+		              <textarea placeholder="请在有效字数内完成备注" name="ord_remark" id="ord_remark" ></textarea>
+		            </div>
+		            <div id="viewBox" style="color: red;float: right;"></div>
+		          </div>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		  <div class="content-block">
+		    <div class="row">
+		      <div class="col-50"><a href="#" class="button button-big button-fill button-success">提交</a></div>
+		      <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div>
+		    </div>
+		  </div>
+		</div>
+			
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+	    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+	    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	    <script>
+	    	 LimitedNnumber("#ord_remark", "#viewBox", 200)//调用函数需要传入三个参数，分别为，输入框、显示框、限制的长度
+             function LimitedNnumber(eventBox, viewBox, textLength) {//调用函数需要传入三个参数，分别为，输入框、显示框、限制的长度
+                $(document).on('input propertychange paste keyup', eventBox, function(event) {
+                    this.value = this.value.replace(this.value.slice(textLength), "")//超出长度的部分替换为空
+                    $(viewBox).html(this.value.length + "/" + textLength)
+                })
+            }
+	    </script>
+	</body>
+</html>
