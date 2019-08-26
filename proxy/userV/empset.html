@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<link rel="stylesheet" href="css/set.css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+
+	</head>
+
+	<body>
+		<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+		<div class="page-group">
+			<!-- 单个page ,第一个.page默认被展示-->
+			<div class="page">
+				<!-- 标题栏 -->
+				<header class="bar bar-nav">
+					<div>
+						<img class="head" src="img/app.png" />
+						<span style="margin-top: 50px; position: absolute; margin-left: 18px; color: white;">125374848</span>
+					</div>
+				</header>
+
+				<!-- 工具栏 -->
+				<nav class="bar bar-tab">
+					<a class="tab-item external" href="#">
+						<span class="icon icon-home"></span>
+						<span class="tab-label">首页</span>
+					</a>
+					<a class="tab-item external" href="#">
+						<span class="icon icon-edit"></span>
+						<span class="tab-label">发布</span>
+					</a>
+					<a class="tab-item external" href="#">
+						<span class="icon icon-card"></span>
+						<span class="tab-label">订单</span>
+					</a>
+					<a class="tab-item external active" href="#">
+						<span class="icon icon-settings"></span>
+						<span class="tab-label">设置</span>
+					</a>
+				</nav>
+
+				<!-- 这里是页面内容区 -->
+				<div class="content" style="background-color: white;">
+					<div class="content-block">
+						<div class="list-block contacts-block" style="margin-top: 100px;">
+							<div class="list-group">
+								<ul>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<span class="icon icon-edit"></span>
+												<span style="position: absolute; margin-left:25px;">修改资料</span>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<span class="icon icon-me"></span>
+												<a href="address.html" style="position: absolute; margin-left:25px; color: grey;">账号管理</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<span class="icon icon-code"></span>
+												<span style="position: absolute; margin-left:25px;"><a class="create-actions" style="color: grey;">退出登录</a></span>
+											</div>
+										</div>
+									</li>
+									<br />
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<span class="icon icon-phone"></span>
+												<span style="position: absolute; margin-left:20px;">联系我们</span>1528996265
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- 其他的单个page内联页（如果有） -->
+					<div class="page">...</div>
+				</div>
+
+				<!-- popup, panel 等放在这里 -->
+				<div class="panel-overlay"></div>
+				<!-- Left Panel with Reveal effect -->
+
+				<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
+				<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
+				<script>
+					$(document).on('click', '.open-indicator', function() {
+						$.showIndicator();
+						setTimeout(function() {
+							$.hideIndicator();
+						}, 2000);
+					});
+					
+					$(document).on('click','.create-actions', function () {
+				      var buttons1 = [
+				        {
+				          text: '请选择',
+				          label: true
+				        },
+				        {
+				          text: '卖出',
+				          bold: true,
+				          color: 'danger',
+				          onClick: function() {
+				            $.alert("你选择了“卖出“");
+				          }
+				        },
+				        {
+				          text: '买入',
+				          onClick: function() {
+				            $.alert("你选择了“买入“");
+				          }
+				        }
+				      ];
+				      var buttons2 = [
+				        {
+				          text: '取消',
+				          bg: 'danger'
+				        }
+				      ];
+				      var groups = [buttons1, buttons2];
+				      $.actions(groups);
+				  });
+				</script>
+	</body>
+
+</html>

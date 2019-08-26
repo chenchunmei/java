@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>骑手订单显示</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+  </head>
+  <body>
+    <div class="page-group">
+      <div class="page page-current">
+       	<header class="bar bar-nav">
+		    	<h1 class="title">订单显示</h1>
+		  	</header>
+		  	<!--搜索-->
+		  	<div class="bar bar-header-secondary">
+			    <div class="searchbar">
+			    	<a class="searchbar-cancel">取消</a>
+				    <div class="search-input">
+				      <label class="icon icon-search" for="search"></label>
+				      <input type="search" id='search' placeholder='输入订单编号'/>
+				    </div>
+			  	</div>
+			  </div>
+			  <!---->
+			  
+			  <!--订单显示-->
+		 		<div class="content">
+		 			<!--分类-->
+		 			<div class="content-block">
+				    <div class="content-block-title" style="margin-top:-35px ;"></div>
+			      <div class="list-block">
+			        <ul>
+			          <!-- Text inputs -->
+			          <li>
+			            <div class="item-content">
+			              <div class="item-inner">
+			                <div class="item-title label">快递公司</div>
+			                <div class="item-input">
+			                  <input type="text" placeholder="请选择快递公司" id='picker-name'/>
+			                </div>
+			              </div>
+			            </div>
+			          </li>
+			        </ul>
+			      </div>
+				  </div>
+				  <div class="content-block">
+				    <div class="content-block-title" style="margin-top:-35px ;"></div>
+			      <div class="list-block">
+			        <ul>
+			          <!-- Text inputs -->
+			          <li>
+			            <div class="item-content">
+			              <div class="item-inner">
+			                <div class="item-title label">送达地址</div>
+			                <div class="item-input">
+			                  <input type="text" placeholder="请选择地址" id='picker-name1'/>
+			                </div>
+			              </div>
+			            </div>
+			          </li>
+			        </ul>
+			      </div>
+				  </div>
+				    
+		    	<div class="list-block cards-list">
+	      		<ul>
+	        		<li class="card">
+				        <div class="card-header">公司名：</div>
+				        <div class="card-header">取货码：</div>
+				        <div class="card-header">取件人：</div>
+				        <div class="card-header">送达时间：</div>
+				        <div class="card-header">联系电话：</div>
+				        <div class="card-header">送达地点：</div>
+				        <div class="card-content">
+			            <div class="card-content-inner">备注：</div>
+			          </div>
+			          <div class="card-footer">
+					        <div class="content-block">
+							    	<p><a href="#" class="button button-fill button-danger">确认送达</a></p>
+									</div>
+			          </div>
+	        		</li>
+	      		</ul>
+		    	</div>
+		  	</div>
+		  	<!---->
+      </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+		<script>
+		$("#picker-name").picker({
+		  toolbarTemplate: '<header class="bar bar-nav">\
+		  <button class="button button-link pull-left">取消</button>\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title">快递公司</h1>\
+		  </header>',
+		  cols: [
+		    {
+		      textAlign: 'center',
+		      values: ['全部', '中通快递', '圆通快递', '韵达快递', '顺丰快递']
+		    }
+		  ]
+		});
+		$("#picker-name1").picker({
+		  toolbarTemplate: '<header class="bar bar-nav">\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title">请选择区域</h1>\
+		  </header>',
+		  cols: [
+		    {
+		      textAlign: 'center',
+		      values: ['全部', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6']
+		    }
+		  ]
+		});
+</script>
+  </body>
+</html>
