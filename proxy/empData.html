@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+	用户发布下单
+-->
+<html>
+
+	<head>
+		<header class="bar bar-nav" style="height: 130px;background-image: url(img/head.jpg);">
+			<span class="icon icon-left" style="margin-top: 123px;" id="back">返回</span>
+		</header>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<div class="content" style="background-color: white;" id="app">
+			<form novalidate="novalidate" method="post">
+				<div class="list-block" style="margin-top: 120px;">
+					<ul>
+						<!-- Text inputs -->
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-name"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">姓名:</div>
+									<div class="item-input">
+										<input type="text" name="emp_name" id="emp_name" :value="emp.emp_name" disabled="disabled">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-name"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">专业:</div>
+									<div class="item-input">
+										<input type="text" name="emp_major" id="emp_major" :value="emp.emp_major" disabled="disabled">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-name"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">学号:</div>
+									<div class="item-input">
+										<input type="text" name="emp_sno" id="emp_sno" :value="emp.emp_sno" disabled="disabled">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-email"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">信誉值:</div>
+									<div class="item-input">
+										<input type="text" name="emp_credit" id="emp_credit" :value="emp.emp_credit" disabled="disabled">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-email"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">宿舍:</div>
+									<div class="item-input">
+										<input type="text" name="emp_dormitory" id="emp_dormitory" :value="emp.emp_dormitory">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-email"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">电话:</div>
+									<div class="item-input">
+										<input type="text" name="emp_phone" id="emp_phone" :value="emp.emp_phone">
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="content-block">
+					<div class="row">
+						<div class="col-50">
+							<a href="#" class="button button-big button-fill button-danger">取消</a>
+						</div>
+						<div class="col-50">
+							<a href="#" class="button button-big button-fill button-success" id="update">修改</a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript" src="js/aui-toast.js"></script>
+		<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/empData.js"></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+</html>

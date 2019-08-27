@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+	用户发布下单
+-->
+<html>
+
+	<head>
+		<header class="bar bar-nav" style="height: 130px;background-image: url(img/head.jpg);">
+			<span class="icon icon-left" style="margin-top: 15px;" id="back">返回</span>
+		</header>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<div class="content" style="background-color: white;" id="app">
+			<form novalidate="novalidate" method="post">
+				<div class="list-block" style="margin-top: 150px;">
+					<ul>
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-name"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">头像</div>
+									<div class="item-input">
+										<img src="img/1.jpg" style="width: 50px; height:50px; float: right;" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<!-- Text inputs -->
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-name"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">昵称</div>
+									<div class="item-input">
+										<input type="text" name="u_nickname" id="u_nickname" :value="user.u_nickname">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-email"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">电话</div>
+									<div class="item-input">
+										<input type="text" name="u_phone" id="u_phone" :value="user.u_phone">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-gender"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">性别</div>
+									<div class="item-input">
+										<select id="u_sex">
+											<option value="0">女</option>
+											<option value="1">男</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</li>
+						<!-- Date -->
+						<li>
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-form-calendar"></i></div>
+								<div class="item-inner">
+									<div class="item-title label">生日</div>
+									<div class="item-input">
+										<input type="date" name="u_birthday" id="u_birthday" value="">
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="content-block">
+					<div class="row">
+						<div class="col-50">
+							<a href="#" class="button button-big button-fill button-danger" @click="cancel()">取消</a>
+						</div>
+						<div class="col-50">
+							<a href="#" class="button button-big button-fill button-success" id="update">修改</a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript" src="js/aui-toast.js"></script>
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/userData.js"></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+</html>
