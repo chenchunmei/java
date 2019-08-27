@@ -10,7 +10,15 @@ public class Address {
 	private int add_state;
 	//负责棋手id
 	private int emp_id;
+	//负责骑手
+	private Emp emp;
 	
+	public Emp getEmp() {
+		return emp;
+	}
+	public void setEmp(Emp emp) {
+		this.emp = emp;
+	}
 	public int getEmp_id() {
 		return emp_id;
 	}

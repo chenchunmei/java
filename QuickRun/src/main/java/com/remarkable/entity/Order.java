@@ -36,6 +36,47 @@ public class Order {
 	private int u_id;
 	//转交人
 	private int ord_forward;
+	//快递公司
+	private Company company;
+	//送货地址
+	private Address address;
+	
+	public Company getCompany() {
+		return company;
+	}
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public Rectime getRectime() {
+		return rectime;
+	}
+	public void setRectime(Rectime rectime) {
+		this.rectime = rectime;
+	}
+	public Emp getEmp() {
+		return emp;
+	}
+	public void setEmp(Emp emp) {
+		this.emp = emp;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	//送达时间
+	private Rectime rectime;
+	//骑手
+	private Emp emp;
+	//用户
+	private User user;
 	
 	public int getOrd_forward() {
 		return ord_forward;
