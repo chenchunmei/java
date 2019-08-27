@@ -285,7 +285,65 @@
 	</select>
 	
 	<!-- 根据订单id查询订单详情 -->
-	<select id="findOrderById" parameterType="int" resultType="order">
-		select * from tb_order where ord_id = #{ord_id}
+	<resultMap type="order" id="findOrderByIdMap">
+		<id column="ord_id" property="ord_id"/>
+		<result column="ord_code" property="ord_code"/>
+		<result column="ord_pick_code" property="ord_pick_code"/>
+		<result column="ord_phone" property="ord_phone"/>
+		<result column="ord_rec_name" property="ord_rec_name"/>
+		<result column="ord_wight" property="ord_wight"/>
+		<result column="ord_remark" property="ord_remark"/>
+		<result column="ord_complaint" property="ord_complaint"/>
+		<result column="ord_state" property="ord_state"/>
+		<result column="ord_forward" property="ord_forward"/>
+		<result column="rec_id" property="rec_id"/>
+		<result column="add_id" property="add_id"/>
+		<result column="com_id" property="com_id"/>
+		<result column="emp_id" property="emp_id"/>
+		<result column="u_id" property="u_id"/>
+		<association property="company" javaType="company">
+			<id column="com_id" property="com_id"/>
+			<result column="com_name" property="com_name"/>
+			<result column="add_state" property="add_state"/>
+		</association>
+		<association property="rectime" javaType="rectime">
+			<id column="rec_id" property="rec_id"/>
+			<result column="rec_detail" property="rec_detail"/>
+			<result column="rec_state" property="rec_state"/>
+		</association>
+		<association property="address" javaType="address">
+			<id column="add_id" property="add_id"/>
+			<result column="add_detail" property="add_detail"/>
+			<result column="add_state" property="add_state"/>
+			<result column="emp_id" property="emp_id"/>
+		</association>
+		<association property="emp" javaType="emp">
+			<id column="emp_id" property="emp_id"/>
+			<result column="emp_name" property="emp_name"/>
+			<result column="emp_major" property="emp_major"/>
+			<result column="emp_dormitory" property="emp_dormitory"/>
+			<result column="emp_sno" property="emp_sno"/>
+			<result column="emp_credit" property="emp_credit"/>
+			<result column="emp_phone" property="emp_phone"/>
+			<result column="emp_state" property="emp_state"/>
+		</association>
+		<association property="user" javaType="user">
+			<id column="u_id" property="u_id"/>
+			<result column="u_phone" property="u_phone"/>
+			<result column="u_pwd" property="u_pwd"/>
+			<result column="u_nickname" property="u_nickname"/>
+			<result column="u_sex" property="u_sex"/>
+			<result column="u_birthday" property="u_birthday"/>
+			<result column="u_state" property="u_state"/>
+		</association>
+	</resultMap>
+	<select id="findOrderById" parameterType="int" resultMap="findOrderByIdMap">
+		select * from tb_order tb 
+		left join tb_company tc on tc.com_id =tb.com_id 
+		left join tb_rec tr on tr.rec_id = tb.rec_id 
+		left join tb_address ta on ta.add_id = tb.add_id 
+		left join tb_emp te on te.emp_id = tb.emp_id 
+		left join tb_user tu on tu.u_id = tb.u_id
+		where tb.ord_id = #{ord_id}
 	</select>
 </mapper>
