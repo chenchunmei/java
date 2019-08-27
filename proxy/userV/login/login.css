@@ -236,14 +236,14 @@ button {
 	width: 9rem;
 	height: 9rem;
 	background: #10a78e;
-	margin: 6rem auto 4rem;
+	margin: 1rem auto 1rem;
 	color: #fff;
 	line-height: 9rem;
 	font-size: 3rem;
 }
 
 .login-cont {
-	margin: 0 2rem;
+	margin: 0 1rem;
 	line-height: 4rem;
 }
 
@@ -257,7 +257,7 @@ button {
 
 .login-cont li input {
 	border: none;
-	line-height: 4rem;
+	line-height: 1rem;
 	width: 100%;
 	outline: 0;
 }
@@ -282,5 +282,5 @@ button {
 	height: 4rem;
 	line-height: 4rem;
 	font-size: 1.6rem;
-	margin-top: 4rem;
+	margin-top: 1rem;
 }
