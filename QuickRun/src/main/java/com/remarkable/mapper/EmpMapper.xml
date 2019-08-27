@@ -4,18 +4,18 @@
 	
 	<!-- 查询骑手的所有订单 -->
 	<select id="findOrderAll" parameterType="order" resultType="order">
-		select * form tb_order 
+		select * from tb_order 
 		<where>  
-		<if test="emp_id != null"> 
+		<if test="emp_id != null and emp_id != 0"> 
 			and add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
 			and ord_code = #{ord_code}
 		</if> 
-		<if test="com_id != null"> 
+		<if test="com_id != null and com_id != 0"> 
 			and com_id = #{com_id}
 		</if> 
-		<if test="add_id != null"> 
+		<if test="add_id != null and add_id != 0"> 
 			and add_id = #{add_id}
 		</if> 
 		</where>
@@ -23,21 +23,19 @@
 	
 	<!-- 查询骑手未送达的所有订单 -->
 	<select id="findNoOrderAndEmpAll" parameterType="order" resultType="order">
-		select * form tb_order 
+		select * from tb_order 
 		<where> 
-		<if test="1 == 1"> 
 			and ord_state =1  
-		</if> 
-		<if test="emp_id != null"> 
+		<if test="emp_id != null and emp_id != 0"> 
 			and add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
 			and ord_code = #{ord_code}
 		</if> 
-		<if test="com_id != null"> 
+		<if test="com_id != null and com_id != 0"> 
 			and com_id = #{com_id}
 		</if> 
-		<if test="add_id != null"> 
+		<if test="add_id != null and add_id != 0"> 
 			and add_id = #{add_id}
 		</if> 
 		</where>
@@ -45,21 +43,21 @@
 	
 	<!-- 查询骑手已送达的所有订单 -->
 	<select id="findOrderAndEmpAll" parameterType="order" resultType="order">
-		select * form tb_order 
+		select * from tb_order 
 		<where> 
 		<if test="1 == 1"> 
 			and ord_state =2  
 		</if> 
-		<if test="emp_id != null"> 
+		<if test="emp_id != null and emp_id != 0"> 
 			and add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
 			and ord_code = #{ord_code} 
 		</if> 
-		<if test="com_id != null"> 
+		<if test="com_id != null and com_id != 0"> 
 			and com_id = #{com_id} 
 		</if> 
-		<if test="add_id != null"> 
+		<if test="add_id != null and add_id != 0"> 
 			and add_id = #{add_id} 
 		</if> 
 		</where>
@@ -67,21 +65,21 @@
 	
 	<!-- 查询骑手转交的所有订单 -->
 	<select id="findSendOrderByForward" parameterType="order" resultType="order">
-		select * form tb_order 
+		select * from tb_order 
 		<where> 
 		<if test="1 == 1"> 
 			and ord_state =3  
 		</if> 
-		<if test="emp_id != null"> 
+		<if test="emp_id != null and emp_id != 0"> 
 			and emp_id = #{emp_id}  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
 			and ord_code = #{ord_code} 
 		</if> 
-		<if test="com_id != null"> 
+		<if test="com_id != null and com_id != 0"> 
 			and com_id = #{com_id} 
 		</if> 
-		<if test="add_id != null"> 
+		<if test="add_id != null and add_id != 0"> 
 			and add_id = #{add_id} 
 		</if> 
 		</where>
@@ -89,18 +87,18 @@
 	
 	<!-- 查询骑手收到转交的所有订单 -->
 	<select id="findPutOrderByForward" parameterType="order" resultType="order">
-		select * form tb_order 
+		select * from tb_order 
 		<where> 
 		<if test="1 == 1"> 
 			and ord_state =3  
 		</if> 
-		<if test="ord_forward != null"> 
+		<if test="ord_forward != null and ord_forward != 0"> 
 			and ord_forward = #{ord_forward}  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
 			and ord_code = #{ord_code} 
 		</if> 
-		<if test="com_id != null"> 
+		<if test="com_id != null and com_id != 0"> 
 			and com_id = #{com_id} 
 		</if> 
 		</where>
@@ -108,6 +106,6 @@
 	
 	<!-- 根据订单id查询订单详情 -->
 	<select id="findOrderById" parameterType="int" resultType="order">
-		select * from tb_order where ord_id = #{value}
+		select * from tb_order where ord_id = #{ord_id}
 	</select>
 </mapper>
