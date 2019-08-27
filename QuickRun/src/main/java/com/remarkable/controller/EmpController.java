@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,6 +17,7 @@ import com.remarkable.service.IEmpService;
  *
  */
 @Controller
+@CrossOrigin(origins = {"*", "null"})
 public class EmpController {
 
 	//调回骑手服务层
@@ -32,6 +34,7 @@ public class EmpController {
 	 */
 	@RequestMapping("/orderEmpAll.action")
 	public @ResponseBody List<Order> findOrderAll(Order order){
+		order.setEmp_id(1);
 		List<Order> orderList = empServiceImpl.findOrderAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
@@ -46,6 +49,7 @@ public class EmpController {
 	 */
 	@RequestMapping("/orderEmpNo.action")
 	public @ResponseBody List<Order> findNoOrderAndEmpAll(Order order){
+		order.setEmp_id(1);
 		List<Order> orderList = empServiceImpl.findNoOrderAndEmpAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
@@ -60,6 +64,7 @@ public class EmpController {
 	 */
 	@RequestMapping("/orderEmp.action")
 	public @ResponseBody List<Order> findOrderAndEmpAll(Order order){
+		order.setEmp_id(1);
 		List<Order> orderList = empServiceImpl.findOrderAndEmpAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
@@ -74,6 +79,7 @@ public class EmpController {
 	 */
 	@RequestMapping("/orderForwardSend.action")
 	public @ResponseBody List<Order> findSendOrderByForward(Order order){
+		order.setEmp_id(1);
 		List<Order> orderList = empServiceImpl.findSendOrderByForward(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
@@ -87,6 +93,7 @@ public class EmpController {
 	 */
 	@RequestMapping("/orderForwardPut.action")
 	public @ResponseBody List<Order> findPutOrderByForward(Order order){
+		order.setEmp_id(1);
 		List<Order> orderList = empServiceImpl.findPutOrderByForward(order.getOrd_forward(), order.getOrd_code(), order.getCom_id());
 		return orderList;
 	}
@@ -97,8 +104,9 @@ public class EmpController {
 	 * @return
 	 */
 	@RequestMapping("/orderDetailEmp.action")
-	public @ResponseBody Order findOrderById(int ord_id){
-		Order order = empServiceImpl.findOrderById(ord_id);
-		return order;
+	public @ResponseBody Order findOrderById(Order order){
+		order.setOrd_id(1);
+		Order ord = empServiceImpl.findOrderById(order.getOrd_id());
+		return ord;
 	}
 }
