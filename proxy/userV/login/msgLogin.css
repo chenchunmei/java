@@ -284,3 +284,12 @@ button {
 	font-size: 1.6rem;
 	margin-top: 4rem;
 }
+
+.yanzhengma {
+	background: #10a78e;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	width: 100%;
+	outline: 0;
+}

@@ -3,13 +3,12 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>input密码显示隐藏</title>
+		<title>短信验证登录</title>
 		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
 		<meta content="yes" name="apple-mobile-web-app-capable" />
 		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
 		<meta content="telephone=no" name="format-detection" />
-		<link rel="stylesheet" href="login.css" />
-		<script type="text/javascript" src="login.js"></script>
+		<link rel="stylesheet" href="msgLogin.css" />
 	</head>
 
 	<body>
@@ -20,16 +19,19 @@
 			<ul>
 				<li><input type="tel" placeholder="请输入您的手机号"></li>
 				<li>
-					<span id="box"><input type="password" name="password" placeholder="请输入您的密码"></span>
-					<span id="click"><a href="javascript:ps()" class="iconfont icon-biyan"></a></span></li>
+					<span id="box"><input type="text" name="message" placeholder="请输入您的短信验证码"></span>
+					<span id="click"><button type="button" class="yanzhengma text-center">发送验证码</button></span>
+				</li>
 			</ul>
-			<a href="#" class="button text-center block">登 录</a>
-			<a href="returnPwd.html" class="text-center block font-color">忘记密码？</a>
+			<a href="javascript:;" class="button text-center block">登 录</a>
+			<a href="#" class="text-center block font-color">忘记密码？</a>
 			<p class="text-center">没有账号？
 				<a href="register.html" class="font-color">立即注册</a>
 			</p>
 		</form>
 
 	</body>
+	<script type="text/javascript" src="../../js/jquery-3.4.1.js" ></script>
+	<script type="text/javascript" src="msgLogin.js"></script>
 
 </html>

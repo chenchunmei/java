@@ -24,9 +24,10 @@ $('#res-btn').on('click', function() {
 	var yanzheng = $('.yanzheng').val();
 	var mima = $('.mima').val();
 	var repeatmima = $('.repeatmima').val();
-	if(!mobile) {
+	if(mobile.length!=11) {
+		$('.mobile').val("");
 		$('.mobile').focus();
-		document.querySelector('.mobile').placeholder = '请填写手机号码';
+		document.querySelector('.mobile').placeholder = '请填写11位的手机号码';
 		return
 	}
 	if(!yanzheng) {
