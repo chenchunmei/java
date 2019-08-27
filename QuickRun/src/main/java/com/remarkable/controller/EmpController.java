@@ -4,11 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.remarkable.entity.AjaxResult;
 import com.remarkable.entity.Order;
 import com.remarkable.service.IEmpService;
 
@@ -23,8 +21,6 @@ public class EmpController {
 	//调回骑手服务层
 	@Autowired
 	private IEmpService empServiceImpl;
-	//返回前端数据载体
-	AjaxResult result = new AjaxResult();
 	
 	/**
 	 * 查询骑手的所有订单
@@ -35,9 +31,9 @@ public class EmpController {
 	 * @return
 	 */
 	@RequestMapping("/orderEmpAll.action")
-	public @ResponseBody AjaxResult findOrderAll(Model model,int emp_id,String ord_code,int com_id,int add_id){
-		List<Order> orderList = empServiceImpl.findOrderAll(emp_id, ord_code, com_id, add_id);
-		return result.setCode(1).setData(orderList);
+	public @ResponseBody List<Order> findOrderAll(Order order){
+		List<Order> orderList = empServiceImpl.findOrderAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
+		return orderList;
 	}
 	
 	/**
@@ -49,9 +45,9 @@ public class EmpController {
 	 * @return
 	 */
 	@RequestMapping("/orderEmpNo.action")
-	public @ResponseBody AjaxResult findNoOrderAndEmpAll(Model model,int emp_id,String ord_code,int com_id,int add_id){
-		List<Order> orderList = empServiceImpl.findNoOrderAndEmpAll(emp_id, ord_code, com_id, add_id);
-		return result.setCode(1).setData(orderList);
+	public @ResponseBody List<Order> findNoOrderAndEmpAll(Order order){
+		List<Order> orderList = empServiceImpl.findNoOrderAndEmpAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
+		return orderList;
 	}
 	
 	/**
@@ -62,10 +58,10 @@ public class EmpController {
 	 * @param add_id
 	 * @return
 	 */
-	@RequestMapping("/orderEmpNo.action")
-	public @ResponseBody AjaxResult findOrderAndEmpAll(Model model,int emp_id,String ord_code,int com_id,int add_id){
-		List<Order> orderList = empServiceImpl.findOrderAndEmpAll(emp_id, ord_code, com_id, add_id);
-		return result.setCode(1).setData(orderList);
+	@RequestMapping("/orderEmp.action")
+	public @ResponseBody List<Order> findOrderAndEmpAll(Order order){
+		List<Order> orderList = empServiceImpl.findOrderAndEmpAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
+		return orderList;
 	}
 	
 	/**
@@ -77,9 +73,9 @@ public class EmpController {
 	 * @return
 	 */
 	@RequestMapping("/orderForwardSend.action")
-	public @ResponseBody AjaxResult findSendOrderByForward(Model model,int emp_id,String ord_code,int com_id,int add_id){
-		List<Order> orderList = empServiceImpl.findSendOrderByForward(emp_id, ord_code, com_id, add_id);
-		return result.setCode(1).setData(orderList);
+	public @ResponseBody List<Order> findSendOrderByForward(Order order){
+		List<Order> orderList = empServiceImpl.findSendOrderByForward(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
+		return orderList;
 	}
 	
 	/**
@@ -90,9 +86,9 @@ public class EmpController {
 	 * @return
 	 */
 	@RequestMapping("/orderForwardPut.action")
-	public @ResponseBody AjaxResult findPutOrderByForward(Model model,int ord_forward,String ord_code,int com_id){
-		List<Order> orderList = empServiceImpl.findPutOrderByForward(ord_forward, ord_code, com_id);
-		return result.setCode(1).setData(orderList);
+	public @ResponseBody List<Order> findPutOrderByForward(Order order){
+		List<Order> orderList = empServiceImpl.findPutOrderByForward(order.getOrd_forward(), order.getOrd_code(), order.getCom_id());
+		return orderList;
 	}
 	
 	/**
@@ -101,8 +97,8 @@ public class EmpController {
 	 * @return
 	 */
 	@RequestMapping("/orderDetailEmp.action")
-	public @ResponseBody AjaxResult findOrderById(Model model,int ord_id){
+	public @ResponseBody Order findOrderById(int ord_id){
 		Order order = empServiceImpl.findOrderById(ord_id);
-		return result.setCode(1).setData(order);
+		return order;
 	}
 }

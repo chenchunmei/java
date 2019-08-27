@@ -2,6 +2,8 @@ package com.remarkable.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.remarkable.entity.Order;
 
 /**
@@ -19,7 +21,7 @@ public interface EmpMapper {
 	 * @param add_id
 	 * @return
 	 */
-	List<Order> findOrderAll(int emp_id,String ord_code,int com_id,int add_id);
+	List<Order> findOrderAll(@Param("emp_id") int emp_id,@Param("ord_code") String ord_code,@Param("com_id") int com_id,@Param("add_id") int add_id);
 	
 	/**
 	 * 查询骑手未送达的所有订单
@@ -29,7 +31,7 @@ public interface EmpMapper {
 	 * @param add_id
 	 * @return
 	 */
-	List<Order> findNoOrderAndEmpAll(int emp_id,String ord_code,int com_id,int add_id);
+	List<Order> findNoOrderAndEmpAll(@Param("emp_id") int emp_id,@Param("ord_code") String ord_code,@Param("com_id") int com_id,@Param("add_id") int add_id);
 	
 	/**
 	 * 查询骑手已经送达的所有订单
@@ -39,7 +41,7 @@ public interface EmpMapper {
 	 * @param add_id
 	 * @return
 	 */
-	List<Order> findOrderAndEmpAll(int emp_id,String ord_code,int com_id,int add_id);
+	List<Order> findOrderAndEmpAll(@Param("emp_id") int emp_id,@Param("ord_code") String ord_code,@Param("com_id") int com_id,@Param("add_id") int add_id);
 	
 	/**
 	 * 查询骑手转交的所有订单
@@ -49,7 +51,7 @@ public interface EmpMapper {
 	 * @param add_id
 	 * @return
 	 */
-	List<Order> findSendOrderByForward(int emp_id,String ord_code,int com_id,int add_id);
+	List<Order> findSendOrderByForward(@Param("emp_id") int emp_id,@Param("ord_code") String ord_code,@Param("com_id") int com_id,@Param("add_id") int add_id);
 	
 	/**
 	 * 查询骑手收到转交的所有订单
@@ -58,12 +60,12 @@ public interface EmpMapper {
 	 * @param com_id
 	 * @return
 	 */
-	List<Order> findPutOrderByForward(int ord_forward,String ord_code,int com_id);
+	List<Order> findPutOrderByForward(@Param("ord_forward") int ord_forward,@Param("ord_code") String ord_code,@Param("com_id") int com_id);
 	
 	/**
 	 * 根据订单id查询订单详情
 	 * @param ord_id
 	 * @return
 	 */
-	Order findOrderById(int ord_id);
+	Order findOrderById(@Param("ord_id") int ord_id);
 }
