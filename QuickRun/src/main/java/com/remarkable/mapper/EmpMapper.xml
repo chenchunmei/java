@@ -3,103 +3,283 @@
 <mapper namespace="com.remarkable.mapper.EmpMapper">
 	
 	<!-- 查询骑手的所有订单 -->
-	<select id="findOrderAll" parameterType="order" resultType="order">
-		select * from tb_order 
+	<resultMap type="order" id="findOrderAllMap">
+		<id column="ord_id" property="ord_id"/>
+		<result column="ord_code" property="ord_code"/>
+		<result column="ord_pick_code" property="ord_pick_code"/>
+		<result column="ord_phone" property="ord_phone"/>
+		<result column="ord_rec_name" property="ord_rec_name"/>
+		<result column="ord_wight" property="ord_wight"/>
+		<result column="ord_remark" property="ord_remark"/>
+		<result column="ord_complaint" property="ord_complaint"/>
+		<result column="ord_state" property="ord_state"/>
+		<result column="ord_forward" property="ord_forward"/>
+		<result column="rec_id" property="rec_id"/>
+		<result column="add_id" property="add_id"/>
+		<result column="com_id" property="com_id"/>
+		<result column="emp_id" property="emp_id"/>
+		<result column="u_id" property="u_id"/>
+		<association property="company" javaType="company">
+			<id column="com_id" property="com_id"/>
+			<result column="com_name" property="com_name"/>
+			<result column="add_state" property="add_state"/>
+		</association>
+		<association property="rectime" javaType="rectime">
+			<id column="rec_id" property="rec_id"/>
+			<result column="rec_detail" property="rec_detail"/>
+			<result column="rec_state" property="rec_state"/>
+		</association>
+		<association property="address" javaType="address">
+			<id column="add_id" property="add_id"/>
+			<result column="add_detail" property="add_detail"/>
+			<result column="add_state" property="add_state"/>
+			<result column="emp_id" property="emp_id"/>
+		</association>
+	</resultMap>
+	<select id="findOrderAll" parameterType="order" resultMap="findOrderAllMap">
+		select * from tb_order tb 
+		left join tb_company tc on tc.com_id =tb.com_id 
+		left join tb_rec tr on tr.rec_id = tb.rec_id 
+		left join tb_address ta on ta.add_id = tb.add_id 
 		<where>  
 		<if test="emp_id != null and emp_id != 0"> 
-			and add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
+			and tb.add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and ord_code = #{ord_code}
+			and tb.ord_code = #{ord_code}
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
-			and com_id = #{com_id}
+			and tb.com_id = #{tb.com_id}
 		</if> 
 		<if test="add_id != null and add_id != 0"> 
-			and add_id = #{add_id}
+			and tb.add_id = #{add_id}
 		</if> 
 		</where>
 	</select>
 	
 	<!-- 查询骑手未送达的所有订单 -->
-	<select id="findNoOrderAndEmpAll" parameterType="order" resultType="order">
-		select * from tb_order 
+	<resultMap type="order" id="findNoOrderAndEmpAllMap">
+		<id column="ord_id" property="ord_id"/>
+		<result column="ord_code" property="ord_code"/>
+		<result column="ord_pick_code" property="ord_pick_code"/>
+		<result column="ord_phone" property="ord_phone"/>
+		<result column="ord_rec_name" property="ord_rec_name"/>
+		<result column="ord_wight" property="ord_wight"/>
+		<result column="ord_remark" property="ord_remark"/>
+		<result column="ord_complaint" property="ord_complaint"/>
+		<result column="ord_state" property="ord_state"/>
+		<result column="ord_forward" property="ord_forward"/>
+		<result column="rec_id" property="rec_id"/>
+		<result column="add_id" property="add_id"/>
+		<result column="com_id" property="com_id"/>
+		<result column="emp_id" property="emp_id"/>
+		<result column="u_id" property="u_id"/>
+		<association property="company" javaType="company">
+			<id column="com_id" property="com_id"/>
+			<result column="com_name" property="com_name"/>
+			<result column="add_state" property="add_state"/>
+		</association>
+		<association property="rectime" javaType="rectime">
+			<id column="rec_id" property="rec_id"/>
+			<result column="rec_detail" property="rec_detail"/>
+			<result column="rec_state" property="rec_state"/>
+		</association>
+		<association property="address" javaType="address">
+			<id column="add_id" property="add_id"/>
+			<result column="add_detail" property="add_detail"/>
+			<result column="add_state" property="add_state"/>
+			<result column="emp_id" property="emp_id"/>
+		</association>
+	</resultMap>
+	<select id="findNoOrderAndEmpAll" parameterType="order" resultMap="findNoOrderAndEmpAllMap">
+		select * from tb_order tb 
+		left join tb_company tc on tc.com_id =tb.com_id 
+		left join tb_rec tr on tr.rec_id = tb.rec_id 
+		left join tb_address ta on ta.add_id = tb.add_id 
 		<where> 
-			and ord_state =1  
+			and tb.ord_state =1  
 		<if test="emp_id != null and emp_id != 0"> 
-			and add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
+			and tb.add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and ord_code = #{ord_code}
+			and tb.ord_code = #{ord_code}
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
-			and com_id = #{com_id}
+			and tb.com_id = #{com_id}
 		</if> 
 		<if test="add_id != null and add_id != 0"> 
-			and add_id = #{add_id}
+			and tb.add_id = #{add_id}
 		</if> 
 		</where>
 	</select>
 	
 	<!-- 查询骑手已送达的所有订单 -->
-	<select id="findOrderAndEmpAll" parameterType="order" resultType="order">
-		select * from tb_order 
+	<resultMap type="order" id="findOrderAndEmpAllMap">
+		<id column="ord_id" property="ord_id"/>
+		<result column="ord_code" property="ord_code"/>
+		<result column="ord_pick_code" property="ord_pick_code"/>
+		<result column="ord_phone" property="ord_phone"/>
+		<result column="ord_rec_name" property="ord_rec_name"/>
+		<result column="ord_wight" property="ord_wight"/>
+		<result column="ord_remark" property="ord_remark"/>
+		<result column="ord_complaint" property="ord_complaint"/>
+		<result column="ord_state" property="ord_state"/>
+		<result column="ord_forward" property="ord_forward"/>
+		<result column="rec_id" property="rec_id"/>
+		<result column="add_id" property="add_id"/>
+		<result column="com_id" property="com_id"/>
+		<result column="emp_id" property="emp_id"/>
+		<result column="u_id" property="u_id"/>
+		<association property="company" javaType="company">
+			<id column="com_id" property="com_id"/>
+			<result column="com_name" property="com_name"/>
+			<result column="add_state" property="add_state"/>
+		</association>
+		<association property="rectime" javaType="rectime">
+			<id column="rec_id" property="rec_id"/>
+			<result column="rec_detail" property="rec_detail"/>
+			<result column="rec_state" property="rec_state"/>
+		</association>
+		<association property="address" javaType="address">
+			<id column="add_id" property="add_id"/>
+			<result column="add_detail" property="add_detail"/>
+			<result column="add_state" property="add_state"/>
+			<result column="emp_id" property="emp_id"/>
+		</association>
+	</resultMap>
+	<select id="findOrderAndEmpAll" parameterType="order" resultMap="findOrderAndEmpAllMap">
+		select * from tb_order tb 
+		left join tb_company tc on tc.com_id =tb.com_id 
+		left join tb_rec tr on tr.rec_id = tb.rec_id 
+		left join tb_address ta on ta.add_id = tb.add_id 
 		<where> 
 		<if test="1 == 1"> 
-			and ord_state =2  
+			and tb.ord_state =2  
 		</if> 
 		<if test="emp_id != null and emp_id != 0"> 
-			and add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
+			and tb.add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and ord_code = #{ord_code} 
+			and tb.ord_code = #{ord_code} 
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
-			and com_id = #{com_id} 
+			and tb.com_id = #{com_id} 
 		</if> 
 		<if test="add_id != null and add_id != 0"> 
-			and add_id = #{add_id} 
+			and tb.add_id = #{add_id} 
 		</if> 
 		</where>
 	</select>
 	
 	<!-- 查询骑手转交的所有订单 -->
-	<select id="findSendOrderByForward" parameterType="order" resultType="order">
-		select * from tb_order 
+	<resultMap type="order" id="findSendOrderByForwardMap">
+		<id column="ord_id" property="ord_id"/>
+		<result column="ord_code" property="ord_code"/>
+		<result column="ord_pick_code" property="ord_pick_code"/>
+		<result column="ord_phone" property="ord_phone"/>
+		<result column="ord_rec_name" property="ord_rec_name"/>
+		<result column="ord_wight" property="ord_wight"/>
+		<result column="ord_remark" property="ord_remark"/>
+		<result column="ord_complaint" property="ord_complaint"/>
+		<result column="ord_state" property="ord_state"/>
+		<result column="ord_forward" property="ord_forward"/>
+		<result column="rec_id" property="rec_id"/>
+		<result column="add_id" property="add_id"/>
+		<result column="com_id" property="com_id"/>
+		<result column="emp_id" property="emp_id"/>
+		<result column="u_id" property="u_id"/>
+		<association property="company" javaType="company">
+			<id column="com_id" property="com_id"/>
+			<result column="com_name" property="com_name"/>
+			<result column="add_state" property="add_state"/>
+		</association>
+		<association property="rectime" javaType="rectime">
+			<id column="rec_id" property="rec_id"/>
+			<result column="rec_detail" property="rec_detail"/>
+			<result column="rec_state" property="rec_state"/>
+		</association>
+		<association property="address" javaType="address">
+			<id column="add_id" property="add_id"/>
+			<result column="add_detail" property="add_detail"/>
+			<result column="add_state" property="add_state"/>
+			<result column="emp_id" property="emp_id"/>
+		</association>
+	</resultMap>
+	<select id="findSendOrderByForward" parameterType="order" resultMap="findSendOrderByForwardMap">
+		select * from tb_order tb 
+		left join tb_company tc on tc.com_id =tb.com_id 
+		left join tb_rec tr on tr.rec_id = tb.rec_id 
+		left join tb_address ta on ta.add_id = tb.add_id 
 		<where> 
 		<if test="1 == 1"> 
-			and ord_state =3  
+			and tb.ord_state =3  
 		</if> 
 		<if test="emp_id != null and emp_id != 0"> 
-			and emp_id = #{emp_id}  
+			and tb.emp_id = #{emp_id}  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and ord_code = #{ord_code} 
+			and tb.ord_code = #{ord_code} 
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
-			and com_id = #{com_id} 
+			and tb.com_id = #{com_id} 
 		</if> 
 		<if test="add_id != null and add_id != 0"> 
-			and add_id = #{add_id} 
+			and tb.add_id = #{add_id} 
 		</if> 
 		</where>
 	</select>
 	
 	<!-- 查询骑手收到转交的所有订单 -->
-	<select id="findPutOrderByForward" parameterType="order" resultType="order">
-		select * from tb_order 
+	<resultMap type="order" id="findPutOrderByForwardMap">
+		<id column="ord_id" property="ord_id"/>
+		<result column="ord_code" property="ord_code"/>
+		<result column="ord_pick_code" property="ord_pick_code"/>
+		<result column="ord_phone" property="ord_phone"/>
+		<result column="ord_rec_name" property="ord_rec_name"/>
+		<result column="ord_wight" property="ord_wight"/>
+		<result column="ord_remark" property="ord_remark"/>
+		<result column="ord_complaint" property="ord_complaint"/>
+		<result column="ord_state" property="ord_state"/>
+		<result column="ord_forward" property="ord_forward"/>
+		<result column="rec_id" property="rec_id"/>
+		<result column="add_id" property="add_id"/>
+		<result column="com_id" property="com_id"/>
+		<result column="emp_id" property="emp_id"/>
+		<result column="u_id" property="u_id"/>
+		<association property="company" javaType="company">
+			<id column="com_id" property="com_id"/>
+			<result column="com_name" property="com_name"/>
+			<result column="add_state" property="add_state"/>
+		</association>
+		<association property="rectime" javaType="rectime">
+			<id column="rec_id" property="rec_id"/>
+			<result column="rec_detail" property="rec_detail"/>
+			<result column="rec_state" property="rec_state"/>
+		</association>
+		<association property="address" javaType="address">
+			<id column="add_id" property="add_id"/>
+			<result column="add_detail" property="add_detail"/>
+			<result column="add_state" property="add_state"/>
+			<result column="emp_id" property="emp_id"/>
+		</association>
+	</resultMap>
+	<select id="findPutOrderByForward" parameterType="order" resultMap="findPutOrderByForwardMap">
+		select * from tb_order tb 
+		left join tb_company tc on tc.com_id =tb.com_id 
+		left join tb_rec tr on tr.rec_id = tb.rec_id 
+		left join tb_address ta on ta.add_id = tb.add_id 
 		<where> 
 		<if test="1 == 1"> 
-			and ord_state =3  
+			and tb.ord_state =3  
 		</if> 
 		<if test="ord_forward != null and ord_forward != 0"> 
-			and ord_forward = #{ord_forward}  
+			and tb.ord_forward = #{ord_forward}  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and ord_code = #{ord_code} 
+			and tb.ord_code = #{ord_code} 
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
-			and com_id = #{com_id} 
+			and tb.com_id = #{com_id} 
 		</if> 
 		</where>
 	</select>
