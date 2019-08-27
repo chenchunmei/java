@@ -34,7 +34,15 @@ public class Order {
 	private int emp_id;
 	//用户id
 	private int u_id;
+	//转交人
+	private int ord_forward;
 	
+	public int getOrd_forward() {
+		return ord_forward;
+	}
+	public void setOrd_forward(int ord_forward) {
+		this.ord_forward = ord_forward;
+	}
 	public int getOrd_id() {
 		return ord_id;
 	}

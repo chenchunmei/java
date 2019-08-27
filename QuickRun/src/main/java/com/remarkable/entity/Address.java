@@ -8,7 +8,15 @@ public class Address {
 	private String add_detail;
 	//地址状态
 	private int add_state;
+	//负责棋手id
+	private int emp_id;
 	
+	public int getEmp_id() {
+		return emp_id;
+	}
+	public void setEmp_id(int emp_id) {
+		this.emp_id = emp_id;
+	}
 	public int getAdd_id() {
 		return add_id;
 	}
