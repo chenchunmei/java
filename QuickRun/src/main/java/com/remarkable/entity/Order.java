@@ -40,6 +40,12 @@ public class Order {
 	private Company company;
 	//送货地址
 	private Address address;
+	//送达时间
+	private Rectime rectime;
+	//骑手
+	private Emp emp;
+	//用户
+	private User user;
 	
 	public Company getCompany() {
 		return company;
@@ -71,12 +77,6 @@ public class Order {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	//送达时间
-	private Rectime rectime;
-	//骑手
-	private Emp emp;
-	//用户
-	private User user;
 	
 	public int getOrd_forward() {
 		return ord_forward;
