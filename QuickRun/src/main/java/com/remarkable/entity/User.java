@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class User {
@@ -19,7 +20,8 @@ public class User {
 	//性别
 	private int u_sex;
 	//出生年月日
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")//页面写入数据库时格式化
+	@JSONField(format ="yyyy-MM-dd")
 	private Date u_birthday;
 	//状态
 	private int  u_state;
@@ -66,5 +68,12 @@ public class User {
 	public void setU_state(int u_state) {
 		this.u_state = u_state;
 	}
+	@Override
+	public String toString() {
+		return "User [u_id=" + u_id + ", u_phone=" + u_phone + ", u_pwd=" + u_pwd + ", u_nickname=" + u_nickname
+				+ ", u_sex=" + u_sex + ", u_birthday=" + u_birthday + ", u_state=" + u_state + "]";
+	}
+	
+	
 	
 }
