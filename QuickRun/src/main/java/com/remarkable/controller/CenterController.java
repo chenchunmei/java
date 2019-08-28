@@ -29,6 +29,7 @@ import com.remarkable.service.ICenterService;
 import com.remarkable.service.impl.CenterServiceImpl;
 
 @Controller
+@CrossOrigin(origins={"*","null"})
 public class CenterController {
 	
 	@Autowired
@@ -57,9 +58,11 @@ public class CenterController {
 		
 		//获取服务器的真实路径
 		String realPath = request.getServletContext().getRealPath("/uploads/");
+		String path=request.getServletContext().getContextPath();
+		System.err.println(path);
 		
 		//获取文件上传的真实路径
-		String realFileName = realPath + "/" + uuid +newFileName;
+		String realFileName = realPath + "\\" + uuid +newFileName;
 		//判断文件存储的路径是否存在
 		File uploadFile = new File(realFileName);
 		
@@ -76,8 +79,8 @@ public class CenterController {
 			Images images = new Images();
 			images.setIma_address(realFileName);
 			images.setU_id(1);
-			centerServiceImpl.insertImages(images);
-			System.out.println(realFileName);
+			System.out.println(map.get("data"));
+			centerServiceImpl.judgeInsertImages(images, 1);
 		}catch(Exception e){
 			map.put("code", 1);
 			e.printStackTrace();
@@ -116,11 +119,10 @@ public class CenterController {
 	
 	@RequestMapping("/insertComplaint")
 	@ResponseBody
-	public Integer insertComplaint(String ord_complaint,HttpServletResponse res){
+	public Integer insertComplaint(String ord_complaint,String ord_code,HttpServletResponse res){
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		System.out.println("=========================================");
 		System.out.println(ord_complaint);
-		String ord_code = "1";
 		Integer emp_id =1;
 		return centerServiceImpl.insertCompaint(ord_complaint, ord_code,emp_id);
 	}
