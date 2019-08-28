@@ -8,6 +8,9 @@ $(function(){
 		methods: {
 			deleteUserOrder: function(ord_id) {
 				deleteUserOrder(ord_id)
+			},
+			complaint:function(ord_code){
+				complaint(ord_code)
 			}
 		},
 		created: function() {
@@ -15,6 +18,23 @@ $(function(){
 				
 		}
 	})
+	
+	//删除订单记录
+	function deleteUserOrder(ord_id){
+		alert(1234)
+		$.post("http://127.0.0.1:8888/QuickRun/deleteUserOrder.action",function(result){
+			app.list= result;
+			console.log(result);
+			loadOrderList();
+		});
+	}
+	
+	function complaint(ord_code){
+		window.location.href="compaint.html?ord_code="+ord_code;
+	}
+
+
+	
 
 	//加载订单数据
 	function loadOrderList() {
@@ -23,32 +43,6 @@ $(function(){
 			console.log(result);
 		})
 	}
-	
-	//删除发单记录
-	function deleteUserOrder(pccode) {
-		sui.confirm('确定删除['+pccode+']发单信息？',{icon:2, title:'提示信息'},function(index){
-			$.post("http://127.0.0.1:8888/QuickRun/deleteUserOrder.action",function(result){
-				app.list= result;
-				if(result.code == 0) {
-					layer.msg("删除发单信息成功");
-					findAllOver();
-				} else {
-					layer.msg("删除发单信息失败");
-					findAllOver();
-				}
-				layer.close(index);
-			})
-			
-			
-		})
-	}
-	
-		
-		
-		
-		
-	
-	
 });
 
 
