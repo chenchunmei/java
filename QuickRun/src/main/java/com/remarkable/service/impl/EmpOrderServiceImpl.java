@@ -2,6 +2,7 @@ package com.remarkable.service.impl;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -87,5 +88,24 @@ public class EmpOrderServiceImpl implements IEmpOrderService {
 	 */
 	public Order findOrderById(int ord_id){
 		return empOrderMapper.findOrderById(ord_id);
+	}
+	
+	/**
+	 * 骑手确认送达快递
+	 * @param ord_id
+	 * @return
+	 */
+	public int updateOrderDelivery(int ord_id) {
+		return empOrderMapper.updateOrderDelivery(ord_id);
+	}
+	
+	/**
+	 * 骑手转交快递
+	 * @param ord_id
+	 * @param ord_forward
+	 * @return
+	 */
+	public int updateOrderForward(int ord_id,int ord_forward) {
+		return empOrderMapper.updateOrderForward(ord_id,ord_forward);
 	}
 }

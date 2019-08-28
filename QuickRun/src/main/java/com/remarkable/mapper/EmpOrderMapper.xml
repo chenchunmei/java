@@ -346,4 +346,14 @@
 		left join tb_user tu on tu.u_id = tb.u_id
 		where tb.ord_id = #{ord_id}
 	</select>
+	
+	<!-- 骑手确认送达快递 -->
+	<update id="updateOrderDelivery" parameterType="int">
+		update tb_order set ord_state = 2 where ord_id = #{ord_id}
+	</update>
+	
+	<!-- 骑手转交快递 -->
+	<update id="updateOrderForward" parameterType="order">
+		update tb_order set ord_state = 3,ord_forward = #{ord_forward} where ord_id = #{ord_id}
+	</update>
 </mapper>

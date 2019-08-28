@@ -2,6 +2,8 @@ package com.remarkable.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.remarkable.entity.Order;
 
 /**
@@ -66,4 +68,19 @@ public interface IEmpOrderService {
 	 * @return
 	 */
 	Order findOrderById(int ord_id);
+	
+	/**
+	 * 骑手确认送达快递
+	 * @param ord_id
+	 * @return
+	 */
+	int updateOrderDelivery(int ord_id);
+	
+	/**
+	 * 骑手转交快递
+	 * @param ord_id
+	 * @param ord_forward
+	 * @return
+	 */
+	int updateOrderForward(int ord_id,int ord_forward);
 }

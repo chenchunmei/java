@@ -68,4 +68,19 @@ public interface EmpOrderMapper {
 	 * @return
 	 */
 	Order findOrderById(@Param("ord_id") int ord_id);
+	
+	/**
+	 * 骑手确认送达快递
+	 * @param ord_id
+	 * @return
+	 */
+	int updateOrderDelivery(@Param("ord_id") int ord_id);
+	
+	/**
+	 * 骑手转交快递
+	 * @param ord_id
+	 * @param ord_forward
+	 * @return
+	 */
+	int updateOrderForward(@Param("ord_id") int ord_id,@Param("ord_forward") int ord_forward);
 }
