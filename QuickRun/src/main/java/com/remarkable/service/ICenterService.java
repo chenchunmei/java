@@ -60,4 +60,11 @@ public interface ICenterService {
 	 */
 	public boolean findComplaintCount(@Param("emp_id")Integer emp_id);
 	
+	/**
+	 * 判断是否要添加图片
+	 * @param images
+	 * @param u_id
+	 */
+	public void judgeInsertImages(Images images,Integer u_id);
+	
 }
