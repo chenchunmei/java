@@ -2,6 +2,8 @@ package com.remarkable.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Order {
 
 	//订单id
@@ -9,6 +11,7 @@ public class Order {
 	//订单编号
 	private String ord_code;
 	//发布时间
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date ord_send_time;
 	//取货码
 	private String ord_pick_code;

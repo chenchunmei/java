@@ -20,25 +20,28 @@ import com.remarkable.entity.Order;
 public interface UserOrderShowMapper {
 	
 	/**
-	 * 根据用户ID和订单状态查询订单信息 连表
+	 * 根据用户ID,订单编号，订单状态查询订单信息 
+	 * @param u_id
+	 * @param ord_code
 	 * @return
 	 */
-	List<Order> findOrderByUid(@Param("u_id")int u_id);
+	List<Order> findOrderByUid(@Param("u_id")int u_id,@Param("ord_code")String ord_code);
 	
 	
 	/**
 	 * 根据订单编号查询一个订单详情
-	 * @param ord_id
+	 * @param ord_code 订单编号
 	 * @return
 	 */
-	Order findOrderdetailsByordId(@Param("ord_id") int ord_id);
+	Order findOrderdetailsByordId(@Param("ord_code") String ord_code);
 	
 	
 	/**
-	 * 删除用户订单记录（根据订单ID修改订单状态）
+	 * 删除用户订单记录（根据订单编号修改订单状态）
+	 * @param ord_code 订单编号
+	 * @return
 	 */
-	@Update("update tb_order set  ord_state = 4 where ord_id =#{ord_id}")
-	public int deleteUserOrder(int ord_id);
-	
+	@Update("update tb_order set  ord_state = 4 where ord_code =#{ord_code}")
+	public int deleteUserOrder(String ord_code);
 	
 }

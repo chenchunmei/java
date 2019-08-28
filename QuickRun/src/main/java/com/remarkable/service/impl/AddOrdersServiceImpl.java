@@ -14,7 +14,7 @@ import com.remarkable.mapper.AddOrdersMapper;
 import com.remarkable.service.IAddOrdersService;
 
 /**
- * 用户发布订单
+ * 用户发布订单接口实现层
  * @author 王慧
  *
  */
@@ -24,26 +24,38 @@ public class AddOrdersServiceImpl implements IAddOrdersService {
 	@Autowired
 	private AddOrdersMapper addOrdersMapper;
 
-	//用户发布订单
+	/**
+	 * 用户发布订单
+	 * @param order
+	 */
 	@Override
 	public void insertOrder(Order order) {
 		addOrdersMapper.insertOrder(order);
 		
 	}
 
-	//查询快递信息
+	/**
+	 * 查询快递信息
+	 * @return
+	 */
 	@Override
 	public List<Company> queryCom() {
 		return addOrdersMapper.queryCom();
 	}
 
-	//查询接收地址信息
+	/**
+	 * 查询接收地址信息
+	 * @return
+	 */
 	@Override
 	public List<Address> queryAdd() {
 		return addOrdersMapper.queryAdd();
 	}
 
-	//查询接收时间信息
+	/**
+	 * 查询接收时间信息
+	 * @return
+	 */
 	@Override
 	public List<Rectime> queryTime() {
 		return addOrdersMapper.queryTime();

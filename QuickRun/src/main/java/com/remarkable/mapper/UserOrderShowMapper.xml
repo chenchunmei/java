@@ -7,6 +7,7 @@
 		<id column="ord_id" property="ord_id"/>
 		<result column="ord_code" property="ord_code"/>
 		<result column="ord_pick_code" property="ord_pick_code"/>
+		<result column="ord_send_time" property="ord_send_time"/>
 		<result column="ord_phone" property="ord_phone"/>
 		<result column="ord_rec_name" property="ord_rec_name"/>
 		<result column="ord_wight" property="ord_wight"/>
@@ -61,7 +62,7 @@
 		left join tb_emp e on o.emp_id=e.emp_id 
 		left join tb_rec r on o.rec_id=r.rec_id 
 		left join tb_user u on o.u_id=u.u_id 
-		where o.ord_id=#{ord_id}
+		where o.ord_code=#{ord_code}
 	</select>
 	
 	
@@ -112,7 +113,12 @@
 		from tb_order o left join tb_user u on o.u_id=u.u_id
 		left join tb_emp e on o.emp_id=e.emp_id 
 		left join tb_rec r on o.rec_id=r.rec_id 
-		where o.u_id=#{u_id} and (o.ord_state=0 or o.ord_state=1 or o.ord_state=2)
+		<where>
+			and o.u_id=#{u_id} and (o.ord_state=0 or o.ord_state=1 or o.ord_state=2) 
+			<if test="ord_code !=null and ord_code !=''">
+			  	and ord_code like #{ord_code}
+			</if>
+		</where>
 	</select>
 </mapper>
 	

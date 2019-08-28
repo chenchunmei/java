@@ -16,16 +16,28 @@ import com.remarkable.entity.Rectime;
  */
 public interface IAddOrdersService {
 	
-	//用户发布订单
+	/**
+	 * 用户发布订单
+	 * @param order
+	 */
 	public void insertOrder(Order order);
 	
-	//查询快递信息
+	/**
+	 * 查询快递信息
+	 * @return
+	 */
 	List<Company> queryCom();
 	
-	//查询接收地址信息
+	/**
+	 * 查询接收地址信息
+	 * @return
+	 */
 	List<Address> queryAdd();
 	
-	//查询接收时间信息
+	/**
+	 * 查询接收时间信息
+	 * @return
+	 */
 	List<Rectime> queryTime();
 
 }

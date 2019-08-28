@@ -12,6 +12,11 @@ import com.remarkable.entity.Rectime;
 import com.remarkable.mapper.UserOrderShowMapper;
 import com.remarkable.service.IUserOrderShowService;
 
+/**
+ * 订单显示接口实现层
+ * @author 王慧
+ *
+ */
 @Service
 public class UserOrderShowServiceImpl implements IUserOrderShowService{
 	
@@ -20,34 +25,35 @@ public class UserOrderShowServiceImpl implements IUserOrderShowService{
 
 	
 	/**
-	 * 根据用户ID查找订单信息
+	 * 根据用户ID,订单编号，订单状态查询订单信息 
 	 * @param u_id
+	 * @param ord_code
 	 * @return
 	 */
 	@Override
-	public List<Order> findOrderByUid(int u_id) {
-		return userOrderShowMapper.findOrderByUid(u_id);
+	public List<Order> findOrderByUid(int u_id,String ord_code) {
+		return userOrderShowMapper.findOrderByUid(u_id,ord_code);
 	}
 
 
 	/**
 	 * 根据订单编号查询一个订单详情
-	 * @param ord_id
+	 * @param ord_code 订单编号
 	 * @return
 	 */
-	
 	@Override
-	public Order findOrderdetailsByordId(int ord_id) {
-		return userOrderShowMapper.findOrderdetailsByordId(ord_id);
+	public Order findOrderdetailsByordId(String ord_code) {
+		return userOrderShowMapper.findOrderdetailsByordId(ord_code);
 	}
 
 
 	/**
-	 * 删除用户订单记录（根据订单ID修改订单状态）
+	 * 删除用户订单记录（根据订单编号修改订单状态）
+	 * @param ord_code 订单编号
+	 * @return
 	 */
 	@Override
-	public int deleteUserOrder(int ord_id) {
-		return userOrderShowMapper.deleteUserOrder( ord_id);
+	public int deleteUserOrder(String ord_code) {
+		return userOrderShowMapper.deleteUserOrder( ord_code);
 	}
-
 }

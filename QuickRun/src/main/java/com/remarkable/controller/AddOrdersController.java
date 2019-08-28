@@ -47,8 +47,9 @@ public class AddOrdersController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 		String ord_code =sdf.format(new Date())+(new Random().nextInt(900)+100);
 		//取得发布时间
-		
 		Date ord_send_time=new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		//format.format(ord_send_time);
 		
 		order.setOrd_code(ord_code);
 		order.setOrd_send_time(ord_send_time);
@@ -90,5 +91,4 @@ public class AddOrdersController {
 		timeList = addOrdersServiceImpl.queryTime();
 		return timeList;
 	}
-	
 }
