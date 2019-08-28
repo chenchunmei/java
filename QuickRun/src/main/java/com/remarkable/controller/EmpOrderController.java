@@ -2,7 +2,6 @@ package com.remarkable.controller;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -118,7 +117,6 @@ public class EmpOrderController {
 	 */
 	@RequestMapping("/updateOrderDelivery.action")
 	public @ResponseBody int updateOrderDelivery(Order order) {
-		order.setOrd_id(1);
 		int num = empOrderServiceImpl.updateOrderDelivery(order.getOrd_id());
 		return num;
 	}
