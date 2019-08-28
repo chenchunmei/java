@@ -63,4 +63,14 @@ public class CenterServiceImpl implements ICenterService{
 		}
 		return isRun;
 	}
+
+	
+	public void judgeInsertImages(Images images, Integer u_id) {
+		Integer result=centerMapper.findImageByU_Id(u_id);
+		if(result == 0){
+			centerMapper.insertImages(images);
+		}else{
+			centerMapper.updateImages(images);
+		}
+	}
 }
