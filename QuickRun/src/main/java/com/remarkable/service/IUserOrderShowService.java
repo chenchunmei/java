@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.remarkable.entity.Emp;
 import com.remarkable.entity.Order;
@@ -19,7 +20,7 @@ public interface IUserOrderShowService {
 	
 	
 	/**
-	 * 根据用户ID查找订单信息
+	 * 根据用户ID和状态查找订单信息
 	 * @param u_id
 	 * @return
 	 */
@@ -31,5 +32,10 @@ public interface IUserOrderShowService {
 	 * @return
 	 */
 	Order findOrderdetailsByordId(int ord_id);
+	
+	/**
+	 * 删除用户订单记录（根据订单ID修改订单状态）
+	 */
+	public int deleteUserOrder(int ord_id);
 	
 }

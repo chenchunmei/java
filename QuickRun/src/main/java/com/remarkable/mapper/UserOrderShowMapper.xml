@@ -65,6 +65,7 @@
 	</select>
 	
 	
+	<!-- 查询一个用户的全部订单  除删除的外即state=4的外-->
 	<resultMap type="order" id="findOrderByUidMap">
 		<id column="ord_id" property="ord_id"/>
 		<result column="ord_code" property="ord_code"/>
@@ -106,13 +107,12 @@
 			<result column="rec_state" property="rec_state"/>
 		</association>
 	</resultMap>
-	<!-- 查询一个用户的全部订单 -->
 	<select id="findOrderByUid" parameterType="order" resultMap="findOrderByUidMap">
-		select o.ord_code,o.ord_send_time,r.rec_detail,e.emp_name,e.emp_phone 
+		select o.ord_id, o.ord_code,o.ord_send_time,r.rec_detail,e.emp_name,e.emp_phone,o.ord_state 
 		from tb_order o left join tb_user u on o.u_id=u.u_id
 		left join tb_emp e on o.emp_id=e.emp_id 
 		left join tb_rec r on o.rec_id=r.rec_id 
-		where o.u_id=#{u_id}
+		where o.u_id=#{u_id} and (o.ord_state=0 or o.ord_state=1 or o.ord_state=2)
 	</select>
 </mapper>
 	

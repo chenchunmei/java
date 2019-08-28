@@ -60,4 +60,14 @@ public class UserOrderShowController {
 		System.out.println(orders);
 		return orders;
 	}
+	
+	/**
+	 * 删除用户订单记录（根据订单ID修改订单状态）
+	 */
+	@RequestMapping("/deleteUserOrder.action")
+	@ResponseBody
+	public int deleteUserOrder(int ord_id) {
+		int count=userOrderShowServiceImpl.deleteUserOrder(ord_id);
+		return count;
+	}
 }

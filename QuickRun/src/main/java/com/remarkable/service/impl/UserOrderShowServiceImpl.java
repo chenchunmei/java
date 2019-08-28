@@ -3,6 +3,7 @@ package com.remarkable.service.impl;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,15 @@ public class UserOrderShowServiceImpl implements IUserOrderShowService{
 	@Override
 	public Order findOrderdetailsByordId(int ord_id) {
 		return userOrderShowMapper.findOrderdetailsByordId(ord_id);
+	}
+
+
+	/**
+	 * 删除用户订单记录（根据订单ID修改订单状态）
+	 */
+	@Override
+	public int deleteUserOrder(int ord_id) {
+		return userOrderShowMapper.deleteUserOrder( ord_id);
 	}
 
 }
