@@ -30,11 +30,10 @@
 		  </div>
 			<div class="content" id="userorder_app">
 			  <div class="content-block">
-			  	<template v-for="proxy in over">
+			  	<template v-for="userorder in list">
 					 <div class="card demo-card-header-pic">
 				     	<div class="card-header no-border">
-					      <div class="facebook-avatar"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="30" height="30"></div>
-					      <div class="facebook-name">订单编号</div>
+					      <div class="facebook-name">编号：{{userorder.ord_code}}</div>
 					      <a href="#" class="link" style="float: right;">投诉</a>
 					    </div>
 				     	
@@ -43,8 +42,9 @@
 					    </div>
 					    <div class="card-content">
 					      <div class="card-content-inner">
-					        <p class="color-gray">发表于 发布时间时间<span style="float: right;">进行中</span></p>
-					        <p>此处是内容...骑手姓名，骑手电话，接收时间</p>
+					        <p class="color-gray">发布时间：{{userorder.ord_send_time}}<span style="float: right;">进行中</span></p>
+					        <p>骑手姓名：{{userorder.ord_send_time}}
+					        		骑手电话，接收时间</p>
 					      </div>
 					    </div>
 					    <div class="card-footer">
