@@ -14,7 +14,7 @@
 
   </head>
   <body>
-    <div class="page-group">
+    <div class="page-group" id="app">
       <div class="page page-current">
        	<header class="bar bar-nav">
 		    	<h1 class="title">转交订单显示</h1>
@@ -23,8 +23,8 @@
 			  
 			  <div class="content">
 				  <div class="buttons-tab">
-				    <a href="#tab1" class="tab-link active button">接收</a>
-				    <a href="#tab2" class="tab-link button">转交</a>
+				    <a href="#tab1" class="tab-link active button" id="orderPut">接收</a>
+				    <a href="#tab2" class="tab-link button" id="orderSend">转交</a>
 				  </div>
 				  <div class="content-block">
 				    <div class="tabs">
@@ -77,26 +77,30 @@
 							  </div>
 							  <!---->
 							  <!--订单显示-->
-							  <div class="list-block cards-list">
-				      		<ul>
-				        		<li class="card">
-							        <div class="card-header">公司名：</div>
-							        <div class="card-header">取货码：</div>
-							        <div class="card-header">取件人：</div>
-							        <div class="card-header">送达时间：</div>
-							        <div class="card-header">联系电话：</div>
-							        <div class="card-header">送达地点：</div>
-							        <div class="card-content">
-						            <div class="card-content-inner">备注：</div>
-						          </div>
-						          <div class="card-footer">
-								        <div class="content-block">
-										    	<p><a href="#" class="button button-fill button-danger">确认送达</a></p>
-												</div>
-						          </div>
-				        		</li>
-				      		</ul>
-					    	</div>
+							  <span v-if="putList.length==0">目前还没订单，快请耐心等待哦！</span>
+							  <template v-for="order in putList">
+								  <div class="list-block cards-list">
+					      		<ul>
+					        		<li class="card">
+								        <div class="card-header">公司名：{{order.company.com_name}}</div>
+								        <div class="card-header">取货码：{{order.ord_pick_code}}</div>
+								        <div class="card-header">取件人：{{order.ord_rec_name}}</div>
+								        <div class="card-header">快递重量：{{order.ord_wight}}</div>
+								        <div class="card-header">送达时间：{{order.rectime.rec_detail}}</div>
+								        <div class="card-header">联系电话：{{order.ord_phone}}</div>
+								        <div class="card-header">送达地点：{{order.address.add_detail}}</div>
+								        <div class="card-content">
+							            <div class="card-content-inner">备注：{{order.ord_remark}}</div>
+							          </div>
+							          <div class="card-footer">
+									        <div class="content-block">
+											    	<p><a href="#" class="button button-fill button-danger">确认送达</a></p>
+													</div>
+							          </div>
+					        		</li>
+					      		</ul>
+						    	</div>
+					    	</template>
 					    	<!---->
 				      </div>
 				      <div id="tab2" class="tab">
@@ -148,26 +152,30 @@
 							  </div>
 							  <!---->
 							  <!--订单显示-->
-							  <div class="list-block cards-list">
-				      		<ul>
-				        		<li class="card">
-							        <div class="card-header">公司名：</div>
-							        <div class="card-header">取货码：</div>
-							        <div class="card-header">取件人：</div>
-							        <div class="card-header">送达时间：</div>
-							        <div class="card-header">联系电话：</div>
-							        <div class="card-header">送达地点：</div>
-							        <div class="card-content">
-						            <div class="card-content-inner">备注：</div>
-						          </div>
-						          <div class="card-footer">
-								        <div class="content-block">
-										    	<p><a href="#" class="button button-fill button-danger">确认送达</a></p>
-												</div>
-						          </div>
-				        		</li>
-				      		</ul>
-					    	</div>
+							  <span v-if="sendList.length==0">目前还没订单，快请耐心等待哦！</span>
+							  <template v-for="order in sendList">
+								  <div class="list-block cards-list">
+					      		<ul>
+					        		<li class="card">
+								        <div class="card-header">公司名：{{order.company.com_name}}</div>
+								        <div class="card-header">取货码：{{order.ord_pick_code}}</div>
+								        <div class="card-header">取件人：{{order.ord_rec_name}}</div>
+								        <div class="card-header">快递重量：{{order.ord_wight}}</div>
+								        <div class="card-header">送达时间：{{order.rectime.rec_detail}}</div>
+								        <div class="card-header">联系电话：{{order.ord_phone}}</div>
+								        <div class="card-header">送达地点：{{order.address.add_detail}}</div>
+								        <div class="card-content">
+							            <div class="card-content-inner">备注：{{order.ord_remark}}</div>
+							          </div>
+							          <!--<div class="card-footer">
+									        <div class="content-block">
+											    	<p><a href="#" class="button button-fill button-danger">确认送达</a></p>
+													</div>
+							          </div>-->
+					        		</li>
+					      		</ul>
+						    	</div>
+					    	</template>
 					    	<!---->
 				      </div>
 				    </div>
@@ -181,6 +189,7 @@
     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src="../js/vue.js" charset='utf-8'></script>
     <script type='text/javascript' src="../js/orderForward.js" charset='utf-8'></script>
   </body>
 </html>
