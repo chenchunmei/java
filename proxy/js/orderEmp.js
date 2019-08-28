@@ -12,6 +12,7 @@
 			orderAddress:{},//订单中地址
 			orderRectime:{},//订单中送达时间
 			orderEmp:{},//订单中骑手
+			orderEmpForward:{},//订单中转交骑手
 			orderUser:{},//订单中用户
 		},
 		methods:{
@@ -91,12 +92,18 @@
 	//查询订单详情
 	function orderDetail(ord_id){
 		$.post("http://localhost:8080/QuickRun/orderDetailEmp.action",{"ord_id":ord_id},function(result){
+			console.log(result);
 			app.orderDetailList = result;
 			app.orderCompany = result.company;
 			app.orderAddress = result.address;
 			app.orderEmp = result.emp;
 			app.orderUser = result.user;
 			app.orderRectime = result.rectime;
+			if(result.empForward == null){
+				app.orderEmpForward = '未转交';
+			}else{
+				app.orderEmpForward = result.empForward.emp_name;
+			}
 		});
 	}
 	
@@ -111,7 +118,7 @@
 					orderListYes();
 			    });
 			}else{
-				alert("确认失败");
+				$.alert("确认失败");
 			}
 		})
 	}
