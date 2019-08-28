@@ -90,4 +90,15 @@ public interface CenterMapper {
 	 */
 	@Update("UPDATE tb_emp SET emp_credit=(emp_credit-1) WHERE emp_id =#{emp_id}")
 	public int reduceEmpCredit(Integer emp_id);
+	
+	/**
+	 * 根据用户的id查找图片
+	 * @param u_id
+	 * @return
+	 */
+	@Select("SELECT COUNT(ima_address) FROM tb_images WHERE ima_address IS NOT NULL AND u_id=#{u_id}")
+	public Integer findImageByU_Id(Integer u_id);
+	
+	@Update("update tb_images set ima_address = #{ima_address} where u_id =#{u_id}")
+	public Integer updateImages(Images images);
 }
