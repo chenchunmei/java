@@ -37,7 +37,7 @@ public class UserOrderShowController {
 	@ResponseBody
 	public List<Order> findOrderByUid() {
 		List<Order> orderList=new ArrayList<Order>(); 
-		orderList = userOrderShowServiceImpl.findOrderByUid(0);
+		orderList = userOrderShowServiceImpl.findOrderByUid(1);
 		System.out.println(orderList);
 		return orderList;
 	}
