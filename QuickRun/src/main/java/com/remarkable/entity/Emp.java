@@ -67,6 +67,12 @@ public class Emp {
 	public void setEmp_state(int emp_state) {
 		this.emp_state = emp_state;
 	}
+	@Override
+	public String toString() {
+		return "Emp [emp_id=" + emp_id + ", emp_name=" + emp_name + ", emp_major=" + emp_major + ", emp_dormitory="
+				+ emp_dormitory + ", emp_sno=" + emp_sno + ", emp_credit=" + emp_credit + ", emp_phone=" + emp_phone
+				+ ", emp_state=" + emp_state + "]";
+	}
 	
 	
 	
