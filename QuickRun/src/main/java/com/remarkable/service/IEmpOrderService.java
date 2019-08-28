@@ -2,8 +2,7 @@ package com.remarkable.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
+import com.remarkable.entity.Emp;
 import com.remarkable.entity.Order;
 
 /**
@@ -83,4 +82,10 @@ public interface IEmpOrderService {
 	 * @return
 	 */
 	int updateOrderForward(int ord_id,int ord_forward);
+	
+	/**
+	 * 查询所有正常骑手
+	 * @return
+	 */
+	List<Emp> findEmpAll(int emp_id);
 }

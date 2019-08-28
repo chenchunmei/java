@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.remarkable.entity.Emp;
 import com.remarkable.entity.Order;
 
 /**
@@ -83,4 +84,10 @@ public interface EmpOrderMapper {
 	 * @return
 	 */
 	int updateOrderForward(@Param("ord_id") int ord_id,@Param("ord_forward") int ord_forward);
+	
+	/**
+	 * 查询所有正常骑手
+	 * @return
+	 */
+	List<Emp> findEmpAll(@Param("emp_id") int emp_id);
 }

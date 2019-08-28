@@ -2,10 +2,10 @@ package com.remarkable.service.impl;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.remarkable.entity.Emp;
 import com.remarkable.entity.Order;
 import com.remarkable.mapper.EmpOrderMapper;
 import com.remarkable.service.IEmpOrderService;
@@ -107,5 +107,13 @@ public class EmpOrderServiceImpl implements IEmpOrderService {
 	 */
 	public int updateOrderForward(int ord_id,int ord_forward) {
 		return empOrderMapper.updateOrderForward(ord_id,ord_forward);
+	}
+	
+	/**
+	 * 查询所有正常骑手
+	 * @return
+	 */
+	public List<Emp> findEmpAll(int emp_id){
+		return empOrderMapper.findEmpAll(emp_id);
 	}
 }
