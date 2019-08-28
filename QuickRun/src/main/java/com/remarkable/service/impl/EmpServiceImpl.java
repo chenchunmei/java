@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.remarkable.entity.Order;
-import com.remarkable.mapper.EmpMapper;
-import com.remarkable.service.IEmpService;
+import com.remarkable.mapper.EmpOrderMapper;
+import com.remarkable.service.IEmpOrderService;
 
 /**
  * 骑手服务层
@@ -15,11 +15,11 @@ import com.remarkable.service.IEmpService;
  *
  */
 @Service
-public class EmpServiceImpl implements IEmpService {
+public class EmpServiceImpl implements IEmpOrderService {
 
 	//调用骑手mapper层
 	@Autowired
-	private EmpMapper empMapper;
+	private EmpOrderMapper empMapper;
 	
 	/**
 	 * 查询骑手的所有订单
