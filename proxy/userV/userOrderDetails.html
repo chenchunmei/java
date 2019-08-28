@@ -19,87 +19,91 @@
 	</head>
 	
 	<body>
-		<div class="content">
-		  <div class="list-block">
-		  	<img class='card-cover' src="img/1.jpg"  height="280px" width="370px" alt="">
-		    <ul>
-		      <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">收件人</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		      <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">取货码</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		      <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">联系电话</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		       <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">快递公司</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		       <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">送达地址</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		      <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">发布时间</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		       <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">接收时间</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		       <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">订单备注</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		      <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">骑手姓名</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		      <li class="item-content">
-		        <div class="item-media"><i class="icon icon-f7"></i></div>
-		        <div class="item-inner">
-		          <div class="item-title">骑手电话</div>
-		          <div class="item-after">{{ord_remark}}</div>
-		        </div>
-		      </li>
-		    </ul>
-		  </div>
-		
+		<div class="content" id="userorderdetails_app">
+			<template v-for="userorderdetails in list">
+				  <div class="list-block">
+				  	<img class='card-cover' src="img/1.jpg"  height="280px" width="370px" alt="">
+				    <ul>
+				      <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">收件人</div>
+				          <div class="item-after">{{userorderdetails.ord_rec_name}}</div>
+				        </div>
+				      </li>
+				      <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">取货码</div>
+				          <div class="item-after">{{userorderdetails.ord_pick_code}}</div>
+				        </div>
+				      </li>
+				      <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">联系电话</div>
+				          <div class="item-after">{{userorderdetails.ord_phone}}</div>
+				        </div>
+				      </li>
+				       <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">快递公司</div>
+				          <div class="item-after">{{userorderdetails.company.com_name}}</div>
+				        </div>
+				      </li>
+				       <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">送达地址</div>
+				          <div class="item-after">{{userorderdetails.address.add_detail}}</div>
+				        </div>
+				      </li>
+				      <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">发布时间</div>
+				          <div class="item-after">{{userorderdetails.ord_send_time}}</div>
+				        </div>
+				      </li>
+				       <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">接收时间</div>
+				          <div class="item-after">{{userorderdetails.rectime.rec_detail}}</div>
+				        </div>
+				      </li>
+				       <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">订单备注</div>
+				          <div class="item-after">{{userorderdetails.ord_remark}}</div>
+				        </div>
+				      </li>
+				      <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">骑手姓名</div>
+				          <div class="item-after">{{userorderdetails.emp.emp_name}}</div>
+				        </div>
+				      </li>
+				      <li class="item-content">
+				        <div class="item-media"><i class="icon icon-f7"></i></div>
+				        <div class="item-inner">
+				          <div class="item-title">骑手电话</div>
+				          <div class="item-after">{{userorderdetails.emp.emp_phone}}</div>
+				        </div>
+				      </li>
+				    </ul>
+			  	</div>
+			 </template>
+		</div>
+	    <script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<script type="text/javascript" src="../js/ userOrderDetails.js"></script>
 		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-	    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-	    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
-	  
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 	</body>
 </html>
 

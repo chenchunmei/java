@@ -1,7 +1,6 @@
 $(function(){
-	
 	var app = new Vue({
-		el: "#userorder_app",
+		el: "#userorderdetails_app",
 		data: {
 			list: {}
 		},
@@ -9,20 +8,18 @@ $(function(){
 			
 		},
 		created: function() {
-				loadOrderList();
+				loadOrderDetailsList();
 				
 		}
 	})
 
 	//加载订单数据
-	function loadOrderList() {
-		$.post("http://127.0.0.1:8888/QuickRun/selectorderbyuid.action",function(result){
+	function loadOrderDetailsList() {
+		$.post("http://127.0.0.1:8888/QuickRun/findOrderdetailsByordId.action",function(result){
 			app.list= result;
 			console.log(result);
 		})
 	}
-	
-	
 });
 
 
