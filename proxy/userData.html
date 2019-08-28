@@ -13,21 +13,24 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+		<link rel="stylesheet" href="layui/css/layui.css" />
 		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
 		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
 		<div class="content" style="background-color: white;" id="app">
 			<form novalidate="novalidate" method="post">
-				<div class="list-block" style="margin-top: 150px;">
+				<div class="list-block" style="margin-top: 120px;">
 					<ul>
 						<li>
 							<div class="item-content">
 								<div class="item-media"><i class="icon icon-form-name"></i></div>
 								<div class="item-inner">
 									<div class="item-title label">头像</div>
-									<div class="item-input">
-										<img src="img/1.jpg" style="width: 50px; height:50px; float: right;" />
-									</div>
+									<div class="layui-upload">
+									  <button type="button" class="layui-btn" id="test1">上传图片</button>
+									  <div class="layui-upload-list">
+									    <img class="layui-upload-img" id="demo1" style="width: 50px;height: ;">
+									    <p id="demoText"></p>
+									 </div>
 								</div>
 							</div>
 						</li>
@@ -49,7 +52,7 @@
 								<div class="item-inner">
 									<div class="item-title label">电话</div>
 									<div class="item-input">
-										<input type="text" name="u_phone" id="u_phone" :value="user.u_phone">
+										<input type="text" name="u_phone" id="u_phone" :value="user.u_nickname">
 									</div>
 								</div>
 							</div>
@@ -94,7 +97,7 @@
 				</div>
 			</form>
 		</div>
-		<script type="text/javascript" src="js/aui-toast.js"></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
 		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 		<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
 		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>

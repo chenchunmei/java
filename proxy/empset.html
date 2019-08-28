@@ -19,7 +19,7 @@
 
 	<body>
 		<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
-		<div class="page-group" id="app">
+		<div class="page-group">
 			<!-- 单个page ,第一个.page默认被展示-->
 			<div class="page">
 				<!-- 标题栏 -->
@@ -80,24 +80,17 @@
 													</div>
 												</div>
 											</li>
-											<li style="visibility: inherit;">
+											<li>
 												<div class="item-content">
 													<div class="item-inner">
-														<span class="icon icon-me"></span>
-														<a href="#" style="position: absolute; margin-left:25px; color: grey;" class="create-actions">切换登录</a>
+														 <span class="icon icon-code"></span>
+														 <a href="#" style="position: absolute; margin-left:25px; color: grey;" class="create-actions">退出登录</a></span>
 													</div>
 												</div>
 											</li>
 										</ul>
 									</li>
-									<li>
-										<div class="item-content">
-											<div class="item-inner">
-												<span class="icon icon-code"></span>
-												<span style="position: absolute; margin-left:25px;"><a class="create-actions" style="color: grey;">退出登录</a></span>
-											</div>
-										</div>
-									</li>
+									<br />
 									<br />
 									<li>
 										<div class="item-content">
@@ -111,17 +104,14 @@
 							</div>
 						</div>
 					</div>
-					<!-- 其他的单个page内联页（如果有） -->
-					<div class="page">...</div>
 				</div>
 
 				<!-- popup, panel 等放在这里 -->
 				<div class="panel-overlay"></div>
 				<!-- Left Panel with Reveal effect -->
-
-				<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
-				<script type="text/javascript" src="js/vue.js"></script>
 				<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+				<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+				<script type="text/javascript" src="js/vue.js"></script>
 				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 				<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
