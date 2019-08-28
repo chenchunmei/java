@@ -38,7 +38,6 @@ var app = new Vue({
 
 	//添加发单信息
 	$("#sendOrder").click(function() {
-
 		//取值
 		var ord_rec_name = $("#ord_rec_name").val();
 		var ord_pick_code = $("#ord_pick_code").val();
@@ -59,14 +58,13 @@ var app = new Vue({
 			"rec_id": rec_id,
 			"ord_remark": ord_remark
 		}
-
 		$.ajax({
 			type: "POST",
 			url: "http://localhost:8888/QuickRun/insert.action",
 			data: orders,
-			dataType: "json",
 			success: function(data) {
-				console.log("添加发单信息成功");
+
 			}
 		});
 	});
+	

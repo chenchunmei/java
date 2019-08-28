@@ -21,13 +21,12 @@
 			  <h1 class='title'>订单记录</h1>
 		  </header>
 		  <div class="bar bar-header-secondary">
-			  <div class="searchbar">
-			    <a class="searchbar-cancel">取消</a>
-			    <div class="search-input">
-			      <label class="icon icon-search" for="search"></label>
-			      <input type="search" id='search' placeholder='输入关键字...'/>
+		    <div class="searchbar row">
+			    <div class="search-input col-85" style="margin-top: 6px;">
+			      <input type="search" id="code" placeholder='输入关键字...'/>
 			    </div>
-			  </div>
+			   	 <a class="button button-fill button-primary col-15" id="searchBtn" ><span class="icon icon-search"></span></a>
+			 </div>
 		  </div>
 			<div class="content" id="userorder_app">
 			  <div class="content-block">
@@ -35,14 +34,14 @@
 					 <div class="card demo-card-header-pic">
 				     	<div class="card-header no-border">
 					      <div class="facebook-name">编号：{{userorder.ord_code}}</div>
-					      <a href="compaint.html" class="link" style="float: right;">投诉</a>
+					      <a href="#" class="button" style="float: right;" @click="complaint(userorder.ord_code)">投诉</a>
 					    </div>
 					    <div valign="bottom" class="card-header color-white no-border no-padding">
-					      <img class='card-cover' src="../img/1.jpg"  height="280px" alt="">
+					      <img class='card-cover' src="../img/1.jpg"  height="100px" alt="">
 					    </div>
 					    <div class="card-content">
 					      <div class="card-content-inner">
-					        <p class="color-gray">发布时间：{{userorder.ord_send_time}}
+					        <p class="color-gray" id="send_time">发布时间：{{userorder.ord_send_time}}
 					        	<span style="float: right;" v-if="userorder.ord_state==0">发布中</span>
 					        	<span style="float: right;" v-if="userorder.ord_state==1">未送达</span>
 					        	<span style="float: right;" v-if="userorder.ord_state==2">已送达</span>
@@ -53,8 +52,8 @@
 					      </div>
 					    </div>
 					    <div class="card-footer">
-					      <a href="#" class="link" @click="deleteUserOrder(order_id)">删除本条记录</a>
-					      <a href="userOrderDetails.html" class="link" >更多</a>
+					      <a href="#" class="link" @click="deleteUserOrder(userorder.ord_code)">删除本条记录</a>
+					      <a href="#" class="link" @click="details(userorder.ord_code)"  id="details">更多</a>
 					    </div>
 					 </div>
 				</template>
