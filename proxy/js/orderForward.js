@@ -1,4 +1,41 @@
+var app = new Vue({
+		el:"#app",
+		data:{
+			putList:{},//收到转交的所有订单
+			sendList:{},//转交的所有订单
+		},
+		methods:{
+			showDetail:function(pub_id){
+				showDetail(pub_id);
+			}
+		},
+		created:function(){
+			orderPut();
+		}
+	})
+
+	//查询骑手收到转交的所有订单
+	function orderPut(){
+		$.post("http://localhost:8080/QuickRun/orderForwardPut.action",function(result){
+			app.putList = result;
+		});
+	}
 	
+	//查询骑手转交的所有订单
+	function orderSend(){
+		$.post("http://localhost:8080/QuickRun/orderForwardSend.action",function(result){
+			app.sendList = result;
+		});
+	}
+	
+	$("#orderPut").click(function(){
+		orderPut();
+	});
+	
+	$("#orderSend").click(function(){
+		orderSend();
+	});
+
 	$("#picker-company1").picker({
 	  toolbarTemplate: '<header class="bar bar-nav">\
 	  <button class="button button-link pull-right close-picker">确定</button>\

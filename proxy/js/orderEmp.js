@@ -1,3 +1,52 @@
+	var app = new Vue({
+		el:"#app",
+		data:{
+			list:{},//全部订单
+			noList:{},//未送达订单
+			yesList:{},//已送达订单
+		},
+		methods:{
+			showDetail:function(pub_id){
+				showDetail(pub_id);
+			}
+		},
+		created:function(){
+			orderList();
+		}
+	})
+	
+	//加载全部订单信息
+	function orderList(){
+		$.post("http://localhost:8080/QuickRun/orderEmpAll.action",function(result){
+			app.list = result;
+		})
+	}
+	
+	//加载未送达订单信息
+	function orderListNo(){
+		$.post("http://localhost:8080/QuickRun/orderEmpNo.action",function(result){
+			app.noList = result;
+		})
+	}
+	
+	//加载已送达订单信息
+	function orderListYes(){
+		$.post("http://localhost:8080/QuickRun/orderEmp.action",function(result){
+			app.yesList = result;
+		})
+	}
+	
+	$("#orderAll").click(function(){
+		orderList();
+	});
+	
+	$("#orderNo").click(function(){
+		orderListNo();
+	});
+	
+	$("#orderYes").click(function(){
+		orderListYes();
+	});
 	
 	$("#picker-company1").picker({
 	  toolbarTemplate: '<header class="bar bar-nav">\
