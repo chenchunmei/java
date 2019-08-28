@@ -19,7 +19,8 @@ $(function(){
 		$.post("http://127.0.0.1:8888/QuickRun/showUser.action",function(result){
 			app.list = result.user;
 			var srcpath=result.ima_address;
-			$("#img").attr("src",srcpath)
+			var path="http://127.0.0.1:8888/QuickRun/"+srcpath.substr(srcpath.indexOf("upload"))
+			$("#img").attr("src",path)
 			console.log(result)
 		});
 	}
