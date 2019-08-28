@@ -31,29 +31,33 @@
 		  </div>
 			<div class="content" id="userorder_app">
 			  <div class="content-block">
+				<template v-for="userorder in list">
 					 <div class="card demo-card-header-pic">
-					 	<template v-for="userorder in list">
-					     	<div class="card-header no-border">
-						      <div class="facebook-name">编号：{{userorder.ord_code}}</div>
-						      <a href="#" class="link" style="float: right;">投诉</a>
-						    </div>
-						    <div valign="bottom" class="card-header color-white no-border no-padding">
-						      <img class='card-cover' src="../img/1.jpg"  height="280px" alt="">
-						    </div>
-						    <div class="card-content">
-						      <div class="card-content-inner">
-						        <p class="color-gray">发布时间：{{userorder.ord_send_time}}<span style="float: right;">进行中</span></p>
-						        <p>骑手姓名：{{userorder.emp.emp_name}}</p>
-						        <p>骑手电话:{{userorder.emp.emp_phone}}</p>
-						        <p>接收时间:{{userorder.rectime.rec_detail}}</p>
-						      </div>
-						    </div>
-						    <div class="card-footer">
-						      <a href="#" class="link">取消(如果未被接单可以取消)</a>
-						      <a href="userOrderDetails.html" class="link" >更多</a>
-						    </div>
-					    </template>
+				     	<div class="card-header no-border">
+					      <div class="facebook-name">编号：{{userorder.ord_code}}</div>
+					      <a href="compaint.html" class="link" style="float: right;">投诉</a>
+					    </div>
+					    <div valign="bottom" class="card-header color-white no-border no-padding">
+					      <img class='card-cover' src="../img/1.jpg"  height="280px" alt="">
+					    </div>
+					    <div class="card-content">
+					      <div class="card-content-inner">
+					        <p class="color-gray">发布时间：{{userorder.ord_send_time}}
+					        	<span style="float: right;" v-if="userorder.ord_state==0">发布中</span>
+					        	<span style="float: right;" v-if="userorder.ord_state==1">未送达</span>
+					        	<span style="float: right;" v-if="userorder.ord_state==2">已送达</span>
+					        </p>
+					        <p>骑手姓名：{{userorder.emp.emp_name}}</p>
+					        <p>骑手电话:{{userorder.emp.emp_phone}}</p>
+					        <p>接收时间:{{userorder.rectime.rec_detail}}</p>
+					      </div>
+					    </div>
+					    <div class="card-footer">
+					      <a href="#" class="link" @click="deleteUserOrder(order_id)">删除本条记录</a>
+					      <a href="userOrderDetails.html" class="link" >更多</a>
+					    </div>
 					 </div>
+				</template>
 			</div>
 		</div>
 	</body>

@@ -9,7 +9,6 @@ $(function(){
 		},
 		created: function() {
 				loadOrderDetailsList();
-				
 		}
 	})
 

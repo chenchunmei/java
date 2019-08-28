@@ -6,6 +6,10 @@
 <html>
 	<head>
 		<header class="bar bar-nav">
+			 <a class="button button-link button-nav pull-left back" href="userOrder.html">
+			    <span class="icon icon-left"></span>
+			           返回
+		     </a>
 		  <h1 class='title'>快递详情</h1>
 		</header>
 		<meta charset="UTF-8">
@@ -20,83 +24,81 @@
 	
 	<body>
 		<div class="content" id="userorderdetails_app">
-			<template v-for="userorderdetails in list">
 				  <div class="list-block">
-				  	<img class='card-cover' src="img/1.jpg"  height="280px" width="370px" alt="">
+				  	<img class='card-cover' src="../img/1.jpg"  height="280px" width="370px" alt="">
 				    <ul>
 				      <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">收件人</div>
-				          <div class="item-after">{{userorderdetails.ord_rec_name}}</div>
+				          <div class="item-after">{{list.ord_rec_name}}</div>
 				        </div>
 				      </li>
 				      <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">取货码</div>
-				          <div class="item-after">{{userorderdetails.ord_pick_code}}</div>
+				          <div class="item-after">{{list.ord_pick_code}}</div>
 				        </div>
 				      </li>
 				      <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">联系电话</div>
-				          <div class="item-after">{{userorderdetails.ord_phone}}</div>
+				          <div class="item-after">{{list.ord_phone}}</div>
 				        </div>
 				      </li>
 				       <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">快递公司</div>
-				          <div class="item-after">{{userorderdetails.company.com_name}}</div>
+				          <div class="item-after">{{list.company.com_name}}</div>
 				        </div>
 				      </li>
 				       <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">送达地址</div>
-				          <div class="item-after">{{userorderdetails.address.add_detail}}</div>
+				          <div class="item-after">{{list.address.add_detail}}</div>
 				        </div>
 				      </li>
 				      <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">发布时间</div>
-				          <div class="item-after">{{userorderdetails.ord_send_time}}</div>
+				          <div class="item-after">{{list.ord_send_time}}</div>
 				        </div>
 				      </li>
 				       <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">接收时间</div>
-				          <div class="item-after">{{userorderdetails.rectime.rec_detail}}</div>
+				          <div class="item-after">{{list.rectime.rec_detail}}</div>
 				        </div>
 				      </li>
 				       <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">订单备注</div>
-				          <div class="item-after">{{userorderdetails.ord_remark}}</div>
+				          <div class="item-after">{{list.ord_remark}}</div>
 				        </div>
 				      </li>
 				      <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">骑手姓名</div>
-				          <div class="item-after">{{userorderdetails.emp.emp_name}}</div>
+				          <div class="item-after">{{list.emp.emp_name}}</div>
 				        </div>
 				      </li>
 				      <li class="item-content">
 				        <div class="item-media"><i class="icon icon-f7"></i></div>
 				        <div class="item-inner">
 				          <div class="item-title">骑手电话</div>
-				          <div class="item-after">{{userorderdetails.emp.emp_phone}}</div>
+				          <div class="item-after">{{list.emp.emp_phone}}</div>
 				        </div>
 				      </li>
 				    </ul>
 			  	</div>
-			 </template>
 		</div>
 	    <script type="text/javascript" src="../js/jquery.js"></script>
 		<script type="text/javascript" src="../js/vue.js"></script>
