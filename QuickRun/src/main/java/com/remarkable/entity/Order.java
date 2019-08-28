@@ -39,6 +39,8 @@ public class Order {
 	private int u_id;
 	//转交人
 	private int ord_forward;
+	//转交骑手
+	private Emp empForward;
 	//快递公司
 	private Company company;
 	//送货地址
@@ -50,6 +52,12 @@ public class Order {
 	//用户
 	private User user;
 	
+	public Emp getEmpForward() {
+		return empForward;
+	}
+	public void setEmpForward(Emp empForward) {
+		this.empForward = empForward;
+	}
 	public Company getCompany() {
 		return company;
 	}
