@@ -1,12 +1,16 @@
 $(function(){
 	
+	window.$$=window.Zepto = Zepto;
+	
 	var app=new Vue({
 		el:"#app",
 		data:{
 			emp:{},
 		},
-		methods:{
-			
+		methods: {
+			cancel: function(pccode) {
+				cancel();
+			},
 		},
 		created:function(){
 			loadList();
@@ -49,9 +53,15 @@ $(function(){
 			url:"http://127.0.0.1:8888/QuickRun/updateEmp.action",
 			data:emp,
 			success:function(data){
+				$$.toast("修改成功");
+				loadList();
 			}
 		});
 		
 	});
+	
+	function cancel() {
+		window.history.back(-1);
+	}
 		
 });
