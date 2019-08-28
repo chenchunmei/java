@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.remarkable.entity.Emp;
 import com.remarkable.entity.Order;
 import com.remarkable.service.IEmpOrderService;
 
@@ -93,7 +94,7 @@ public class EmpOrderController {
 	 */
 	@RequestMapping("/orderForwardPut.action")
 	public @ResponseBody List<Order> findPutOrderByForward(Order order){
-		order.setEmp_id(1);
+		order.setOrd_forward(1);
 		List<Order> orderList = empOrderServiceImpl.findPutOrderByForward(order.getOrd_forward(), order.getOrd_code(), order.getCom_id());
 		return orderList;
 	}
@@ -105,7 +106,6 @@ public class EmpOrderController {
 	 */
 	@RequestMapping("/orderDetailEmp.action")
 	public @ResponseBody Order findOrderById(Order order){
-		order.setOrd_id(1);
 		Order ord = empOrderServiceImpl.findOrderById(order.getOrd_id());
 		return ord;
 	}
@@ -129,9 +129,18 @@ public class EmpOrderController {
 	 */
 	@RequestMapping("/updateOrderForward.action")
 	public @ResponseBody int updateOrderForward(Order order) {
-		order.setOrd_id(1);
-		order.setOrd_forward(2);
 		int num = empOrderServiceImpl.updateOrderForward(order.getOrd_id(),order.getOrd_forward());
 		return num;
+	}
+	
+	/**
+	 * 查询所有正常骑手
+	 * @return
+	 */
+	@RequestMapping("/findEmpAll.action")
+	public @ResponseBody List<Emp> findEmpAll(Emp emp){
+		emp.setEmp_id(1);
+		List<Emp> empList = empOrderServiceImpl.findEmpAll(emp.getEmp_id());
+		return empList;
 	}
 }
