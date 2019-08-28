@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.remarkable.mapper.UserOrderShowMapper">
+	
+	<!-- 查询一个订单的详情 -->
+	<resultMap type="order" id="findOrderdetailsByordIdMap">
+		<id column="ord_id" property="ord_id"/>
+		<result column="ord_code" property="ord_code"/>
+		<result column="ord_pick_code" property="ord_pick_code"/>
+		<result column="ord_phone" property="ord_phone"/>
+		<result column="ord_rec_name" property="ord_rec_name"/>
+		<result column="ord_wight" property="ord_wight"/>
+		<result column="ord_remark" property="ord_remark"/>
+		<result column="ord_complaint" property="ord_complaint"/>
+		<result column="ord_state" property="ord_state"/>
+		<result column="ord_forward" property="ord_forward"/>
+		<result column="rec_id" property="rec_id"/>
+		<result column="com_id" property="com_id"/>
+		<result column="emp_id" property="emp_id"/>
+		<result column="u_id" property="u_id"/>
+		<association property="address" javaType="address">
+			<id column="add_id" property="add_id"/>
+			<result column="add_detail" property="add_detail"/>
+			<result column="add_state" property="add_state"/>
+			<result column="emp_id" property="emp_id"/>
+		</association>
+		<association property="company" javaType="company">
+			<id column="com_id" property="com_id"/>
+			<result column="com_name" property="com_name"/>
+			<result column="add_state" property="add_state"/>
+		</association>
+		<association property="emp" javaType="emp">
+			<id column="emp_id" property="emp_id"/>
+			<result column="emp_name" property="emp_name"/>
+			<result column="emp_major" property="emp_major"/>
+			<result column="emp_dormitory" property="emp_dormitory"/>
+			<result column="emp_sno" property="emp_sno"/>
+			<result column="emp_credit" property="emp_credit"/>
+			<result column="emp_phone" property="emp_phone"/>
+			<result column="emp_state" property="emp_state"/>
+		</association>
+		<association property="rectime" javaType="rectime">
+			<id column="rec_id" property="rec_id"/>
+			<result column="rec_detail" property="rec_detail"/>
+			<result column="rec_state" property="rec_state"/>
+		</association>
+		<association property="user" javaType="user">
+			<id column="u_id" property="u_id"/>
+			<result column="u_phone" property="u_phone"/>
+			<result column="u_pwd" property="u_pwd"/>
+			<result column="u_nickname" property="u_nickname"/>
+			<result column="u_sex" property="u_sex"/>
+		</association>
+	</resultMap>
+	<select id="findOrderdetailsByordId" parameterType="order" resultMap="findOrderdetailsByordIdMap">
+		select o.ord_rec_name,o.ord_pick_code,o.ord_phone,
+		c.com_name,a.add_detail,o.ord_send_time,r.rec_detail,o.ord_remark,
+		e.emp_name,e.emp_phone 
+		from tb_order o left join tb_address a on o.add_id=a.add_id 
+		left join tb_company c on o.com_id=c.com_id 
+		left join tb_emp e on o.emp_id=e.emp_id 
+		left join tb_rec r on o.rec_id=r.rec_id 
+		left join tb_user u on o.u_id=u.u_id 
+		where o.ord_id=#{ord_id}
+	</select>
+	
+	
+	<!-- 查询一个用户的全部订单 -->
+	<select id="findOrderByUid" parameterType="order" resultMap="findOrderByUid">
+		select o.ord_rec_name,o.ord_pick_code,o.ord_phone,
+		o.ord_send_time,r.rec_detail,o.ord_remark,
+		e.emp_name,e.emp_phone 
+		from tb_user u left join tb_order o on u.u_id=o.u_id
+		left join tb_emp e on o.emp_id=e.emp_id 
+		left join tb_rec r on o.rec_id=r.rec_id 
+		where o.u_id=#{u_id}
+	</select>
+	
+	
+</mapper>
+	
+	
