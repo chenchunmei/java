@@ -1,6 +1,7 @@
 package com.remarkable.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,6 +27,15 @@ public class User {
 	//状态
 	private int  u_state;
 	
+	private List<Order> orderList;
+	
+	
+	public List<Order> getOrderList() {
+		return orderList;
+	}
+	public void setOrderList(List<Order> orderList) {
+		this.orderList = orderList;
+	}
 	public int getU_id() {
 		return u_id;
 	}
@@ -71,9 +81,8 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [u_id=" + u_id + ", u_phone=" + u_phone + ", u_pwd=" + u_pwd + ", u_nickname=" + u_nickname
-				+ ", u_sex=" + u_sex + ", u_birthday=" + u_birthday + ", u_state=" + u_state + "]";
+				+ ", u_sex=" + u_sex + ", u_birthday=" + u_birthday + ", u_state=" + u_state + ", orderList="
+				+ orderList + "]";
 	}
-	
-	
-	
+
 }
