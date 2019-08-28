@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.remarkable.entity.Order;
-import com.remarkable.service.IEmpService;
+import com.remarkable.service.IEmpOrderService;
 
 /**
  * 骑手控制层
@@ -20,9 +20,9 @@ import com.remarkable.service.IEmpService;
 @CrossOrigin(origins = {"*", "null"})
 public class EmpController {
 
-	//调回骑手服务层
+	//调用骑手服务层
 	@Autowired
-	private IEmpService empServiceImpl;
+	private IEmpOrderService empServiceImpl;
 	
 	/**
 	 * 查询骑手的所有订单
