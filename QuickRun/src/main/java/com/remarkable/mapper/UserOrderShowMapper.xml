@@ -69,6 +69,7 @@
 		<id column="ord_id" property="ord_id"/>
 		<result column="ord_code" property="ord_code"/>
 		<result column="ord_pick_code" property="ord_pick_code"/>
+		<result column="ord_send_time" property="ord_send_time"/>
 		<result column="ord_phone" property="ord_phone"/>
 		<result column="ord_rec_name" property="ord_rec_name"/>
 		<result column="ord_wight" property="ord_wight"/>

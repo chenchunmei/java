@@ -38,7 +38,10 @@ public class UserOrderShowController {
 	public List<Order> findOrderByUid() {
 		List<Order> orderList=new ArrayList<Order>(); 
 		orderList = userOrderShowServiceImpl.findOrderByUid(1);
-		System.out.println(orderList);
+		for (Order order : orderList) {
+			System.out.println(order);
+		}
+		
 		return orderList;
 	}
 	
@@ -50,8 +53,11 @@ public class UserOrderShowController {
 	 */
 	@RequestMapping("/findOrderdetailsByordId.action")
 	@ResponseBody
-	public Order findOrderdetailsByordId(int ord_id) {
-		Order order =userOrderShowServiceImpl.findOrderdetailsByordId(ord_id);
-		return order;
+	public Order findOrderdetailsByordId(Order order) {
+		order.setOrd_id(7);
+		Order orders =userOrderShowServiceImpl.findOrderdetailsByordId(order.getOrd_id());
+		System.out.println("==================");
+		System.out.println(orders);
+		return orders;
 	}
 }

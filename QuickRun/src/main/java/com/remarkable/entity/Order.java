@@ -174,6 +174,16 @@ public class Order {
 	public void setU_id(int u_id) {
 		this.u_id = u_id;
 	}
+	@Override
+	public String toString() {
+		return "Order [ord_id=" + ord_id + ", ord_code=" + ord_code + ", ord_send_time=" + ord_send_time
+				+ ", ord_pick_code=" + ord_pick_code + ", ord_phone=" + ord_phone + ", ord_rec_name=" + ord_rec_name
+				+ ", ord_wight=" + ord_wight + ", ord_remark=" + ord_remark + ", ord_complaint=" + ord_complaint
+				+ ", ord_state=" + ord_state + ", rec_id=" + rec_id + ", add_id=" + add_id + ", com_id=" + com_id
+				+ ", emp_id=" + emp_id + ", u_id=" + u_id + ", ord_forward=" + ord_forward + ", company=" + company
+				+ ", address=" + address + ", rectime=" + rectime + ", emp=" + emp + ", user=" + user + "]";
+	}
+	
 	
 	
 }
