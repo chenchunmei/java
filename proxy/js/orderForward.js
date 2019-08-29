@@ -26,14 +26,14 @@ var app = new Vue({
 
 	//查询骑手收到转交的所有订单
 	function orderPut(){
-		$.post("http://localhost:8080/QuickRun/orderForwardPut.action",function(result){
+		$.post(server_url+"orderForwardPut.action",function(result){
 			app.putList = result;
 		});
 	}
 	
 	//查询骑手转交的所有订单
 	function orderSend(){
-		$.post("http://localhost:8080/QuickRun/orderForwardSend.action",function(result){
+		$.post(server_url+"orderForwardSend.action",function(result){
 			app.sendList = result;
 		});
 	}
@@ -49,7 +49,7 @@ var app = new Vue({
 
 	//确认送达
 	function delivery(ord_id){
-		$.post("http://localhost:8080/QuickRun/updateOrderDelivery.action",{"ord_id":ord_id},function(result){
+		$.post(server_url+"updateOrderDelivery.action",{"ord_id":ord_id},function(result){
 			if(result != 0){
 				$.confirm('确定送达?','完成订单',function(){
 					$.alert('已送达');
@@ -64,7 +64,7 @@ var app = new Vue({
 	
 	//查询订单详情
 	function orderDetail(ord_id){
-		$.post("http://localhost:8080/QuickRun/orderDetailEmp.action",{"ord_id":ord_id},function(result){
+		$.post(server_url+"QuickRun/orderDetailEmp.action",{"ord_id":ord_id},function(result){
 			console.log(result);
 			app.orderDetailList = result;
 			app.orderCompany = result.company;

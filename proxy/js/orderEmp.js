@@ -41,7 +41,7 @@
 			"com_id":picker_company1,
 			"add_id":picker_address1
 		}*/
-		$.post("http://localhost:8080/QuickRun/orderEmpAll.action"/*,order1*/,function(result){
+		$.post(server_url+"orderEmpAll.action"/*,order1*/,function(result){
 			app.list = result;
 		})
 	}
@@ -56,7 +56,7 @@
 			"com_id":picker_company2,
 			"add_id":picker_address2
 		}*/
-		$.post("http://localhost:8080/QuickRun/orderEmpNo.action"/*,order2*/,function(result){
+		$.post(server_url+"orderEmpNo.action"/*,order2*/,function(result){
 			app.noList = result;
 		})
 	}
@@ -71,7 +71,7 @@
 			"com_id":picker_company3,
 			"add_id":picker_address3
 		}*/
-		$.post("http://localhost:8080/QuickRun/orderEmp.action"/*,order3*/,function(result){
+		$.post(server_url+"orderEmp.action"/*,order3*/,function(result){
 			app.yesList = result;
 		})
 	}
@@ -91,7 +91,7 @@
 	
 	//查询订单详情
 	function orderDetail(ord_id){
-		$.post("http://localhost:8080/QuickRun/orderDetailEmp.action",{"ord_id":ord_id},function(result){
+		$.post(server_url+"orderDetailEmp.action",{"ord_id":ord_id},function(result){
 			console.log(result);
 			app.orderDetailList = result;
 			app.orderCompany = result.company;
@@ -109,7 +109,7 @@
 	
 	//确认送达
 	function delivery(ord_id){
-		$.post("http://localhost:8080/QuickRun/updateOrderDelivery.action",{"ord_id":ord_id},function(result){
+		$.post(server_url+"updateOrderDelivery.action",{"ord_id":ord_id},function(result){
 			if(result != 0){
 				$.confirm('确定送达?', '完成订单', function () {
 			        $.alert('已送达');
@@ -125,7 +125,7 @@
 	
 	//转交
 	function forward(ord_id){
-		$.post("http://localhost:8080/QuickRun/findEmpAll.action",function(result){
+		$.post(server_url+"findEmpAll.action",function(result){
 			app.empList = result;
 			var str;
 			$(result).each(function(){
@@ -145,7 +145,7 @@
 			          onClick: function () {
 			          	var emp_id = $("#emp_id").val();
 			          	alert(emp_id);
-			          	$.post("http://localhost:8080/QuickRun/updateOrderForward.action",{"ord_id":ord_id,"ord_forward":emp_id},function(result){
+			          	$.post(server_url+"updateOrderForward.action",{"ord_id":ord_id,"ord_forward":emp_id},function(result){
 			          		if(result != 0){
 				          		orderList();
 								orderListNo();
@@ -165,7 +165,7 @@
 	
 	//加载所有快递公司
 	function companyAll(){
-		$.post("http://localhost:8080/QuickRun/companyAll.action",function(result){
+		$.post(server_url+"companyAll.action",function(result){
 			//app.companyList = result;
 			cols[0].values = new Array();
 			$(result).each(function(){
@@ -176,7 +176,7 @@
 	
 	//加载骑手派送地址
 	function addressAll(){
-		$.post("http://localhost:8080/QuickRun/addressEmp.action",function(result){
+		$.post(server_url+"addressEmp.action",function(result){
 			app.addressList = result;
 		});
 	}
