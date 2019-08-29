@@ -74,8 +74,8 @@
 					      </div>
 					    </div>
 					    <div class="card-footer">
-					      <a href="#" class="link" @click="deleteUserOrder(userorder.ord_code)">删除本条记录</a>
 					      <a href="#" class="link" @click="details(userorder.ord_code)"  id="details">更多</a>
+					      <a href="#" class="link" v-if="userorder.ord_state==5" @click="deleteUserOrder(userorder.ord_code)">删除本条记录</a>
 					    </div>
 					 </div>
 				</template>
