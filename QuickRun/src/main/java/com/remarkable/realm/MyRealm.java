@@ -13,13 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.remarkable.entity.User;
-import com.remarkable.service.ILoginService;
+import com.remarkable.mapper.LoginMapper;
 
 @Component
 public class MyRealm extends AuthenticatingRealm {
 
 	@Autowired
-	private ILoginService loginService;
+	private LoginMapper loginMapper;
 	
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
@@ -31,7 +31,7 @@ public class MyRealm extends AuthenticatingRealm {
 		//2.从UsernamePasswordToken 中获取phone
 		String phone = upToken.getUsername();
 		//3.调用数据库的方法，从数据库中查询phone 对应的用户记录
-		User user = loginService.login(phone);
+		User user = loginMapper.selUserByPhone(phone);
 		//4.若用户不存在，则抛出UnknownAccountException异常
 		
 		//5.根据用户信息的情况，决定是否需要抛出其他AuthenticationException
@@ -54,9 +54,9 @@ public class MyRealm extends AuthenticatingRealm {
 		//设置授权信息
 		SimpleAuthorizationInfo  info = new SimpleAuthorizationInfo ();
 		//设置角色
-		info.setRoles(loginService.getRoles(phone));
+		info.setRoles(loginMapper.getRoles(phone));
 		//设置权限
-		info.setStringPermissions(loginService.getPerms(phone));
+		info.setStringPermissions(loginMapper.getPerms(phone));
 		return info;
 	}
 }
