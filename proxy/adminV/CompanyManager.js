@@ -21,6 +21,9 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			showCompanycontent: function(com_id){
 				showCompanycontent(com_id);
 			},
+			addCompany: function(){
+				addCompany();
+			},
 		},
 		created: function() {
 			//调用加载数据
@@ -129,6 +132,15 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 				   });
 				});
 			}
+	function addCompany(){
+		var index = layui.layer.open({
+			title: "添加公司",
+			area: ['500px', '400px'],
+			type: 2,
+			content: "addCompany.html"
+		})
+		
+	}
 
 	$(".com_name").keypress(function() {
 		loadList();
