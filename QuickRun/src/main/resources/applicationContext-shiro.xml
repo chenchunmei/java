@@ -33,10 +33,13 @@
         <!-- Shiro连接约束配置,即过滤链的定义   anon游客身份  authc已认证身份  roles角色  perms权限-->  
         <property name="filterChainDefinitions">  
             <value>  
+            	<!-- 登录界面不需要登录即可访问 -->
                 /login*=anon
-                /login/**=anon
-                /admin/**=authc
+                <!-- 用户界面都要登录才能访问 -->
+                /user/**=authc
+                <!-- 用户界面要有用户角色才能访问 -->
                 /user*/**=roles["user"]
+                <!-- 骑手界面要有派送权限才能访问 -->
                 /emp*/**=perms["emp:send"]
             </value>  
         </property>
