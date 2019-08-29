@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.remarkable.entity.User;
+import com.remarkable.mapper.LoginMapper;
 import com.remarkable.service.ILoginService;
 
 /**
@@ -17,7 +18,7 @@ import com.remarkable.service.ILoginService;
 public class LoginServiceImpl implements ILoginService {
 
 	@Autowired
-	private ILoginService loginService;
+	private LoginMapper loginMapper;
 	
 	/**
 	 * 登录
@@ -27,7 +28,7 @@ public class LoginServiceImpl implements ILoginService {
 	 */
 	@Override
 	public User login(String phone) {
-		User user = loginService.login(phone);
+		User user = loginMapper.selUserByPhone(phone);
 		return user;
 	}
 
@@ -39,7 +40,7 @@ public class LoginServiceImpl implements ILoginService {
 	 */
 	@Override
 	public int register(String phone, String pwd) {
-		int row = loginService.register(phone, pwd);
+		int row = loginMapper.insUser(phone, pwd);
 		return row;
 	}
 
@@ -50,7 +51,7 @@ public class LoginServiceImpl implements ILoginService {
 	 */
 	@Override
 	public Set<String> getRoles(String phone) {
-		Set<String> roles = loginService.getRoles(phone);
+		Set<String> roles = loginMapper.getRoles(phone);
 		return roles;
 	}
 	
@@ -60,7 +61,7 @@ public class LoginServiceImpl implements ILoginService {
 	 * @return
 	 */
 	public Set<String> getPerms(String phone){
-		Set<String> perms = loginService.getPerms(phone);
+		Set<String> perms = loginMapper.getPerms(phone);
 		return perms;
 	}
 
