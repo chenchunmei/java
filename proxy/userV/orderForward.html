@@ -19,37 +19,37 @@
        	<header class="bar bar-nav">
 		    	<h1 class="title">转交订单显示</h1>
 		  	</header>
-		  	
-			  
+		  	<!--布局-->
 			  <div class="content">
+			  	<!--分类页面头-->
 				  <div class="buttons-tab">
 				    <a href="#tab1" class="tab-link active button" id="orderPut">接收</a>
 				    <a href="#tab2" class="tab-link button" id="orderSend">转交</a>
 				  </div>
+				  <!---->
+				  <!--分类页面主体-->
 				  <div class="content-block">
 				    <div class="tabs">
 				      <div id="tab1" class="tab active">
 				      	<!--搜索-->
-						    <div class="searchbar">
-						    	<a class="searchbar-cancel">取消</a>
-							    <div class="search-input">
-							      <label class="icon icon-search" for="search"></label>
-							      <input type="search" id='search' placeholder='输入订单编号'/>
+						    <div class="searchbar row">
+							    <div class="search-input col-85" style="margin-top: 6px;">
+							      <input type="search" id="search1" placeholder="输入订单编号"/>
 							    </div>
-						  	</div>
+							   	 <a class="button button-fill button-primary col-15" id="searchbtn1" ><span class="icon icon-search"></span></a>
+							 	</div>
 							  <!---->
 							  <!--分类-->
 					 			<div class="content-block">
 							    <div class="content-block-title" style="margin-top:-35px ;"></div>
 						      <div class="list-block">
 						        <ul>
-						          <!-- Text inputs -->
 						          <li>
 						            <div class="item-content">
 						              <div class="item-inner">
 						                <div class="item-title label">快递公司</div>
 						                <div class="item-input">
-						                  <input type="text" placeholder="请选择快递公司" id='picker-company1'/>
+						                  <input type="text" placeholder="请选择快递公司" onchange="orderPut();" id="company1"/>
 						                </div>
 						              </div>
 						            </div>
@@ -87,28 +87,27 @@
 					    	</template>
 					    	<!---->
 				      </div>
+				      
 				      <div id="tab2" class="tab">
 				      	<!--搜索-->
-						    <div class="searchbar">
-						    	<a class="searchbar-cancel">取消</a>
-							    <div class="search-input">
-							      <label class="icon icon-search" for="search"></label>
-							      <input type="search" id='search' placeholder='输入订单编号'/>
+						    <div class="searchbar row">
+							    <div class="search-input col-85" style="margin-top: 6px;">
+							      <input type="search" id="search2" placeholder="输入订单编号"/>
 							    </div>
-						  	</div>
+							   	 <a class="button button-fill button-primary col-15" id="searchbtn2" ><span class="icon icon-search"></span></a>
+							 	</div>
 							  <!---->
 				      	<!--分类-->
 					 			<div class="content-block">
 							    <div class="content-block-title" style="margin-top:-35px ;"></div>
 						      <div class="list-block">
 						        <ul>
-						          <!-- Text inputs -->
 						          <li>
 						            <div class="item-content">
 						              <div class="item-inner">
 						                <div class="item-title label">快递公司</div>
 						                <div class="item-input">
-						                  <input type="text" placeholder="请选择快递公司" id='picker-company2'/>
+						                  <input type="text" placeholder="请选择快递公司" onchange="orderSend();" id="company2"/>
 						                </div>
 						              </div>
 						            </div>
@@ -126,7 +125,7 @@
 						              <div class="item-inner">
 						                <div class="item-title label">送达地址</div>
 						                <div class="item-input">
-						                  <input type="text" placeholder="请选择地址" id='picker-address2'/>
+						                  <input type="text" placeholder="请选择地址" onchange="orderSend();" id="address2"/>
 						                </div>
 						              </div>
 						            </div>
