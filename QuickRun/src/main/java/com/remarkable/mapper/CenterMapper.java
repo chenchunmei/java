@@ -16,13 +16,18 @@ import com.remarkable.entity.Images;
 import com.remarkable.entity.User;
 
 /**
- * 个人中心
- * @author ASUS
+ * 个人中心持久层接口
+ * @author 陈春妹
  *
  */
 @Repository
 public interface CenterMapper {
 	
+	/**
+	 * 修改用户的对象信息
+	 * @param user 用户对象
+	 * @return
+	 */
 	@Update("update tb_user set u_phone=#{u_phone},u_nickname=#{u_nickname},u_sex=#{u_sex},u_birthday=#{u_birthday} where u_id = #{u_id}")
 	public Integer updateUser(User user);
 	
@@ -33,6 +38,12 @@ public interface CenterMapper {
 	@Select("select * from tb_user where u_id=#{u_id}")
 	public User findUserById(int u_id);
 	
+	
+	/**
+	 * 根据用户id查找用户信息，images里面放用户对象
+	 * @param u_id 用户id
+	 * @return
+	 */
 	@Select("select * from tb_images where u_id=#{u_id}")
 	@Results(value={
 			@Result(column="ima_id",property="ima_id",id=true),
@@ -92,13 +103,18 @@ public interface CenterMapper {
 	public int reduceEmpCredit(Integer emp_id);
 	
 	/**
-	 * 根据用户的id查找图片
+	 * 根据用户的id查找头像
 	 * @param u_id
 	 * @return
 	 */
 	@Select("SELECT COUNT(ima_address) FROM tb_images WHERE ima_address IS NOT NULL AND u_id=#{u_id}")
 	public Integer findImageByU_Id(Integer u_id);
 	
+	/**
+	 * 修改用户头像
+	 * @param images 
+	 * @return
+	 */
 	@Update("update tb_images set ima_address = #{ima_address} where u_id =#{u_id}")
 	public Integer updateImages(Images images);
 }
