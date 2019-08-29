@@ -101,7 +101,7 @@ public class CenterServiceImpl implements ICenterService{
 		boolean isRun = false;
 		//如果该员工投诉次数超过三次，则信誉值
 		if(count > 3){
-			//调用减少员工的信誉值
+
 			centerMapper.reduceEmpCredit(emp_id);
 			isRun = true;
 		}

@@ -158,10 +158,10 @@ public class CenterController {
 	@RequestMapping("/insertComplaint")
 	@ResponseBody
 	public Integer insertComplaint(String ord_complaint,String ord_code,HttpServletResponse res){
-		res.setHeader("Access-Control-Allow-Origin", "*");
+		//res.setHeader("Access-Control-Allow-Origin", "*");
 		System.out.println("=========================================");
 		System.out.println(ord_complaint);
-		Integer emp_id =1;
+		Integer emp_id =2;
 		return centerServiceImpl.insertCompaint(ord_complaint, ord_code,emp_id);
 	}
 }

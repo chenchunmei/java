@@ -25,8 +25,8 @@ import com.remarkable.service.IAddOrdersService;
  * @author 王慧
  *
  */
-@CrossOrigin
 @Controller
+@CrossOrigin(origins = {"*", "null"})
 public class AddOrdersController {
 	
 	@Autowired
@@ -50,6 +50,7 @@ public class AddOrdersController {
 		Date ord_send_time=new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		//format.format(ord_send_time);
+		
 		
 		order.setOrd_code(ord_code);
 		order.setOrd_send_time(ord_send_time);

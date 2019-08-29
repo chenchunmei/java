@@ -52,16 +52,21 @@
 			<result column="u_nickname" property="u_nickname"/>
 			<result column="u_sex" property="u_sex"/>
 		</association>
+		<association property="empForward" javaType="emp">
+			<id column="emp_id" property="emp_id"/>
+			<result column="forward" property="emp_name"/>
+		</association>
 	</resultMap>
 	<select id="findOrderdetailsByordId" parameterType="order" resultMap="findOrderdetailsByordIdMap">
-		select o.ord_rec_name,o.ord_pick_code,o.ord_phone,
+		select  o.ord_rec_name,o.ord_pick_code,o.ord_phone,
 		c.com_name,a.add_detail,o.ord_send_time,r.rec_detail,o.ord_remark,
-		e.emp_name,e.emp_phone 
+		e.emp_name,e.emp_phone ,e2.emp_name forward
 		from tb_order o left join tb_address a on o.add_id=a.add_id 
 		left join tb_company c on o.com_id=c.com_id 
 		left join tb_emp e on o.emp_id=e.emp_id 
 		left join tb_rec r on o.rec_id=r.rec_id 
 		left join tb_user u on o.u_id=u.u_id 
+		left join tb_emp e2 on e2.emp_id = o.ord_forward
 		where o.ord_code=#{ord_code}
 	</select>
 	
@@ -109,7 +114,7 @@
 		</association>
 	</resultMap>
 	<select id="findOrderByUid" parameterType="order" resultMap="findOrderByUidMap">
-		select o.ord_id, o.ord_code,o.ord_send_time,r.rec_detail,e.emp_name,e.emp_phone,o.ord_state 
+		select  o.ord_send_time,o.ord_id, o.ord_code,r.rec_detail,e.emp_name,e.emp_phone,o.ord_state 
 		from tb_order o left join tb_user u on o.u_id=u.u_id
 		left join tb_emp e on o.emp_id=e.emp_id 
 		left join tb_rec r on o.rec_id=r.rec_id 
