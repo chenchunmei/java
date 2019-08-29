@@ -51,6 +51,7 @@ public class CompanyManagerController {
 	@ResponseBody
 	@CrossOrigin
 	public void insertCompany(Company company,HttpServletResponse res){	
+		System.out.println(company);
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		cmsi.insertCompany(company);
 	}
