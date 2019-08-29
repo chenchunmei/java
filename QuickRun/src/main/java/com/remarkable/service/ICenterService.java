@@ -7,6 +7,11 @@ import com.remarkable.entity.Emp;
 import com.remarkable.entity.Images;
 import com.remarkable.entity.User;
 
+/**
+ * 个人中心业务层接口
+ * @author 陈春妹
+ *
+ */
 public interface ICenterService {
 	
 	/**
@@ -43,6 +48,11 @@ public interface ICenterService {
 	 */
 	public Integer insertImages(Images images); 
 	
+	/**
+	 * 根据用户id 查找用户头像
+	 * @param u_id
+	 * @return
+	 */
 	public Images findImagesByid(Integer u_id);
 	
 	/**
@@ -54,14 +64,14 @@ public interface ICenterService {
 	public Integer insertCompaint(String ord_complaint,String ord_code,Integer emp_id);
 	
 	/**
-	 * 查询投诉信息的总记录
-	 * @param ord_code
+	 * 根据员工的id 查找该用户被投诉的总次数
+	 * @param emp_id 员工id
 	 * @return
 	 */
 	public boolean findComplaintCount(@Param("emp_id")Integer emp_id);
 	
 	/**
-	 * 判断是否要添加图片
+	 * 根据用户id来判断是否要添加头像还是修改头像
 	 * @param images
 	 * @param u_id
 	 */
