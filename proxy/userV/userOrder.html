@@ -44,7 +44,7 @@
 		  <div class="bar bar-header-secondary">
 		    <div class="searchbar row">
 			    <div class="search-input col-85" style="margin-top: 6px;">
-			      <input type="search" id="code" placeholder='输入关键字...'/>
+			      <input type="search" id="code" placeholder='输入快递单号...'/>
 			    </div>
 			   	 <a class="button button-fill button-primary col-15" id="searchBtn" ><span class="icon icon-search"></span></a>
 			 </div>
@@ -58,14 +58,15 @@
 					      <a href="#" class="button" style="float: right;" @click="complaint(userorder.ord_code)">投诉</a>
 					    </div>
 					    <div valign="bottom" class="card-header color-white no-border no-padding">
-					      <img class='card-cover' src="../img/1.jpg"  height="100px" alt="">
+					      <img class='card-cover' src="../img/d1.gif"  height="100px" alt="">
 					    </div>
 					    <div class="card-content">
 					      <div class="card-content-inner">
 					        <p class="color-gray" id="send_time">发布时间：{{userorder.ord_send_time}}
 					        	<span style="float: right;" v-if="userorder.ord_state==0">发布中</span>
 					        	<span style="float: right;" v-if="userorder.ord_state==1">未送达</span>
-					        	<span style="float: right;" v-if="userorder.ord_state==2">已送达</span>
+					        	<span style="float: right;" v-if="userorder.ord_state==5">已完成</span>
+					        	<button style="float: right;" v-if="userorder.ord_state==2" @click="oversend(userorder.ord_code)">确认送达</button>
 					        </p>
 					        <p>骑手姓名：{{userorder.emp.emp_name}}</p>
 					        <p>骑手电话:{{userorder.emp.emp_phone}}</p>

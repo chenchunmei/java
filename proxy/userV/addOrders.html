@@ -7,17 +7,20 @@
 
 	<head>
 		<header class="bar bar-nav">
-			<h1 class='title'>发单</h1>
+			<h1 class='title'>发布订单</h1>
 		</header>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 		<link rel="shortcut icon" href="/favicon.ico">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+		<link rel="stylesheet" href="../css/aui.css">
 		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
 		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
-
+		
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<link rel="stylesheet" href="../aui/css/aui.css" />
 	</head>
 
 	<body>
@@ -45,14 +48,20 @@
 			<form action="#" method="post" id="addOrders" name="addOrders">
 				<div class="content">
 					<div class="list-block">
+						<div class="aui-tips " id="tips-1">
+					    <i class="aui-iconfont aui-icon-info"></i>
+					    <div class="aui-tips-title">11:30之后的订单会在下午送达</div>
+					    <i class="aui-iconfont aui-icon-close"></i>
+					</div>
 						<ul>
 							<li>
 								<div class="item-content">
 									<div class="item-media"><i class="icon icon-form-name"></i></div>
-									<div class="item-inner">
+									<div class="item-inner aui-col-xs-3">
+										 <i class="aui-iconfont aui-icon-my"></i>&nbsp;&nbsp;
 										<div class="item-title label">收件人</div>
 										<div class="item-input">
-											<input type="text" id="ord_rec_name">
+											<input type="text" id="ord_rec_name" >
 										</div>
 									</div>
 								</div>
@@ -60,10 +69,11 @@
 							<li>
 								<div class="item-content">
 									<div class="item-media"><i class="icon icon-form-comment"></i></div>
-									<div class="item-inner">
+									<div class="item-inner aui-col-xs-3">
+										<i class="aui-iconfont aui-icon-cert"></i>&nbsp;&nbsp;
 										<div class="item-title label">取货码</div>
 										<div class="item-input">
-											<input type="text" id="ord_pick_code">
+											<input type="text" id="ord_pick_code" >
 										</div>
 									</div>
 								</div>
@@ -71,10 +81,11 @@
 							<li>
 								<div class="item-content">
 									<div class="item-media"><i class="icon icon-form-comment"></i></div>
-									<div class="item-inner">
+									<div class="item-inner aui-col-xs-3">
+										<i class="aui-iconfont aui-icon-phone"></i>&nbsp;&nbsp;
 										<div class="item-title label">联系电话</div>
 										<div class="item-input">
-											<input type="text" id="ord_phone">
+											<input type="text" id="ord_phone" >
 										</div>
 									</div>
 								</div>
@@ -82,10 +93,11 @@
 							<li>
 								<div class="item-content">
 									<div class="item-media"><i class="icon icon-form-gender"></i></div>
-									<div class="item-inner">
+									<div class="item-inner aui-col-xs-3">
+										 <i class="aui-iconfont aui-icon-home"></i>&nbsp;&nbsp;
 										<div class="item-title label">快递公司</div>
 										<div class="item-input">
-											<select id="com_id" >
+											<select id="com_id"  >
 												<template v-for="proxy in list">
 													<option :value="proxy.com_id" >{{proxy.com_name}}</option>
 												</template>
@@ -97,10 +109,11 @@
 							<li>
 								<div class="item-content">
 									<div class="item-media"><i class="icon icon-form-gender"></i></div>
-									<div class="item-inner">
+									<div class="item-inner aui-col-xs-3">
+										 <i class="aui-iconfont aui-icon-location"></i>&nbsp;&nbsp;
 										<div class="item-title label">送达地址</div>
 										<div class="item-input">
-											<select id="add_id">
+											<select id="add_id" >
 												<template v-for="address in over">
 													<option :value="address.add_id">{{address.add_detail}}</option>
 												</template>
@@ -112,10 +125,11 @@
 							<li>
 								<div class="item-content">
 									<div class="item-media"><i class="icon icon-form-comment"></i></div>
-									<div class="item-inner">
-										<div class="item-title label">包裹重量</div>
+									<div class="item-inner aui-col-xs-3">
+										 <i class="aui-iconfont aui-icon-pencil"></i>&nbsp;&nbsp;
+										<div class="item-title label">包裹重量(Kg)</div>
 										<div class="item-input">
-											<input type="text" id="ord_wight" placeholder="只填写数字">
+											<input type="text" id="ord_wight" placeholder="大概重量">
 										</div>
 									</div>
 								</div>
@@ -123,10 +137,11 @@
 							<li>
 								<div class="item-content">
 									<div class="item-media"><i class="icon icon-form-gender"></i></div>
-									<div class="item-inner">
+									<div class="item-inner aui-col-xs-3">
+										<i class="aui-iconfont aui-icon-date"></i>&nbsp;&nbsp;
 										<div class="item-title label">接收时间</div>
 										<div class="item-input">
-											<select id="rec_id">
+											<select id="rec_id" >
 												<template v-for="time in rec">
 													<option :value="time.rec_id">{{time.rec_detail}}</option>
 												</template>
@@ -138,7 +153,8 @@
 							<li class="align-top">
 								<div class="item-content">
 									<div class="item-media"><i class="icon icon-form-comment"></i></div>
-									<div class="item-inner">
+									<div class="item-inner aui-col-xs-3">
+										<i class="aui-iconfont aui-icon-comment"></i>&nbsp;&nbsp;
 										<div class="item-title label">订单备注</div>
 										<div class="item-input">
 											<textarea placeholder="请在有效字数内完成备注" name="ord_remark" id="ord_remark"></textarea>
@@ -152,7 +168,7 @@
 					<div class="content-block">
 						<div class="row">
 							<div class="" id="sendOrder">
-								<a href="#" class="button button-big button-fill button-success">提交</a>
+								<a href="#" class="button button-big button-fill button-success" >提交</a>
 							</div>
 						</div>
 					</div>
@@ -168,5 +184,4 @@
 	<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
-	
 </html>
