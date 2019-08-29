@@ -28,23 +28,38 @@ import com.remarkable.entity.User;
 import com.remarkable.service.ICenterService;
 import com.remarkable.service.impl.CenterServiceImpl;
 
+/**
+ * 个人中心的控器类
+ * @author 陈春妹
+ *
+ */
 @Controller
 @CrossOrigin(origins={"*","null"})
 public class CenterController {
 	
+	//用户中心service层的对象
 	@Autowired
 	private ICenterService centerServiceImpl;
 
+	//修改用户信息
 	@RequestMapping("/updateUser.action")
 	@ResponseBody
 	public Integer updateUser(User user,HttpServletResponse res) {
-		
+		//设置跨域问题可以允许跨域
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		user.setU_id(1);
 		Integer count = centerServiceImpl.updateUser(user);
+		//返回是否修改成功
 		return count;
 	}
 	
+	/**
+	 * 上传用户头像
+	 * @param model 返回结果
+	 * @param file 上传头像的工具
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/uploadImage.action")
 	public @ResponseBody HashMap<String, Object> uploadImage(Model model,MultipartFile file,HttpServletRequest request){
 		//获取文件名
@@ -78,25 +93,36 @@ public class CenterController {
 			map.put("data",dataMap);
 			Images images = new Images();
 			images.setIma_address(realFileName);
+			//===============
 			images.setU_id(1);
 			System.out.println(map.get("data"));
+			//调用service层上传图片的方法
 			centerServiceImpl.judgeInsertImages(images, 1);
 		}catch(Exception e){
+			//上传失败
 			map.put("code", 1);
 			e.printStackTrace();
 		}
 		return map;
 	}
 	
+	/**
+	 * 根据用户id显示用户信息
+	 * @param request
+	 * @return 返回images对象
+	 */
 	@RequestMapping("/showUser.action")
 	public @ResponseBody Images showUser(HttpServletRequest request){
 		int u_id =1;
 		Images images=centerServiceImpl.findImagesByid(u_id);
 		SimpleDateFormat format =new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println(images);
 		return images;
 	}
 	
+	/**
+	 * 显示员工的信息
+	 * @return
+	 */
 	@RequestMapping("/showEmp")
 	@ResponseBody
 	public Emp showEmp(){
@@ -106,6 +132,11 @@ public class CenterController {
 		return emp;
 	}
 	
+	/**
+	 * 修改员工的信息
+	 * @param emp 员工
+	 * @return
+	 */
 	@RequestMapping("/updateEmp")
 	@ResponseBody
 	public int updateEmp(Emp emp){
@@ -117,6 +148,13 @@ public class CenterController {
 		
 	}
 	
+	/**
+	 * 用户投诉信息
+	 * @param ord_complaint 投诉信息
+	 * @param ord_code 订单编号
+	 * @param res
+	 * @return
+	 */
 	@RequestMapping("/insertComplaint")
 	@ResponseBody
 	public Integer insertComplaint(String ord_complaint,String ord_code,HttpServletResponse res){
