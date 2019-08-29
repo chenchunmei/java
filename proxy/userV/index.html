@@ -1,10 +1,163 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../aui/css/aui-slide.css" />
+		<link rel="stylesheet" type="text/css" href="../aui/css/aui.css" />
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<link rel="stylesheet" href="css/set.css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+
 	</head>
+
 	<body>
-		
+		<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+		<div class="page-group">
+			<!-- 单个page ,第一个.page默认被展示-->
+			<div class="page">
+				<!-- 标题栏 -->
+				<header class="bar bar-nav">
+					<div id="app">
+						<span style="margin-top: 50px; position: absolute; margin-left: 18px; color: white; font-size: 25px;"></span>
+					</div>
+				</header>
+
+				<!-- 工具栏 -->
+				<nav class="bar bar-tab">
+					<a class="tab-item external active" href="#">
+						<span class="icon icon-home"></span>
+						<span class="tab-label">首页</span>
+					</a>
+					<a class="tab-item external" href="addOrders.html">
+						<span class="icon icon-edit"></span>
+						<span class="tab-label">发布</span>
+					</a>
+					<a class="tab-item external" href="userOrder.html">
+						<span class="icon icon-card"></span>
+						<span class="tab-label">订单</span>
+					</a>
+					<a class="tab-item external" href="userset.html">
+						<span class="icon icon-settings"></span>
+						<span class="tab-label">设置</span>
+					</a>
+				</nav>
+
+				<!-- 这里是页面内容区 -->
+				<div class="content" style="background-color: white;">
+					
+					<div id="aui-slide3">
+						<div class="aui-slide-wrap">
+							<div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
+					            <div class="aui-content aui-padded-15">
+					                <span class="aui-text-danger" style="font-size: 30px;">湖工跑腿</span>会让你更方便更省时间
+					            </div>
+					        </div>
+							<div class="aui-slide-node bg-dark">
+								<img src="../img/hunan.jpg" />
+							</div>
+							<div class="aui-slide-node bg-dark">
+								<img src="../img/head.jpg" />
+							</div>
+						</div>
+						<div class="aui-slide-page-wrap">
+							<!--分页容器-->
+						</div>
+				</div>
+			<section class="aui-content">
+				<div class="aui-card-list">
+					<div class="aui-card-list-header">
+						卡片布局头部区域
+					</div>
+					<div class="aui-card-list-content">
+						<img src="../img/l2.png" />
+					</div>
+					<div class="aui-card-list-footer">
+						2016年7月12日
+					</div>
+				</div>
+				<div class="aui-card-list">
+					<div class="aui-card-list-header">
+						卡片布局头部区域
+					</div>
+					<div class="aui-card-list-content-padded aui-border-b aui-border-t">
+						<div class="aui-row aui-row-padded">
+							<div class="aui-col-xs-5">
+								<img src="../img/l2.png" />
+							</div>
+							<div class="aui-col-xs-5">
+								<img src="../img/l2.png" />
+							</div>
+							<div class="aui-col-xs-5">
+								<img src="../img/l2.png" />
+							</div>
+						</div>
+					</div>
+					<div class="aui-card-list-footer">
+						<div><i class="aui-iconfont aui-icon-star"></i></div>
+						<div><i class="aui-iconfont aui-icon-laud"></i></div>
+						<div><i class="aui-iconfont aui-icon-note"></i></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- popup, panel 等放在这里 -->
+			<div class="panel-overlay"></div>
+			<!-- Left Panel with Reveal effect -->
+			<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+			<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+			<script type="text/javascript" src="js/vue.js"></script>
+			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
+			<script type="text/javascript" src="js/empSet.js"></script>
+			<script type="text/javascript">
+			var slide = new auiSlide({
+				container: document.getElementById("aui-slide"),
+				// "width":300,
+				"height": 260,
+				"speed": 300,
+				"pageShow": true,
+				"pageStyle": 'dot',
+				"loop": true,
+				'dotPosition': 'center',
+				currentPage: currentFun
+			})
+
+			function currentFun(index) {
+				console.log(index);
+			}
+			var slide2 = new auiSlide({
+				container: document.getElementById("aui-slide2"),
+				// "width":300,
+				"height": 350,
+				"speed": 300,
+				"autoPlay": 0, //自动播放
+				"pageShow": true,
+				"loop": true,
+				"pageStyle": 'dot',
+				'dotPosition': 'center'
+			})
+			var slide3 = new auiSlide({
+				container: document.getElementById("aui-slide3"),
+				// "width":300,
+				"height": 320,
+				"speed": 500,
+				"autoPlay": 3000, //自动播放
+				"loop": true,
+				"pageShow": true,
+				"pageStyle": 'line',
+				'dotPosition': 'center'
+			})
+			console.log(slide3.pageCount());
+		</script>
 	</body>
 </html>
