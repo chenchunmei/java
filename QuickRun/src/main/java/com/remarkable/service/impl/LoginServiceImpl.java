@@ -3,6 +3,7 @@ package com.remarkable.service.impl;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.remarkable.entity.User;
 import com.remarkable.service.ILoginService;
@@ -12,6 +13,7 @@ import com.remarkable.service.ILoginService;
  * @author 向林俊
  *
  */
+@Service
 public class LoginServiceImpl implements ILoginService {
 
 	@Autowired
