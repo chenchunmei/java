@@ -25,13 +25,13 @@ public interface LoginMapper {
 	 * @param pwd 密码
 	 * @return
 	 */
-	@Insert("insert into tb_user(u_phone,u_pwd) values('#{0}','#{1}')")
+	@Insert("insert into tb_user(u_phone,u_pwd) values(#{0},#{1})")
 	int insUser(String phone,String pwd);
 	
 	/**
 	 * 根据手机号查询角色名称
 	 */
-	@Select("select role_name from tb_user where u_phone='#{0}'")
+	@Select("select role_name from tb_user where u_phone=#{0}")
 	Set<String> getRoles(String phone);
 	
 	/**
@@ -39,4 +39,6 @@ public interface LoginMapper {
 	 */
 	@Select("select p.permission_name from tb_permission p,tb_user u where u_phone = '#{0}' and u.role_id = p.role_id ")
 	Set<String> getPerms(String phone);
+
 }
+
