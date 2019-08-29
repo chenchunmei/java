@@ -119,7 +119,7 @@
 		left join tb_emp e on o.emp_id=e.emp_id 
 		left join tb_rec r on o.rec_id=r.rec_id 
 		<where>
-			and o.u_id=#{u_id} and (o.ord_state=0 or o.ord_state=1 or o.ord_state=2) 
+			and o.u_id=#{u_id} and (o.ord_state=0 or o.ord_state=1 or o.ord_state=2 or o.ord_state=5) 
 			<if test="ord_code !=null and ord_code !=''">
 			  	and ord_code like #{ord_code}
 			</if>

@@ -41,4 +41,11 @@ public interface IUserOrderShowService {
 	 */
 	public int deleteUserOrder(String ord_code);
 	
+	/**
+	 * 用户确认完成订单（根据订单编号修改订单状态为5）
+	 * @param ord_code 订单编号
+	 * @return
+	 */
+	public int overSendOrder(String ord_code);
+	
 }

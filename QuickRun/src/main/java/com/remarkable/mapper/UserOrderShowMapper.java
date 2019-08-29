@@ -37,11 +37,19 @@ public interface UserOrderShowMapper {
 	
 	
 	/**
-	 * 删除用户订单记录（根据订单编号修改订单状态）
+	 * 删除用户订单记录（根据订单编号修改订单状态4）
 	 * @param ord_code 订单编号
 	 * @return
 	 */
 	@Update("update tb_order set  ord_state = 4 where ord_code =#{ord_code}")
 	public int deleteUserOrder(String ord_code);
+	
+	/**
+	 * 用户确认完成订单（根据订单编号修改订单状态为5）
+	 * @param ord_code 订单编号
+	 * @return
+	 */
+	@Update("update tb_order set  ord_state = 5 where ord_code =#{ord_code}")
+	public int overSendOrder(String ord_code);
 	
 }

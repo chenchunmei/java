@@ -76,4 +76,16 @@ public class UserOrderShowController {
 		System.out.println(count);
 		return count;
 	}
+	
+	/**
+	 * 用户确认完成订单（根据订单编号修改订单状态为5）
+	 * @param ord_code 订单编号
+	 * @return
+	 */
+	@RequestMapping("/overSendOrder.action")
+	@ResponseBody
+	public int overSendOrder(String ord_code) {
+		int count=userOrderShowServiceImpl.overSendOrder(ord_code);
+		return count;
+	}
 }
