@@ -21,7 +21,7 @@ public class User {
 	//性别
 	private int u_sex;
 	//出生年月日
-	@DateTimeFormat(pattern="yyyy-MM-dd")//页面写入数据库时格式化
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JSONField(format ="yyyy-MM-dd")
 	private Date u_birthday;
 	//状态
