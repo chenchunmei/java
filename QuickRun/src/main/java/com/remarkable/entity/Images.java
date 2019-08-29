@@ -38,4 +38,10 @@ public class Images implements Serializable{
 	public void setU_id(Integer u_id) {
 		this.u_id = u_id;
 	}
+	@Override
+	public String toString() {
+		return "Images [ima_id=" + ima_id + ", ima_address=" + ima_address + ", u_id=" + u_id + ", user=" + user + "]";
+	}
+	
+	
 }
