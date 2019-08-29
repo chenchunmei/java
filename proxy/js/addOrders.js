@@ -65,7 +65,6 @@ var app = new Vue({
 		var add_id = $("#add_id").val();
 		var ord_wight = $("#ord_wight").val();
 		var rec_id = $("#rec_id").val();
-		alert(rec_id)
 		var ord_remark = $("#ord_remark").val();
 		var orders = {
 			"ord_rec_name": ord_rec_name,
