@@ -49,10 +49,10 @@
 			and tb.add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and tb.ord_code = #{ord_code}
+			and tb.ord_code like #{ord_code}
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
-			and tb.com_id = #{tb.com_id}
+			and tb.com_id = #{com_id}
 		</if> 
 		<if test="add_id != null and add_id != 0"> 
 			and tb.add_id = #{add_id}
@@ -108,7 +108,7 @@
 			and tb.add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and tb.ord_code = #{ord_code}
+			and tb.ord_code like #{ord_code}
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
 			and tb.com_id = #{com_id}
@@ -169,7 +169,7 @@
 			and tb.add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and tb.ord_code = #{ord_code} 
+			and tb.ord_code like #{ord_code} 
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
 			and tb.com_id = #{com_id} 
@@ -228,7 +228,7 @@
 			and tb.emp_id = #{emp_id}  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and tb.ord_code = #{ord_code} 
+			and tb.ord_code like #{ord_code} 
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
 			and tb.com_id = #{com_id} 
@@ -286,7 +286,7 @@
 			and tb.ord_forward = #{ord_forward}  
 		</if> 
 		<if test="ord_code != null and ord_code != ''"> 
-			and tb.ord_code = #{ord_code} 
+			and tb.ord_code like #{ord_code} 
 		</if> 
 		<if test="com_id != null and com_id != 0"> 
 			and tb.com_id = #{com_id} 
