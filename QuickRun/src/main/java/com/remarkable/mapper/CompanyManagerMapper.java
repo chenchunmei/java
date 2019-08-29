@@ -28,8 +28,8 @@ public interface CompanyManagerMapper {
 	@Select("select * from tb_company where com_id=#{com_id}")
 	Company selectCompanyById(@Param("com_id") Integer com_id);
 	
-	@Insert ("insert into tb_company(com_id,com_name,com_content,add_state) "
-			+ "values(#{com_id},#{com_name},#{com_content},#{add_state})")
+	@Insert ("insert into tb_company(com_name,com_content,add_state) "
+			+ " values(#{com_name},#{com_content},#{add_state})")
 	public void insertCompany(Company company);
 
 }
