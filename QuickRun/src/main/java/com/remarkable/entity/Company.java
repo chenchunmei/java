@@ -8,7 +8,15 @@ public class Company {
 	private String com_name;
 	//状态
 	private int add_state;
+	//内容
+	private String com_content;
 	
+	public String getCom_content() {
+		return com_content;
+	}
+	public void setCom_content(String com_content) {
+		this.com_content = com_content;
+	}
 	public int getCom_id() {
 		return com_id;
 	}
