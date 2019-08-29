@@ -21,8 +21,8 @@ public interface AddOrdersMapper {
 	 * 用户发布订单
 	 * @param order
 	 */
-	@Insert ("insert into tb_order(ord_code,ord_send_time,ord_pick_code,ord_phone,ord_rec_name,ord_wight,ord_remark,ord_state,rec_id,add_id,com_id,u_id) "
-			+ "values(#{ord_code},#{ord_send_time},#{ord_pick_code},#{ord_phone},#{ord_rec_name},#{ord_wight},#{ord_remark},#{ord_state},#{rec_id},#{add_id},#{com_id},#{u_id})")
+	@Insert ("insert into tb_order(ord_code,ord_send_time,ord_pick_code,ord_phone,ord_rec_name,ord_wight,ord_remark,ord_state,rec_id,add_id,com_id,u_id,emp_id) "
+			+ "values(#{ord_code},#{ord_send_time},#{ord_pick_code},#{ord_phone},#{ord_rec_name},#{ord_wight},#{ord_remark},#{ord_state},#{rec_id},#{add_id},#{com_id},#{u_id},#{emp_id})")
 	public void insertOrder(Order order);
 	
 	/**
@@ -45,4 +45,13 @@ public interface AddOrdersMapper {
 	 */
 	@Select("select rec_id,rec_detail from tb_rec")
 	List<Rectime> queryTime();
+	
+	/**
+	 * 查询该地址是哪个骑手负责
+	 * @param add_detail 地址
+	 * @return 返回骑手id
+	 */
+	@Select("SELECT emp_id FROM tb_address WHERE add_id=#{add_id}")
+	public Integer findAllEmpId(Integer add_id);
 }
+

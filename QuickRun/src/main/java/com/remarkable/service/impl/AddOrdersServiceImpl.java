@@ -30,8 +30,9 @@ public class AddOrdersServiceImpl implements IAddOrdersService {
 	 */
 	@Override
 	public void insertOrder(Order order) {
+		Integer emp_id = addOrdersMapper.findAllEmpId(order.getAdd_id());
+		order.setEmp_id(emp_id);
 		addOrdersMapper.insertOrder(order);
-		
 	}
 
 	/**
