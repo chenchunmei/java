@@ -10,19 +10,19 @@ import com.remarkable.mapper.CompanyMapper;
 import com.remarkable.service.ICompanyService;
 
 /**
- * 公司业务层
+ * 快递公司业务层
  * @author Sun
  *
  */
 @Service
 public class CompanyServiceImpl implements ICompanyService {
 
-	//调用公司mapper层
+	//调用快递公司mapper层
 	@Autowired
 	private CompanyMapper companyMapper;
 	
 	/**
-	 * 查询所有公司
+	 * 查询所有快递公司
 	 * @return
 	 */
 	public List<Company> findCompanyAll() {

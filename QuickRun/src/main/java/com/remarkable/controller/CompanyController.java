@@ -12,7 +12,7 @@ import com.remarkable.entity.Company;
 import com.remarkable.service.ICompanyService;
 
 /**
- * 公司控制层
+ * 快递公司控制层
  * @author Sun
  *
  */
@@ -20,12 +20,12 @@ import com.remarkable.service.ICompanyService;
 @CrossOrigin(origins = {"*", "null"})
 public class CompanyController {
 
-	//调用公司服务层
+	//调用快递公司服务层
 	@Autowired
 	private ICompanyService companyServiceImpl;
 	
 	/**
-	 * 查询所有公司
+	 * 查询所有快递公司
 	 * @return
 	 */
 	@RequestMapping("/companyAll.action")
