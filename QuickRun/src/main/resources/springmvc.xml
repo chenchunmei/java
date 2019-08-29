@@ -17,7 +17,7 @@
 	 
 	
 	<!-- 配置异常解析器
-	 <bean class="com.zy.exception.MyExceptionResolver"></bean>
+	 <bean class="com.remarkable.exception.MyExceptionResolver"></bean>
 	  -->
 	 
 	 <!-- 配置视图解析器
