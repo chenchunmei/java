@@ -1,19 +1,19 @@
 function ps() {
-	if(this.forms.password.type = "password")
-		box.innerHTML = "<input type=\"html\" name=\"password\" size=\"20\" value=" + this.forms.password.value + ">";
+	if(this.loginFrom.pwd.type = "password")
+		box.innerHTML = "<input type=\"html\" name=\"pwd\" size=\"20\" value=" + this.loginFrom.pwd.value + ">";
 	click.innerHTML = "<a href=\"javascript:txt()\" class=\"iconfont icon-open-eye\"></a>"
 }
 
 function txt() {
-	if(this.forms.password.type = "text")
-		box.innerHTML = "<input type=\"password\" name=\"password\" size=\"20\" value=" + this.forms.password.value + ">";
+	if(this.loginFrom.pwd.type = "text")
+		box.innerHTML = "<input type=\"password\" name=\"pwd\" size=\"20\" value=" + this.loginFrom.pwd.value + ">";
 	click.innerHTML = "<a href=\"javascript:ps()\" class=\"iconfont icon-biyan\"></a>"
 }
 
 function login() {
 	var phone = $("#phone").val();
 	if(phone == "") {
-		alert("用手机号不能为空！");
+		alert("手机号不能为空！");
 		return;
 	};
 	var pwd = $("#pwd").val();
