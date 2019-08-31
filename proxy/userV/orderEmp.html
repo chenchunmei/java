@@ -16,9 +16,11 @@
   <body>
     <div class="page-group" id="app">
       <div class="page page-current">
+      	<!--头部-->
        	<header class="bar bar-nav">
 		    	<h1 class="title">订单显示</h1>
 		  	</header>
+		  	<!---->
 		  	<!-- 工具栏 -->
 				<nav class="bar bar-tab">
 					<a class="tab-item external active" href="orderEmp.html">
@@ -34,6 +36,7 @@
 						<span class="tab-label">设置</span>
 					</a>
 				</nav>
+				<!---->
 		  	<!--布局-->
 			  <div class="content">
 			  	<!--分类页面头-->
@@ -112,6 +115,8 @@
 											    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="delivery(order.ord_id)">确认送达</button>
 											    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="forward(order.ord_id)">转交</button>
 											    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
+											    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
+											    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
 											    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">已转交</button>
 											    	<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
 													</div>
@@ -189,6 +194,8 @@
 											    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="delivery(order.ord_id)">确认送达</button>
 											    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="forward(order.ord_id)">转交</button>
 											    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
+											    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
+											    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
 											    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">已转交</button>
 											    	<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
 													</div>
@@ -266,6 +273,8 @@
 											    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="delivery(order.ord_id)">确认送达</button>
 											    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="forward(order.ord_id)">转交</button>
 											    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
+											    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
+											    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
 											    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">已转交</button>
 											    	<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
 													</div>
