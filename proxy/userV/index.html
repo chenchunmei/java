@@ -1,79 +1,104 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
+		<header class="bar bar-nav">
+			<h1 class='title'>首页</h1>
+		</header>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>我的生活</title>
+		<title>首页</title>
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 		<link rel="shortcut icon" href="/favicon.ico">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" href="../css/aui.css">
 		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
 		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
 		
 		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
 		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		
+		<style>
+			#div1{
+				width: 370px;
+				height: 180px;
+				position: relative;
+				overflow: auto;
+				 
+			}
+			#div1 ul{
+				position:absolute;
+				left: 0;
+				top: 0;
+			}
+			#div1 ul li {
+				float: left;
+				width: 370px;
+				height: 150px;
+				list-style: none;
+			}
+		</style>
 	</head>
 
 	<body>
-		 <header class="bar bar-nav">
-			  <h1 class='title'>首页</h1>
-		  </header>
-		<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
-		<div class="page-group">
-			<!-- 单个page ,第一个.page默认被展示-->
-			<div class="page">
-				<!-- 标题栏 -->
-				<header class="bar bar-nav">
-					<div id="app">
-						<span style="margin-top: 50px; position: absolute; margin-left: 18px; color: white; font-size: 25px;"></span>
-					</div>
-				</header>
+		<!-- 工具栏 -->
+		<nav class="bar bar-tab">
+			<a class="tab-item external active" href="#">
+				<span class="icon icon-home"></span>
+				<span class="tab-label">首页</span>
+			</a>
+			<a class="tab-item external" href="addOrders.html">
+				<span class="icon icon-edit"></span>
+				<span class="tab-label">发布</span>
+			</a>
+			<a class="tab-item external" href="userOrder.html">
+				<span class="icon icon-card"></span>
+				<span class="tab-label">订单</span>
+			</a>
+			<a class="tab-item external" href="userset.html">
+				<span class="icon icon-settings"></span>
+				<span class="tab-label">设置</span>
+			</a>
+		</nav>
 
-				<!-- 工具栏 -->
-				<nav class="bar bar-tab">
-					<a class="tab-item external active" href="#">
-						<span class="icon icon-home"></span>
-						<span class="tab-label">首页</span>
-					</a>
-					<a class="tab-item external" href="addOrders.html">
-						<span class="icon icon-edit"></span>
-						<span class="tab-label">发布</span>
-					</a>
-					<a class="tab-item external" href="userOrder.html">
-						<span class="icon icon-card"></span>
-						<span class="tab-label">订单</span>
-					</a>
-					<a class="tab-item external" href="../userset.html">
-						<span class="icon icon-settings"></span>
-						<span class="tab-label">设置</span>
-					</a>
-				</nav>
-
-				<!-- 这里是页面内容区 -->
-				<div class="content" style="background-color: white;">
-		            <div class="aui-content aui-padded-15">
-		                <span class="aui-text-danger" style="font-size: 30px;">湖工跑腿</span>会让你更方便更省时间
-		            </div>
-		            <div>
-		            	<img src="../img/2.jpg"  height="150px" width="370px"/>
-		            </div>
-		            <hr />
-		            <span>用户界面显示</span>
-		             <div class="row">
-				      <div class="col-50">
-				      	<img src="../img/send.png" width="90%" />
-				      </div>
-				      <div class="col-50">
-				      	<img src="../img/userorder.png"width="90%" />
-				      </div>
-				    </div>
-				</div>
+		<!-- 这里是页面内容区 -->
+		<div class="content" style="background-color: white;">
+            <div class="aui-content aui-padded-15">
+                <span class="aui-text-danger" style="font-size: 30px;">湖工跑腿</span>会让你更方便更省时间
+            </div>
+            <div id="div1">
+				<ul>
+					<li><img src="../img/0.jpg" height="150px" width="370px" alt=""></li>
+					<li><img src="../img/1.jpg" height="150px" width="370px" alt=""></li>
+					<li><img src="../img/2.jpg" height="150px" width="370px" alt=""></li>
+	 
+				</ul>
+			</div>
+            <hr />
+            <span>用户界面演示</span>
+             <div class="row">
+		      <div class="col-50">
+		      	<img src="../img/send.png" width="90%" />
+		      </div>
+		      <div class="col-50">
+		      	<img src="../img/userorder.png"width="90%" />
+		      </div>
+		    </div>
+		    <hr />
+            <span>骑手界面演示</span>
+             <div class="row">
+		      <div class="col-50">
+		      	<img src="../img/q1.png" width="90%" />
+		      </div>
+		      <div class="col-50">
+		      	<img src="../img/q2.png"width="90%" />
+		      </div>
+		    </div>
+		</div>
+		
 	</body>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript" src="../js/index.js" ></script>
 	
 	<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
