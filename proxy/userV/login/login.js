@@ -1,3 +1,4 @@
+
 function ps() {
 	if(this.loginFrom.pwd.type = "password")
 		box.innerHTML = "<input type=\"html\" name=\"pwd\" size=\"20\" value=" + this.loginFrom.pwd.value + ">";
@@ -11,6 +12,11 @@ function txt() {
 }
 
 function login() {
+	
+	var current_id=localStorage.getItem("current_id");
+	alert(current_id);
+	console.log(current_id);
+	
 	var phone = $("#phone").val();
 	if(phone == "") {
 		alert("手机号不能为空！");
@@ -29,8 +35,13 @@ function login() {
 			phone: phone,
 			pwd: pwd
 		},
+		/*用于跨域处理*/
+		xhrFields:{
+	        withCredentials:true
+	    },
 		dataType: "JSON",
 		success: function(result) {
+			
 			if(result == "1") {
 				//跳转到成功页面
 				location.href = "../addOrders.html";
