@@ -20,6 +20,7 @@ $(function(){
 		});
 	}
 	
+	//显示账号管理
 	$("#btn").click(function(){
 		if($("#menu").css("display")=="block"){
 			$("#menu").css("display","none");
@@ -28,13 +29,14 @@ $(function(){
 		}
 	})
 	
+	//弹出框
 	$(document).on('click','.confirm-ok', function () {
 	      $.confirm('Are you sure?', function () {
 	          $.alert('You clicked Ok button');
 	      });
 	 });
 	 
-	 
+	 //退出登录
 	 $(document).on('click','.create-actions', function () {
       var buttons1 = [
         {
