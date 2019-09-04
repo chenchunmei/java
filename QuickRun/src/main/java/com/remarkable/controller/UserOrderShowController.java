@@ -1,22 +1,18 @@
 package com.remarkable.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.remarkable.entity.Company;
 import com.remarkable.entity.Order;
+import com.remarkable.entity.User;
 import com.remarkable.service.IUserOrderShowService;
 
 /**
@@ -31,6 +27,8 @@ public class UserOrderShowController {
 	@Autowired
 	private IUserOrderShowService userOrderShowServiceImpl;
 	
+	
+	
 	/**
 	 * 根据用户ID,订单编号，订单状态查询订单信息 
 	 * @param u_id
@@ -40,9 +38,11 @@ public class UserOrderShowController {
 	@RequestMapping("/selectorderbyuid.action")
 	@ResponseBody
 	public List<Order> findOrderByUid(String ord_code) {
-		System.err.println(ord_code);
-		List<Order> orderList=new ArrayList<Order>(); 
-		orderList = userOrderShowServiceImpl.findOrderByUid(1,ord_code);
+		System.err.println("订单编号========="+ord_code);
+		Subject currentUser = SecurityUtils.getSubject();
+		User user = (User) currentUser.getPrincipal();
+		List<Order> orderList=new ArrayList<Order>();
+		orderList = userOrderShowServiceImpl.findOrderByUid(user.getU_id(),ord_code);
 		for (Order order : orderList) {
 			System.out.println(order);
 		}
@@ -74,18 +74,6 @@ public class UserOrderShowController {
 	public int deleteUserOrder(String ord_code) {
 		int count=userOrderShowServiceImpl.deleteUserOrder(ord_code);
 		System.out.println(count);
-		return count;
-	}
-	
-	/**
-	 * 用户确认完成订单（根据订单编号修改订单状态为5）
-	 * @param ord_code 订单编号
-	 * @return
-	 */
-	@RequestMapping("/overSendOrder.action")
-	@ResponseBody
-	public int overSendOrder(String ord_code) {
-		int count=userOrderShowServiceImpl.overSendOrder(ord_code);
 		return count;
 	}
 }
