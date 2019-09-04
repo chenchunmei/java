@@ -18,7 +18,7 @@ $(function(){
 			success: function(result) {
 				if(result==1){
 					$$.toast("修改密码成功");
-					//window.location.href="userV/login/login.html";
+					window.location.href="login.html";
 				}else{
 					$$.toast("原密码不正确");
 				}
