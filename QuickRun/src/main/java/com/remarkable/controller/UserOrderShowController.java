@@ -39,9 +39,12 @@ public class UserOrderShowController {
 	@ResponseBody
 	public List<Order> findOrderByUid(String ord_code) {
 		System.err.println("订单编号========="+ord_code);
+		//==========================取得当前登录用户的用户信息对象
 		Subject currentUser = SecurityUtils.getSubject();
 		User user = (User) currentUser.getPrincipal();
+		//==========================取得当前登录用户的用户信息对象
 		List<Order> orderList=new ArrayList<Order>();
+		//--------------------------------------------------得到当前用户id
 		orderList = userOrderShowServiceImpl.findOrderByUid(user.getU_id(),ord_code);
 		for (Order order : orderList) {
 			System.out.println(order);
