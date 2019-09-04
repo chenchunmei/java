@@ -8,6 +8,8 @@ import java.util.Random;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +20,7 @@ import com.remarkable.entity.Address;
 import com.remarkable.entity.Company;
 import com.remarkable.entity.Order;
 import com.remarkable.entity.Rectime;
+import com.remarkable.entity.User;
 import com.remarkable.service.IAddOrdersService;
 
 /**
@@ -50,8 +53,12 @@ public class AddOrdersController {
 		Date ord_send_time=new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		//format.format(ord_send_time);
-		
-		
+		//==========================取得当前登录用户的用户信息对象
+		Subject currentUser = SecurityUtils.getSubject();
+		User user = (User) currentUser.getPrincipal();
+		int u_id = user.getU_id();
+		//==========================取得当前登录用户的用户信息对象
+		order.setU_id(u_id);
 		order.setOrd_code(ord_code);
 		order.setOrd_send_time(ord_send_time);
 		addOrdersServiceImpl.insertOrder(order);
