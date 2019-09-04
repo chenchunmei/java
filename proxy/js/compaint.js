@@ -15,6 +15,7 @@ $(function(){
 			success: function(result) {
 				if(result == 1){
 					$$.toast("投诉成功");
+					location.href = "../userV/userOrder.html";
 				}
 			}
 		});
