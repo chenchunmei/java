@@ -1,5 +1,5 @@
 $(function(){
-	//提示框的转换
+	
 	window.$$=window.Zepto = Zepto;
 	
 	var app=new Vue({
@@ -15,18 +15,18 @@ $(function(){
 		}
 	})
 	
-	//加载用户信息
 	function loadList(){
-		alert();
-		$.post(server_url+"showUser.action",function(result){
+		var u_id=current_id
+		alert(u_id);
+		$.post(server_url+"showUser.action",{"u_id":u_id},function(result){
 			app.list = result.user;
 			var srcpath=result.ima_address;
-			var path=server_url+srcpath.substr(srcpath.indexOf("upload"))
+			var path="http://127.0.0.1:8888/QuickRun/"+srcpath.substr(srcpath.indexOf("upload"))
 			$("#img").attr("src",path)
+			console.log(result)
 		});
 	}
-	
-	//显示账号管理的下拉
+		
 	$("#btn").click(function(){
 		if($("#menu").css("display")=="block"){
 			$("#menu").css("display","none");
@@ -35,7 +35,6 @@ $(function(){
 		}
 	});
 	
-	//退出
 	$(document).on('click','.create-actions', function () {
       var buttons1 = [
         {
