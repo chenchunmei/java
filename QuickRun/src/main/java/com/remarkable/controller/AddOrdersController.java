@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
@@ -28,8 +29,9 @@ import com.remarkable.service.IAddOrdersService;
  * @author 王慧
  *
  */
+
 @Controller
-@CrossOrigin(origins = {"*", "null"})
+@CrossOrigin(origins={"*","null"})
 public class AddOrdersController {
 	
 	@Autowired
@@ -43,9 +45,10 @@ public class AddOrdersController {
 	 */
 	@RequestMapping("/insert.action")
 	@ResponseBody
-	public void insertOrder(Order order,HttpServletResponse res){
+	public void insertOrder(Order order,HttpServletResponse res,HttpServletRequest request){
 		//跨域问题
-		res.setHeader("Access-Control-Allow-Origin", "*");
+		//res.setHeader("Access-Control-Allow-Origin", "*");
+		//System.out.println("+++++++++++++++++++++++++++当前用户sessionid"+request.getSession().getId());
 		//获得订单编号
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 		String ord_code =sdf.format(new Date())+(new Random().nextInt(900)+100);
@@ -55,8 +58,11 @@ public class AddOrdersController {
 		//format.format(ord_send_time);
 		//==========================取得当前登录用户的用户信息对象
 		Subject currentUser = SecurityUtils.getSubject();
-		User user = (User) currentUser.getPrincipal();
-		int u_id = user.getU_id();
+		//System.out.println("能到这里来吗？");
+		//User user = (User) currentUser.getPrincipal();
+		//System.out.println("从登录用户取得当前用户的信息"+user);
+		int u_id = Integer.parseInt(request.getParameter("u_id"));
+		//System.out.println("+++++++++++++++++++++++++++当前用户id"+u_id);
 		//==========================取得当前登录用户的用户信息对象
 		order.setU_id(u_id);
 		order.setOrd_code(ord_code);
