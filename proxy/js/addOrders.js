@@ -53,12 +53,7 @@ var app = new Vue({
 	
 	//加载接收地址信息数据
 	function loadTimeList() {
-<<<<<<< .mine
-		
-		$.post("http://localhost:8888/QuickRun/queryTime.action",function(result){
-=======
 		$.post(server_url+"queryTime.action",function(result){
->>>>>>> .r206
 			app.rec = result;
 		})
 	}
