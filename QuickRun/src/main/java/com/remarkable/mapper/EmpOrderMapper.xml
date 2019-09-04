@@ -162,9 +162,7 @@
 		left join tb_rec tr on tr.rec_id = tb.rec_id 
 		left join tb_address ta on ta.add_id = tb.add_id 
 		<where> 
-		<if test="1 == 1"> 
-			and tb.ord_state =2  
-		</if> 
+			and (tb.ord_state = 2 or tb.ord_state = 5 or tb.ord_state = 4) 
 		<if test="emp_id != null and emp_id != 0"> 
 			and tb.add_id in (select add_id from tb_address ta left join tb_emp te on te.emp_id = ta.emp_id where te.emp_id = #{emp_id})  
 		</if> 
