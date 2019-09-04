@@ -28,7 +28,7 @@ public interface CenterMapper {
 	 * @param user 用户对象
 	 * @return
 	 */
-	@Update("update tb_user set u_phone=#{u_phone},u_nickname=#{u_nickname},u_sex=#{u_sex},u_birthday=#{u_birthday} where u_id = #{u_id}")
+	@Update("update tb_user set u_nickname=#{u_nickname},u_sex=#{u_sex},u_birthday=#{u_birthday} where u_id = #{u_id}")
 	public Integer updateUser(User user);
 	
 	/**
