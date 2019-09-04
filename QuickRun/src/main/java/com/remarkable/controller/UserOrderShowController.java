@@ -3,6 +3,8 @@ package com.remarkable.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,6 @@ public class UserOrderShowController {
 	@Autowired
 	private IUserOrderShowService userOrderShowServiceImpl;
 	
-	
-	
 	/**
 	 * 根据用户ID,订单编号，订单状态查询订单信息 
 	 * @param u_id
@@ -37,16 +37,12 @@ public class UserOrderShowController {
 	 */
 	@RequestMapping("/selectorderbyuid.action")
 	@ResponseBody
-	public List<Order> findOrderByUid(String ord_code) {
+	public List<Order> findOrderByUid(String ord_code,HttpServletRequest request) {
 		System.err.println("订单编号========="+ord_code);
-		//==========================取得当前登录用户的用户信息对象
-		Subject currentUser = SecurityUtils.getSubject();
-		User user = (User) currentUser.getPrincipal();
-		System.out.println("1111111111111111111111111当前用户信息"+user.toString());
-		//==========================取得当前登录用户的用户信息对象
+		int u_id = Integer.parseInt(request.getParameter("u_id"));
 		List<Order> orderList=new ArrayList<Order>();
 		//--------------------------------------------------得到当前用户id
-		orderList = userOrderShowServiceImpl.findOrderByUid(user.getU_id(),ord_code);
+		orderList = userOrderShowServiceImpl.findOrderByUid(u_id,ord_code);
 		for (Order order : orderList) {
 			System.out.println(order);
 		}
