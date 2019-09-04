@@ -17,7 +17,7 @@ import com.remarkable.entity.User;
 import com.remarkable.service.ILoginService;
 
 @Controller
-@CrossOrigin(origins = {"*", "null"})
+@CrossOrigin(origins={"*","null"})
 public class LoginController {
 
 	@Autowired
@@ -32,9 +32,10 @@ public class LoginController {
 		try {
 			currentUser.login(token);
 			User user = (User) currentUser.getPrincipal();
+			//System.out.println("当前登录账号的id"+user.getU_id());
 			//获取当前用户的id，并且传递到前端
-			System.out.println("这是当前登录账号的用户========="+user);
-			session.setAttribute("user", user);
+			//System.out.println("这是当前登录账号的用户========="+user);
+			/*session.setAttribute("user", user);*/
 			return 1;
 		}catch(AuthenticationException ae) {
 			System.out.println("登录失败："+ae.getMessage());
@@ -44,9 +45,11 @@ public class LoginController {
 	
 	@RequestMapping("/getUser.action")
 	public @ResponseBody User getUser(HttpSession session) {
-		User user = (User) session.getAttribute("user");
-		System.out.println("sessionid ============== "+session.getId());
-		System.out.println("user  : " + user);
+		Subject currentUser = SecurityUtils.getSubject();
+		User user = (User) currentUser.getPrincipal();
+		int u_id = user.getU_id();
+		//System.out.println("当前用户的u_id+++++++++++"+u_id);
+		//System.out.println("user  : " + user);
 		return user;
 	}
 	
