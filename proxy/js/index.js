@@ -1,3 +1,6 @@
+/**
+ * 首页横向滚动框
+ */
 window.onload=function(){
 		var oDiv  =  document.getElementById('div1');
 		var oUl = document.getElementsByTagName('ul')[0];
@@ -9,7 +12,6 @@ window.onload=function(){
 		//主方法
 		function move(){
 			//如果左边横向滚动了长度一半之后,回到初始位置
-			
 			if(oUl.offsetLeft<-oUl.offsetWidth/speed){
 				oUl.style.left = '0'
 			}

@@ -1,4 +1,7 @@
-	var app = new Vue({
+/**
+ * 显示快递信息
+ */
+var app = new Vue({
 		el: "#userorder_app",
 		data: {
 			list: {},
@@ -27,7 +30,7 @@
 	function deleteUserOrder(ord_code){
 		window.$$ = window.Zepto = Zepto;
 		$$.confirm('确定删除【'+ord_code+'】吗?', function () {
-		 $.post("http://127.0.0.1:8888/QuickRun/deleteUserOrder.action",{"ord_code":ord_code},function(result){
+		 $.post(server_url+"deleteUserOrder.action",{"ord_code":ord_code},function(result){
 		 	if(result != 0){
 			        $$.alert('已删除');
 					loadOrderList();
@@ -39,6 +42,7 @@
 		});
 	}
 	
+	//投诉
 	function complaint(ord_code){
 		window.location.href="compaint.html?ord_code="+ord_code;
 	}
@@ -60,7 +64,7 @@
 	function oversend(ord_code){
 		window.$$ = window.Zepto = Zepto;
 		$$.confirm('确定完成【'+ord_code+'】吗?', function () {
-		 $.post("http://127.0.0.1:8888/QuickRun/overSendOrder.action",{"ord_code":ord_code},function(result){
+		 $.post(server_url+"overSendOrder.action",{"ord_code":ord_code},function(result){
 		 	if(result != 0){
 			        $$.alert('已完成');
 					loadOrderList();
@@ -75,7 +79,7 @@
 	//加载订单数据
 	function loadOrderList() {
 		var ord_code = $("#code").val();
-		$.post("http://127.0.0.1:8888/QuickRun/selectorderbyuid.action",{"ord_code":ord_code},function(result){
+		$.post(server_url+"selectorderbyuid.action",{"ord_code":ord_code},function(result){
 			var data=result.ord_send_time;
 			app.list= result;
 			console.log(result)
