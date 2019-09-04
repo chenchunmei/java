@@ -40,6 +40,7 @@ layui.use(['form', 'layedit', 'upload'], function(){
 	}
 
 	$("#back").click(function() {
+		alert();
 		window.history.back(-1);
 	})
 
