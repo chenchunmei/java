@@ -21,6 +21,9 @@ public class MyRealm extends AuthenticatingRealm {
 	@Autowired
 	private LoginMapper loginMapper;
 	
+	/**
+	 * 登录认证
+	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
@@ -38,7 +41,7 @@ public class MyRealm extends AuthenticatingRealm {
 		
 		//6.根据用户的情况，来构建AuthenticationInfo 对象并返回
 		if(user != null) {
-			SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user.getU_phone(),user.getU_pwd(),"myRealm");
+			SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user,user.getU_pwd(),"myRealm");
 			return info;
 		}
 		return null;
