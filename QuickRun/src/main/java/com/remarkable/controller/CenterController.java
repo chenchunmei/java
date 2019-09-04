@@ -12,11 +12,14 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -47,7 +50,6 @@ public class CenterController {
 	public Integer updateUser(User user,HttpServletResponse res) {
 		//设置跨域问题可以允许跨域
 		res.setHeader("Access-Control-Allow-Origin", "*");
-		user.setU_id(1);
 		Integer count = centerServiceImpl.updateUser(user);
 		//返回是否修改成功
 		return count;
@@ -112,8 +114,9 @@ public class CenterController {
 	 * @return 返回images对象
 	 */
 	@RequestMapping("/showUser.action")
-	public @ResponseBody Images showUser(HttpServletRequest request){
-		int u_id =1;
+	public @ResponseBody Images showUser(@RequestParam("u_id")Integer u_id,HttpServletRequest request){
+		System.out.println("---"+u_id);
+		//int u_id =1;
 		Images images=centerServiceImpl.findImagesByid(u_id);
 		SimpleDateFormat format =new SimpleDateFormat("yyyy-MM-dd");
 		return images;
