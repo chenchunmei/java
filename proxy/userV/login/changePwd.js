@@ -1,10 +1,11 @@
 $(function(){
 	window.$$=window.Zepto = Zepto
 	$("#res-btn").click(function(){
-		//window.$$ = window.Zepto = Zepto;
+		//取得用户的id和密码
 		var u_id=current_id;
 		var oldpassword=$("#oldpassword").val();
 		var newpassword=$("#newpassword").val();
+		//json数据传输
 		var user={
 			"u_id":u_id,
 			"u_pwd":newpassword,
