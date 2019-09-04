@@ -86,9 +86,7 @@ public class CenterController {
 			images.setIma_address(realFileName);
 			//===============
 			int u_id = Integer.parseInt(request.getParameter("u_id"));
-			System.out.println(u_id+"hhahhhahhahhahahha");
 			images.setU_id(u_id);
-			System.out.println(map.get("data"));
 			//调用service层上传图片的方法
 			centerServiceImpl.judgeInsertImages(images, 1);
 		}catch(Exception e){
@@ -151,7 +149,6 @@ public class CenterController {
 	@ResponseBody
 	public Integer insertComplaint(String ord_complaint,String ord_code,HttpServletResponse res){
 		//res.setHeader("Access-Control-Allow-Origin", "*");
-		System.out.println("=========================================");
 		System.out.println(ord_complaint);
 		Integer emp_id =2;
 		return centerServiceImpl.insertCompaint(ord_complaint, ord_code,emp_id);

@@ -3,7 +3,9 @@ package com.remarkable.mapper;
 import java.util.Set;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.remarkable.entity.User;
@@ -39,6 +41,18 @@ public interface LoginMapper {
 	 */
 	@Select("select p.permission_name from tb_permission p,tb_user u where u_phone = '#{0}' and u.role_id = p.role_id ")
 	Set<String> getPerms(String phone);
+	
+	@Select("select u_pwd from tb_user where u_id=#{u_id}")
+	String findPwdById(Integer u_id);
+	
+	/**
+	 * 根据用户名修改账号密码
+	 * @param u_id 用户id
+	 * @param u_pwd用户密码
+	 * @return
+	 */
+	@Update("update tb_user set u_pwd = #{u_pwd} where u_id = #{u_id}")
+	Integer updatePwd(@Param("u_id")Integer u_id,@Param("u_pwd")String u_pwd);
 
 }
 
