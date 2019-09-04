@@ -14,7 +14,7 @@ function txt() {
 function login() {
 	
 	var current_id=localStorage.getItem("current_id");
-	alert(current_id);
+	//alert(current_id);
 	console.log(current_id);
 	
 	var phone = $("#phone").val();
@@ -39,6 +39,7 @@ function login() {
 		xhrFields:{
 	        withCredentials:true
 	    },
+	    crossDomain: true,
 		dataType: "JSON",
 		success: function(result) {
 			
