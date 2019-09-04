@@ -79,7 +79,8 @@ var app = new Vue({
 	//加载订单数据
 	function loadOrderList() {
 		var ord_code = $("#code").val();
-		$.post(server_url+"selectorderbyuid.action",{"ord_code":ord_code},function(result){
+		var u_id = current_id;
+		$.post(server_url+"selectorderbyuid.action",{"ord_code":ord_code,"u_id":u_id},function(result){
 			var data=result.ord_send_time;
 			app.list= result;
 			console.log(result)
