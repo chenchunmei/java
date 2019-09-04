@@ -15,7 +15,7 @@ $(function(){
 	})
 	
 	function loadList(){
-		$.post("http://127.0.0.1:8888/QuickRun/showEmp.action",function(result){
+		$.post(server_url+"showEmp.action",function(result){
 			app.list = result;
 		});
 	}

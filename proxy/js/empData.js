@@ -18,7 +18,7 @@ $(function(){
 	})
 	
 	function loadList(){
-		$.post("http://127.0.0.1:8888/QuickRun/showEmp.action",function(result){
+		$.post(server_url+"showEmp.action",function(result){
 			var da = result.u_birthday;
 		    da = new Date(da);
 		    var year = da.getFullYear();
@@ -50,7 +50,7 @@ $(function(){
 		}
 		$.ajax({
 			type:"post",
-			url:"http://127.0.0.1:8888/QuickRun/updateEmp.action",
+			url:server_url+"updateEmp.action",
 			data:emp,
 			success:function(data){
 				$$.toast("修改成功");

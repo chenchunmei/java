@@ -21,7 +21,7 @@ layui.use(['form', 'layedit', 'upload'], function(){
 	})
 
 	function loadList() {
-		$.post("http://127.0.0.1:8888/QuickRun/showUser.action", function(result) {
+		$.post(server_url+"showUser.action", function(result) {
 			var da = result.user.u_birthday;  
 			da = new Date(da);  
 			var year = da.getFullYear();  
@@ -56,7 +56,7 @@ layui.use(['form', 'layedit', 'upload'], function(){
 		}
 		$.ajax({
 			type: "post",
-			url: "http://127.0.0.1:8888/QuickRun/updateUser.action",
+			url: server_url+"updateUser.action",
 			data: user,
 			success: function(data) {
 				$$.toast("修改成功");
@@ -73,7 +73,7 @@ layui.use(['form', 'layedit', 'upload'], function(){
 	  //普通图片上传
 	  var uploadInst = upload.render({
 	    elem: '#test1'
-	    ,url: 'http://127.0.0.1:8888/QuickRun/uploadImage.action'
+	    ,url: server_url+'uploadImage.action'
 	    ,before: function(obj){
 	      //预读本地文件示例，不支持ie8
 	      obj.preview(function(index, file, result){

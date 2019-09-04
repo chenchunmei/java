@@ -17,10 +17,10 @@ $(function(){
 	
 	//加载用户信息
 	function loadList(){
-		$.post("http://127.0.0.1:8888/QuickRun/showUser.action",function(result){
+		$.post(server_url+"showUser.action",function(result){
 			app.list = result.user;
 			var srcpath=result.ima_address;
-			var path="http://127.0.0.1:8888/QuickRun/"+srcpath.substr(srcpath.indexOf("upload"))
+			var path=server_url+srcpath.substr(srcpath.indexOf("upload"))
 			$("#img").attr("src",path)
 		});
 	}
