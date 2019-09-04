@@ -1,10 +1,6 @@
 package com.remarkable.controller;
 
 import java.io.File;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.UUID;
@@ -12,24 +8,18 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver;
 import com.remarkable.entity.Emp;
 import com.remarkable.entity.Images;
 import com.remarkable.entity.User;
 import com.remarkable.service.ICenterService;
-import com.remarkable.service.impl.CenterServiceImpl;
 
 /**
  * 个人中心的控器类
@@ -47,9 +37,8 @@ public class CenterController {
 	//修改用户信息
 	@RequestMapping("/updateUser.action")
 	@ResponseBody
-	public Integer updateUser(User user,HttpServletResponse res) {
+	public Integer updateUser(User user) {
 		//设置跨域问题可以允许跨域
-		res.setHeader("Access-Control-Allow-Origin", "*");
 		Integer count = centerServiceImpl.updateUser(user);
 		//返回是否修改成功
 		return count;
@@ -96,7 +85,9 @@ public class CenterController {
 			Images images = new Images();
 			images.setIma_address(realFileName);
 			//===============
-			images.setU_id(1);
+			int u_id = Integer.parseInt(request.getParameter("u_id"));
+			System.out.println(u_id+"hhahhhahhahhahahha");
+			images.setU_id(u_id);
 			System.out.println(map.get("data"));
 			//调用service层上传图片的方法
 			centerServiceImpl.judgeInsertImages(images, 1);
@@ -114,11 +105,9 @@ public class CenterController {
 	 * @return 返回images对象
 	 */
 	@RequestMapping("/showUser.action")
-	public @ResponseBody Images showUser(@RequestParam("u_id")Integer u_id,HttpServletRequest request){
-		System.out.println("---"+u_id);
-		//int u_id =1;
+	public @ResponseBody Images showUser(HttpServletRequest request){
+		int u_id = Integer.parseInt(request.getParameter("u_id"));
 		Images images=centerServiceImpl.findImagesByid(u_id);
-		SimpleDateFormat format =new SimpleDateFormat("yyyy-MM-dd");
 		return images;
 	}
 	
