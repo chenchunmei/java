@@ -53,7 +53,12 @@ var app = new Vue({
 	
 	//加载接收地址信息数据
 	function loadTimeList() {
+<<<<<<< .mine
+		
+		$.post("http://localhost:8888/QuickRun/queryTime.action",function(result){
+=======
 		$.post(server_url+"queryTime.action",function(result){
+>>>>>>> .r206
 			app.rec = result;
 		})
 	}
@@ -61,6 +66,7 @@ var app = new Vue({
 	//添加发单信息
 	$("#sendOrder").click(function() {
 		//取值
+		var u_id =current_id;
 		var ord_rec_name = $("#ord_rec_name").val();
 		var ord_pick_code = $("#ord_pick_code").val();
 		var ord_phone = $("#ord_phone").val();
@@ -70,6 +76,7 @@ var app = new Vue({
 		var rec_id = $("#rec_id").val();
 		var ord_remark = $("#ord_remark").val();
 		var orders = {
+			"u_id":current_id,
 			"ord_rec_name": ord_rec_name,
 			"ord_pick_code": ord_pick_code,
 			"ord_phone": ord_phone,
@@ -83,7 +90,12 @@ var app = new Vue({
 		$.ajax({
 			type: "POST",
 			url: server_url+"insert.action",
-			data: orders,
+			data: orders, 
+			/*用于跨域处理*/
+			xhrFields:{
+		        withCredentials:true
+		    },
+		    crossDomain: true,
 			success: function(data) {
 				window.$$ = window.Zepto = Zepto;
 				$$.toast("发布成功");
