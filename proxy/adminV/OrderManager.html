@@ -17,7 +17,7 @@
 		<!--
 		<script type="text/javascript" src="js/ajaxutil.js"></script>
 		-->
-		<script type="text/javascript" src="CompanyManager.js"></script>
+		<script type="text/javascript" src="OrderManager.js"></script>
 	</head>
 
 	<body>
@@ -36,7 +36,10 @@
 							<div class="layui-card-body ">
 								<form class="layui-form layui-col-space5">
 									<div class="layui-inline layui-show-xs-block">
-										<input type="text" value="" placeholder="请输入公司名" autocomplete="off" class="layui-input com_name">
+										<input type="text" value="" placeholder="请输入订单编号" autocomplete="off" class="layui-input ord_code">
+									</div>
+									<div class="layui-inline layui-show-xs-block">
+										<input type="text" value="" placeholder="请输入取件人姓名" autocomplete="off" class="layui-input ord_rec_name">
 									</div>
 									<div class="layui-inline layui-show-xs-block">
 										<button class="layui-btn search_btn" type="button"  lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
@@ -51,44 +54,57 @@
 							<div class="layui-card-body ">
 								<table class="layui-table layui-form">
 									<colgroup>
-										<col width="25%">
-										<col width="25%">
-										<col width="25%">
-										<col width="25%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="20%">
 									</colgroup>
 									<thead>
 										<tr>
-											<th>公司ID</th>
-											<th>公司名字</th>
-											<th>公司状态</th>										
+											<th>订单编号</th>
+											<th>发布时间</th>
+											<th>取货码</th>										
+											<th>联系电话</th>
+											<th>取件人姓名</th>
+											<th>包裹重量</th>
+											<th>订单状态</th>										
 											<th>操作栏</th>
 										</tr>
 									</thead>
 									<tbody>
+										<!--
+                                        	ord_code,ord_send_time,ord_pick_code,Ord_phone,ord_rec_name, "+ " ord_wight,ord_state
+                                        -->
 										<template v-for="list in list">
 											<tr>
-												<td>{{list.com_id}}</td>
-												<td>{{list.com_name}}</td>
+												<td>{{list.ord_code}}</td>
+												<td>{{list.ord_send_time}}</td>
+												<td>{{list.ord_pick_code}}</td>
+												<td>{{list.ord_phone}}</td>
+												<td>{{list.ord_rec_name}}</td>
+												<td>{{list.ord_wight}}</td>											
 												<td>
-													<span v-if="list.add_state==0">该公司正常营业</span>
-													<span v-if="list.add_state==1">该公司暂停营业</span>
+													<span v-if="list.ord_state==0">该快递暂无骑手接</span>
+													<span v-if="list.ord_state==1">该快递骑手未送达</span>
+													<span v-if="list.ord_state==2">该快递骑手送达</span>
 												</td>
 												<td>
 													<i>&nbsp;&nbsp;</i>
-													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-normal" @click="showCompanycontent(list.com_id)">
+													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-normal" @click="showOrdercontent(list.ord_code)">
 													<i class="layui-icon layui-icon-list"></i>查看</a>
 													<i>&nbsp;&nbsp;</i>
-													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-warm" @click="addCompany()">
-													<i class="layui-icon layui-icon-add-1"></i>添加</a>
-													<i>&nbsp;&nbsp;</i>
-													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-warm" @click="updateCompany(list.com_id)">
-													<i class="layui-icon layui-icon-add-1"></i>修改</a>
-													<i>&nbsp;&nbsp;</i>
-													<a v-if="list.add_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockComoanyState(list.com_id,list.add_state)"><i class="layui-icon"></i>
-													{{list.add_state==0?"打烊":"营业"}}</a>
-													<a v-if="list.add_state==1" class='layui-btn layui-btn-mini layui-btn-danger' @click="lockComoanyState(list.com_id,list.add_state)"><i class="layui-icon"></i>
-													{{list.add_state==0?"打烊":"营业"}}</a>
-													<a href="javascript:void(0)" title="删除" @click="deleteCompany(list.com_id)" id="deletCompany" :com_id="list.com_id" class="">
+													<!--
+														<a v-if="list.ord_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockOrderState(list.ord_code,list.ord_state)"><i class="layui-icon"></i>
+													{{list.ord_state==0?"快递未接":"快递配送中"}}</a>
+													<a v-if="list.aord_state==1" class='layui-btn layui-btn-mini layui-btn-danger' @click="lockOrderState(list.ord_code,list.ord_state)"><i class="layui-icon"></i>
+													{{list.ord_state==0?"快递未接":"快递配送中"}}</a>
+													 -->
+													<a href="javascript:void(0)" title="删除" @click="deleteOrder(list.ord_code)" id="deletOrder" :ord_code="list.ord_code" class="">
 													<i class="layui-icon">&nbsp;&nbsp;&nbsp;&nbsp;&#xe640;</i></a>
 												</td>
 												</td>
