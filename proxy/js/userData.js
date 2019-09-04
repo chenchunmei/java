@@ -22,7 +22,6 @@ layui.use(['form', 'layedit', 'upload'], function(){
 
 	function loadList() {
 		var u_id = current_id;
-		alert(u_id);
 		$.post("http://127.0.0.1:8888/QuickRun/showUser.action",{"u_id":u_id}, function(result) {
 			var da = result.user.u_birthday;  
 			da = new Date(da);  
@@ -37,7 +36,6 @@ layui.use(['form', 'layedit', 'upload'], function(){
 			result.u_birthday = time;
 			$("#u_birthday").val(time);
 			app.user = result.user;
-			console.log(result)
 		})
 	}
 

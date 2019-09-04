@@ -17,14 +17,11 @@ $(function(){
 	
 	function loadList(){
 		var u_id=current_id;
-		alert(u_id);
 		$.post(server_url+"showUser.action",{"u_id":u_id},function(result){
-			console.log(result)
 			app.list = result.user;
 			var srcpath=result.ima_address;
 			var path="http://127.0.0.1:8888/QuickRun/"+srcpath.substr(srcpath.indexOf("upload"))
 			$("#img").attr("src",path)
-			console.log(result)
 		});
 	}
 		
