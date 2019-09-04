@@ -17,6 +17,7 @@ $(function(){
 	
 	//加载用户信息
 	function loadList(){
+		alert();
 		$.post(server_url+"showUser.action",function(result){
 			app.list = result.user;
 			var srcpath=result.ima_address;
