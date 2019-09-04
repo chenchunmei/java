@@ -39,4 +39,12 @@ public interface ILoginService {
 	 * @return
 	 */
 	Set<String> getPerms(String phone);
+	
+	/**
+	 * 根据用户Id修改用户密码
+	 * @param u_id
+	 * @param u_pwd
+	 * @return
+	 */
+	Integer updatePwd(Integer u_id,String u_pwd,String u_oldPwd);
 }
