@@ -42,6 +42,7 @@ public class UserOrderShowController {
 		//==========================取得当前登录用户的用户信息对象
 		Subject currentUser = SecurityUtils.getSubject();
 		User user = (User) currentUser.getPrincipal();
+		System.out.println("1111111111111111111111111当前用户信息"+user.toString());
 		//==========================取得当前登录用户的用户信息对象
 		List<Order> orderList=new ArrayList<Order>();
 		//--------------------------------------------------得到当前用户id
