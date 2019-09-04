@@ -1,5 +1,6 @@
 package com.remarkable.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
@@ -63,6 +64,16 @@ public class LoginController {
 		}else {//注册成功
 			return 1;
 		}
+	}
+	
+	@RequestMapping("/updatePwd")
+	@ResponseBody
+	public Integer updatePwd(@RequestParam("u_id")Integer u_id,@RequestParam("u_pwd")String u_pwd,@RequestParam("u_oldPwd")String u_oldPwd,HttpServletResponse res){
+		//跨域设置
+		res.setHeader("Access-Control-Allow-Origin", "*");
+		Integer count=loginService.updatePwd(u_id, u_pwd,u_oldPwd);
+		//成功返回1 失败返回0，用于前端提示用户信息
+		return count;
 	}
 }
 
