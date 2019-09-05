@@ -60,6 +60,11 @@ public class CompanyManagerServiceImpl implements ICompanyManagerService{
 	@Override
 	public void insertCompany(Company company) {
 		cmm.insertCompany(company);		
+	}
+
+	@Override
+	public int updateCompany(Company company) {
+		return cmm.updateCompany(company);
 	} 
 	
 }

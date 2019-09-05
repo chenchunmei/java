@@ -1,5 +1,4 @@
 package com.remarkable.service;
-import org.apache.ibatis.annotations.Param;
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Company;
 
@@ -18,6 +17,8 @@ public interface ICompanyManagerService {
 	Company selectCompanyById(Integer com_id);
 	
 	public void insertCompany(Company company);
+	
+	int updateCompany(Company company);
 	
 
 }
