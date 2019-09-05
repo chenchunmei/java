@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.remarkable.entity.Emp;
@@ -51,7 +52,6 @@ public class EmpOrderController {
 	 */
 	@RequestMapping("/orderEmpNo.action")
 	public @ResponseBody List<Order> findNoOrderAndEmpAll(Order order){
-		order.setEmp_id(1);
 		List<Order> orderList = empOrderServiceImpl.findNoOrderAndEmpAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
@@ -66,7 +66,6 @@ public class EmpOrderController {
 	 */
 	@RequestMapping("/orderEmp.action")
 	public @ResponseBody List<Order> findOrderAndEmpAll(Order order){
-		order.setEmp_id(1);
 		List<Order> orderList = empOrderServiceImpl.findOrderAndEmpAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
@@ -81,7 +80,6 @@ public class EmpOrderController {
 	 */
 	@RequestMapping("/orderForwardSend.action")
 	public @ResponseBody List<Order> findSendOrderByForward(Order order){
-		order.setEmp_id(1);
 		List<Order> orderList = empOrderServiceImpl.findSendOrderByForward(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
@@ -95,7 +93,6 @@ public class EmpOrderController {
 	 */
 	@RequestMapping("/orderForwardPut.action")
 	public @ResponseBody List<Order> findPutOrderByForward(Order order){
-		order.setOrd_forward(1);
 		List<Order> orderList = empOrderServiceImpl.findPutOrderByForward(order.getOrd_forward(), order.getOrd_code(), order.getCom_id());
 		return orderList;
 	}
@@ -140,7 +137,6 @@ public class EmpOrderController {
 	 */
 	@RequestMapping("/findEmpAll.action")
 	public @ResponseBody List<Emp> findEmpAll(Emp emp){
-		emp.setEmp_id(1);
 		List<Emp> empList = empOrderServiceImpl.findEmpAll(emp.getEmp_id());
 		return empList;
 	}
