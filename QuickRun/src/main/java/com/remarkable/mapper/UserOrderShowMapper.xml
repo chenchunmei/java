@@ -124,6 +124,7 @@
 			  	and ord_code like #{ord_code}
 			</if>
 		</where>
+		order by o.ord_send_time desc
 	</select>
 </mapper>
 	
