@@ -1,4 +1,4 @@
-var times = 10;
+/*var times = 10;
 
 function roof() {
 	if(times == 0) {
@@ -18,12 +18,12 @@ $('.yanzhengma').on('click', function() {
 	$(this).prop('disabled', true);
 	roof();
 
-});
+});*/
 
 
 $('#res-btn').on('click', function() {
 	var phone = $('.phone').val();
-	var code = $('.yanzheng').val();
+	/*var code = $('.yanzheng').val();*/
 	var pwd = $('.pwd').val();
 	var repeatpwd = $('.repeatpwd').val();
 	if(phone.length!=11) {
@@ -32,11 +32,11 @@ $('#res-btn').on('click', function() {
 		document.querySelector('.phone').placeholder = '请填写11位的手机号码';
 		return
 	}
-	if(!code) {
+	/*if(!code) {
 		$('.yanzheng').focus();
 		document.querySelector('.yanzheng').placeholder = '请填写验证码';
 		return
-	}
+	}*/
 	if(!pwd) {
 		$('.pwd').focus();
 		document.querySelector('.pwd').placeholder = '请填写密码';
