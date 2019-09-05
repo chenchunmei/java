@@ -1,0 +1,74 @@
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>骑手添加</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="stylesheet" href="css/font.css">
+        <link rel="stylesheet" href="css/xadmin.css">
+        <script type="text/javascript" src="layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/xadmin.js"></script>     
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="addEmp.js"></script>        
+    </head>
+    <body>        
+        <div class="layui-fluid">
+            <div class="layui-row">
+		<div id="addEmp_app">
+			<div class="layui-form" style="width:80%;">
+				<div class="layui-form-item">
+					<label class="layui-form-label">骑手姓名</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input emp_name" lay-verify="required|emp_name" placeholder="骑手姓名">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">骑手专业</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input emp_major" lay-verify="required|emp_major" placeholder="骑手专业">
+					</div>
+				</div>		
+				<div class="layui-form-item">
+					<label class="layui-form-label">骑手宿舍</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input emp_dormitory" lay-verify="required|emp_dormitory" placeholder="骑手宿舍">
+					</div>
+				</div>		
+				<div class="layui-form-item">
+					<label class="layui-form-label">骑手学号</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input emp_sno" lay-verify="required|emp_sno" placeholder="骑手学号">
+					</div>
+				</div>		
+				<div class="layui-form-item">
+					<label class="layui-form-label">骑手信誉分</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input emp_credit" lay-verify="required|emp_credit" placeholder="骑手信誉分">
+					</div>
+				</div>		
+				<div class="layui-form-item">
+					<label class="layui-form-label">骑手联系电话</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input emp_phone" lay-verify="required|emp_phone" placeholder="骑手联系电话">
+					</div>
+				</div>		
+				<div class="layui-form-item">
+				    <label class="layui-form-label">骑手状态</label>
+					    <div class="layui-input-block">
+					      <select name="emp_state" class="emp_state" lay-verify="required">
+					        <option value="0">正常</option>
+					        <option value="1">停用</option>
+					      </select>
+					    </div>
+  				</div>
+				<div class="layui-form-item">
+				    <div class="layui-input-block">
+				      <button class="layui-btn" lay-submit lay-filter="addEmp">立即提交</button>
+				    </div>
+				</div>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>
