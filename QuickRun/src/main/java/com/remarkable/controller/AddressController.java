@@ -32,7 +32,6 @@ public class AddressController {
 	 */
 	@RequestMapping("/addressEmp.action")
 	public @ResponseBody List<Address> findAddressByEmpId(Emp emp){
-		emp.setEmp_id(1);
 		List<Address> addressList = addressServiceImpl.findAddressByEmpId(emp.getEmp_id());
 		return addressList;
 	}
