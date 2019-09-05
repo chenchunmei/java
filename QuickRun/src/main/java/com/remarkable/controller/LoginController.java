@@ -109,10 +109,8 @@ public class LoginController {
 	
 	@RequestMapping("/returnPwd.action")
 	@ResponseBody
-	public Integer returnPwd(@RequestParam("u_id")Integer u_id,@RequestParam("phone")String phone,@RequestParam("repeatmima")String repeatmima,HttpServletResponse res){
-		//跨域设置
-		res.setHeader("Access-Control-Allow-Origin", "*");
-		Integer count=loginService.returnPwd(phone,repeatmima);
+	public Integer returnPwd(@RequestParam("phone")String phone,@RequestParam("repeatpwd")String repeatpwd){
+		Integer count=loginService.returnPwd(phone,repeatpwd);
 		//成功返回1 失败返回0，用于前端提示用户信息
 		return count;
 	}
