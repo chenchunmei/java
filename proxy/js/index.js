@@ -33,3 +33,4 @@ window.onload=function(){
 			 timer = setInterval(move,30)
 		}
 	}
+
