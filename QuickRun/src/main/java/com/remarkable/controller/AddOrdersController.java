@@ -58,11 +58,8 @@ public class AddOrdersController {
 		//format.format(ord_send_time);
 		//==========================取得当前登录用户的用户信息对象
 		Subject currentUser = SecurityUtils.getSubject();
-		//System.out.println("能到这里来吗？");
 		//User user = (User) currentUser.getPrincipal();
-		//System.out.println("从登录用户取得当前用户的信息"+user);
 		int u_id = Integer.parseInt(request.getParameter("u_id"));
-		//System.out.println("+++++++++++++++++++++++++++当前用户id"+u_id);
 		//==========================取得当前登录用户的用户信息对象
 		order.setU_id(u_id);
 		order.setOrd_code(ord_code);
