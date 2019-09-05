@@ -47,16 +47,16 @@
 				    <div class="tabs">
 				      <div id="tab1" class="tab active">
 				      	<!--搜索-->
-						    <div class="searchbar row">
-							    <div class="search-input col-85" style="margin-top: 6px;">
+						    <div class="searchbar row" style="margin-top:-30px;margin-left: -1px;">
+							    <div class="search-input col-80" >
 							      <input type="search" id="search1" placeholder="输入订单编号"/>
 							    </div>
-							   	 <a class="button button-fill button-primary col-15" id="searchbtn1" ><span class="icon icon-search"></span></a>
+							   	 <a class="button button-fill button-primary col-15" id="searchbtn1" style="margin-left: 23px;"><span class="icon icon-search"></span></a>
 							 	</div>
 							  <!---->
 							  <!--分类-->
 					 			<div class="content-block">
-							    <div class="content-block-title" style="margin-top:-35px ;"></div>
+							    <div class="content-block-title" style="margin-top:-44px ;"></div>
 						      <div class="list-block">
 						        <ul>
 						          <li>
@@ -91,12 +91,18 @@
 							          </div>
 							          <div class="card-footer">
 									        <div class="content-block">
-											    	<button v-if="order.ord_state==3" class="button button-fill button-danger" @click="delivery(order.ord_id)">确认送达</button>
-											    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
-											    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
-											    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
-											    	<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
-													</div>
+									        	<div class="row">
+									        		<div class="col-30">
+													    	<button v-if="order.ord_state==3" class="button button-fill button-danger" @click="delivery(order.ord_id)">确认送达</button>
+													    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
+													    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
+													    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
+												    	</div>
+												    	<div class="col-30" style="margin-left: 10px;">
+												    		<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
+															</div>
+												    </div>
+									        </div>
 							          </div>
 					        		</li>
 					      		</ul>
@@ -107,16 +113,16 @@
 				      
 				      <div id="tab2" class="tab">
 				      	<!--搜索-->
-						    <div class="searchbar row">
-							    <div class="search-input col-85" style="margin-top: 6px;">
+						    <div class="searchbar row" style="margin-top:-30px;margin-left: -1px;">
+							    <div class="search-input col-80">
 							      <input type="search" id="search2" placeholder="输入订单编号"/>
 							    </div>
-							   	 <a class="button button-fill button-primary col-15" id="searchbtn2" ><span class="icon icon-search"></span></a>
+							   	 <a class="button button-fill button-primary col-15" id="searchbtn2" style="margin-left: 23px;"><span class="icon icon-search"></span></a>
 							 	</div>
 							  <!---->
 				      	<!--分类-->
 					 			<div class="content-block">
-							    <div class="content-block-title" style="margin-top:-35px ;"></div>
+							    <div class="content-block-title" style="margin-top:-44px ;"></div>
 						      <div class="list-block">
 						        <ul>
 						          <li>
@@ -169,11 +175,17 @@
 							          </div>
 							          <div class="card-footer">
 									        <div class="content-block">
-									        	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">未送达</button>
-											    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
-											    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
-											    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
-											    	<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
+									        	<div class="row">
+									        		<div class="col-30">
+									        			<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">未送达</button>
+													    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
+													    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
+													    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
+									        		</div>
+									        		<div class="col-30" style="margin-left: 10px;">
+									        			<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
+									        		</div>
+									        	</div>
 													</div>
 							          </div>
 					        		</li>
@@ -191,8 +203,11 @@
 			  <div class="content-block">
 			    <div class="page page-current">
 		       	<header class="bar bar-nav">
-		       		<a href="#" class="close-popup">返回</a>
-				    	<h1 class="title">订单详情</h1>
+		       		<a class="button button-link button-nav pull-left close-popup">
+						    <span class="icon icon-left"></span>
+						           返回
+					    </a>
+	       			<h1 class="title" style="margin-top: 0px;">订单详情</h1>
 				  	</header>
 					 	<div class="content">
 					    <div class="list-block cards-list">
