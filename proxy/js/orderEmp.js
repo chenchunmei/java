@@ -40,6 +40,7 @@
 	var addressMap = {};
 	//加载全部订单信息
 	function orderList(){
+		alert(localStorage.getItem("emp_id")) 
 		//订单编号
 		var ord_code=null;
 		var search1=$("#search1").val();
@@ -67,7 +68,7 @@
 		//Ajax
 		$.post(server_url+"orderEmpAll.action",order1,function(result){
 			app.list = result;
-		})
+		},"jsonp")
 	}
 	
 	//加载未送达订单信息
