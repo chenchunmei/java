@@ -40,12 +40,15 @@
 	var addressMap = {};
 	//加载全部订单信息
 	function orderList(){
-		alert(localStorage.getItem("emp_id")) 
+		//骑手id
+		var emp_id = localStorage.getItem("emp_id");
 		//订单编号
 		var ord_code=null;
 		var search1=$("#search1").val();
 		if(search1 != null && search1 != ''){
+			
 			ord_code="%"+search1+"%";
+			alert(ord_code);
 		}
 		//公司id
 		var com_id=0;
@@ -61,6 +64,7 @@
 		}
 		//用JSON格式传送后端
 		var order1 = {
+			"emp_id":emp_id,
 			"ord_code":ord_code,
 			"com_id":com_id,
 			"add_id":add_id
@@ -68,11 +72,13 @@
 		//Ajax
 		$.post(server_url+"orderEmpAll.action",order1,function(result){
 			app.list = result;
-		},"jsonp")
+		})
 	}
 	
 	//加载未送达订单信息
 	function orderListNo(){
+		//骑手id
+		var emp_id = localStorage.getItem("emp_id");
 		//订单编号
 		var ord_code=null;
 		var search2=$("#search2").val();
@@ -93,6 +99,7 @@
 		}
 		//用JSON格式传送后端
 		var order2 = {
+			"emp_id":emp_id,
 			"ord_code":ord_code,
 			"com_id":com_id,
 			"add_id":add_id
@@ -105,6 +112,8 @@
 	
 	//加载已送达订单信息
 	function orderListYes(){
+		//骑手id
+		var emp_id = localStorage.getItem("emp_id");
 		//订单编号
 		var ord_code=null;
 		var search3=$("#search3").val();
@@ -125,6 +134,7 @@
 		}
 		//用JSON格式传送后端
 		var order3 = {
+			"emp_id":emp_id,
 			"ord_code":ord_code,
 			"com_id":com_id,
 			"add_id":add_id
@@ -209,7 +219,10 @@
 	
 	//转交
 	function forward(ord_id){
-		$.post(server_url+"findEmpAll.action",function(result){
+		//骑手id
+		var emp_id = localStorage.getItem("emp_id");
+		//查询所有骑手
+		$.post(server_url+"findEmpAll.action",{"emp_id":emp_id},function(result){
 			//取得后台传过来的数据
 			app.empList = result;
 			var str;

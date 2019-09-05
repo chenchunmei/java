@@ -32,6 +32,8 @@ var app = new Vue({
 	var addressMap = {};
 	//查询骑手收到转交的所有订单
 	function orderPut(){
+		//骑手id
+		var ord_forward = localStorage.getItem("emp_id");
 		//订单编号
 		var ord_code=null;
 		var search1=$("#search1").val();
@@ -52,6 +54,7 @@ var app = new Vue({
 		}
 		//用JSON格式传送后端
 		var order1 = {
+			"ord_forward":ord_forward,
 			"ord_code":ord_code,
 			"com_id":com_id,
 			"add_id":add_id
@@ -64,6 +67,8 @@ var app = new Vue({
 	
 	//查询骑手转交的所有订单
 	function orderSend(){
+		//骑手id
+		var emp_id = localStorage.getItem("emp_id");
 		//订单编号
 		var ord_code=null;
 		var search2=$("#search2").val();
@@ -84,6 +89,7 @@ var app = new Vue({
 		}
 		//用JSON格式传送后端
 		var order2 = {
+			"emp_id":emp_id,
 			"ord_code":ord_code,
 			"com_id":com_id,
 			"add_id":add_id
