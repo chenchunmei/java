@@ -115,17 +115,17 @@
 									        	<div class="row">
 									        		<div class="col-30">
 										        		<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="delivery(order.ord_id)">确认送达</button>
-													    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
+													    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">骑手已送达</button>
 													    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
 													    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
-													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">未送达</button>
+													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">骑手未送达</button>
 												    	</div>
 												    	<div class="col-30" style="margin-left: 10px;">
-													    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="forward(order.ord_id)">转交</button>
-													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">已转交</button>
+													    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="forward(order.ord_id)">转交订单</button>
+													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">订单已转交</button>
 												    	</div>
 												    	<div class="col-30" style="margin-left: 10px;">
-												    		<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
+												    		<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">订单详情</button>
 															</div>
 												    </div>
 									        </div>
@@ -203,17 +203,17 @@
 											    	<div class="row">
 									        		<div class="col-30">
 										        		<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="delivery(order.ord_id)">确认送达</button>
-													    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
+													    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">骑手已送达</button>
 													    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
 													    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
-													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">未送达</button>
+													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">骑手未送达</button>
 												    	</div>
 												    	<div class="col-30" style="margin-left: 10px;">
-													    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="forward(order.ord_id)">转交</button>
-													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">已转交</button>
+													    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="forward(order.ord_id)">转交订单</button>
+													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">订单已转交</button>
 												    	</div>
 												    	<div class="col-30" style="margin-left: 10px;">
-												    		<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
+												    		<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">订单详情</button>
 															</div>
 												    </div>
 													</div>
@@ -291,17 +291,17 @@
 											    	<div class="row">
 									        		<div class="col-30">
 										        		<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="delivery(order.ord_id)">确认送达</button>
-													    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">已送达</button>
+													    	<button v-if="order.ord_state==2" disabled="false" class="button button-fill button-danger">骑手已送达</button>
 													    	<button v-if="order.ord_state==4" disabled="false" class="button button-fill button-danger">客户已确认</button>
 													    	<button v-if="order.ord_state==5" disabled="false" class="button button-fill button-danger">客户已确认</button>
-													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">未送达</button>
+													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">骑手未送达</button>
 												    	</div>
 												    	<div class="col-30" style="margin-left: 10px;">
-													    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="forward(order.ord_id)">转交</button>
-													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">已转交</button>
+													    	<button v-if="order.ord_state==1" class="button button-fill button-danger" @click="forward(order.ord_id)">转交订单</button>
+													    	<button v-if="order.ord_state==3" disabled="false" class="button button-fill button-danger">订单已转交</button>
 												    	</div>
 												    	<div class="col-30" style="margin-left: 10px;">
-												    		<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">详情</button>
+												    		<button class="button button-fill button-success open-about open-popup" data-popup=".popup-about" @click="orderDetail(order.ord_id)">订单详情</button>
 															</div>
 												    </div>
 													</div>
