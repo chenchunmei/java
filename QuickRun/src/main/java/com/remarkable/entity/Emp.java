@@ -12,6 +12,8 @@ public class Emp {
 	private String emp_dormitory;
 	//学号
 	private String emp_sno;
+	//学号
+	private String emp_pwd;
 	//信誉分
 	private int  emp_credit;
 	//联系电话
@@ -19,6 +21,12 @@ public class Emp {
 	//状态
 	private int  emp_state;
 	
+	public String getEmp_pwd() {
+		return emp_pwd;
+	}
+	public void setEmp_pwd(String emp_pwd) {
+		this.emp_pwd = emp_pwd;
+	}
 	public int getEmp_id() {
 		return emp_id;
 	}
