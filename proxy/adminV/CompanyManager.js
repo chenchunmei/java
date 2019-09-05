@@ -24,6 +24,9 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			addCompany: function(){
 				addCompany();
 			},
+			updateCompany: function(com_id){
+				updateCompany(com_id);
+			},
 		},
 		created: function() {
 			//调用加载数据
@@ -138,6 +141,15 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			area: ['500px', '400px'],
 			type: 2,
 			content: "addCompany.html"
+		})
+		
+	}
+	function updateCompany(com_id){
+		var index = layui.layer.open({
+			title: "更新公司",
+			area: ['500px', '400px'],
+			type: 2,
+			content: "upDateCompany.html?com_id="+com_id
 		})
 		
 	}
