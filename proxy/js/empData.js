@@ -41,10 +41,12 @@ $(function(){
 	})
 	
 	$("#update").click(function(){
+		var emp_id=localStorage.getItem("emp_id");
 		var emp_dormitory = $("#emp_dormitory").val();
 		var emp_phone = $("#emp_phone").val();
 		var u_birthday = $("#u_birthday").val();
 		var emp={
+				"emp_id":emp_id,
 				"emp_dormitory":emp_dormitory,
 				"emp_phone": emp_phone
 		}

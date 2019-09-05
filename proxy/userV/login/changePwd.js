@@ -7,6 +7,8 @@ $(function() {
 		var u_id = current_id;
 		var oldpassword = $("#oldpassword").val();
 		var newpassword = $("#newpassword").val();
+		var emp_id=localStorage.getItem("emp_id");
+		alert(emp_id);
 		//json数据传输
 		var user = {
 			"u_id": u_id,
@@ -15,6 +17,7 @@ $(function() {
 		}
 
 		var emp = {
+			"emp_id":emp_id,
 			"emp_pwd": newpassword,
 			"emp_oldPwd": oldpassword
 		}

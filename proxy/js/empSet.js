@@ -15,7 +15,8 @@ $(function(){
 	})
 	
 	function loadList(){
-		$.post("http://127.0.0.1:8888/QuickRun/showEmp.action",function(result){
+		var emp_id=localStorage.getItem("emp_id");
+		$.post("http://127.0.0.1:8888/QuickRun/showEmp.action",{"emp_id":emp_id},function(result){
 			app.list = result;
 		});
 	}
