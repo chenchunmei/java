@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
-import com.remarkable.entity.Company;
 import com.remarkable.entity.Emp;
 import com.remarkable.service.IEmpManagerService;
 

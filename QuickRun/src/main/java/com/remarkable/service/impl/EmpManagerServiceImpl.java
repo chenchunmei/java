@@ -43,13 +43,13 @@ public class EmpManagerServiceImpl implements IEmpManagerService {
 
 	@Override
 	public int deleteEmp(Integer emp_id) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return emm.deleteEmp(emp_id);
 	}
 
 	@Override
 	public int updateState(Integer emp_state, String emp_id) {
-		return emm.deleteEmp(emp_id);
+		return emm.updateState(emp_state, emp_id);
 	}
 
 	@Override

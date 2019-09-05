@@ -21,7 +21,7 @@ public interface EmpManagerMapper {
 	
 	@Delete("delete from tb_emp "
 			+ " where emp_id = #{emp_id}")
-	int deleteEmp(@Param("emp_id") String emp_id );
+	int deleteEmp(@Param("emp_id") Integer emp_id );
 	
 	@Update("update tb_emp set emp_state =#{emp_state } where emp_id=#{emp_id}")
 	int updateState(@Param("emp_state") Integer emp_state ,@Param("emp_id") String emp_id);
