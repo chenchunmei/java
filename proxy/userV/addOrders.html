@@ -99,6 +99,7 @@
 										<div class="item-title label">快递公司</div>
 										<div class="item-input">
 											<select id="com_id"  >
+												<option>请选择</option>
 												<template v-for="proxy in list">
 													<option :value="proxy.com_id" >{{proxy.com_name}}</option>
 												</template>
@@ -115,6 +116,7 @@
 										<div class="item-title label">送达地址</div>
 										<div class="item-input">
 											<select id="add_id" >
+												<option>请选择</option>
 												<template v-for="address in over">
 													<option :value="address.add_id">{{address.add_detail}}</option>
 												</template>
@@ -130,7 +132,7 @@
 										 <i class="aui-iconfont aui-icon-pencil"></i>&nbsp;&nbsp;
 										<div class="item-title label">包裹重量(Kg)</div>
 										<div class="item-input">
-											<input type="text" id="ord_wight" placeholder="大概重量">
+											<input type="text" id="ord_wight">
 										</div>
 									</div>
 								</div>
@@ -143,6 +145,7 @@
 										<div class="item-title label">接收时间</div>
 										<div class="item-input">
 											<select id="rec_id" >
+												<option>请选择</option>
 												<template v-for="time in rec">
 													<option :value="time.rec_id">{{time.rec_detail}}</option>
 												</template>
@@ -167,13 +170,12 @@
 						</ul>
 					</div>
 					<div class="content-block">
-						<div class="row">
+						<div class="row"  id="sendOrder">
 							<div class="" id="sendOrder">
 								<a href="#" class="button button-big button-fill button-success" >提交</a>
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</form>
 		</div>

@@ -95,6 +95,7 @@ var app = new Vue({
 			success: function(data) {
 				window.$$ = window.Zepto = Zepto;
 				$$.toast("发布成功");
+				location.reload();
 			}
 		});
 	});
