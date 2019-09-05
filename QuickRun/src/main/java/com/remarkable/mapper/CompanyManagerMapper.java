@@ -1,7 +1,6 @@
 package com.remarkable.mapper;
 
 import java.util.List;
-
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -31,5 +30,9 @@ public interface CompanyManagerMapper {
 	@Insert ("insert into tb_company(com_name,com_content,add_state) "
 			+ " values(#{com_name},#{com_content},#{add_state})")
 	public void insertCompany(Company company);
+	
+	@Update("update tb_company set com_name=#{com_name},com_content=#{com_content},add_state=#{add_state} "
+			+ " where com_id=#{com_id}")
+	int updateCompany(Company company);
 
 }
