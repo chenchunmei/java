@@ -66,12 +66,22 @@ public class LoginController {
 		}
 	}
 	
-	@RequestMapping("/updatePwd")
+	@RequestMapping("/UserUpdatePwd")
 	@ResponseBody
-	public Integer updatePwd(@RequestParam("u_id")Integer u_id,@RequestParam("u_pwd")String u_pwd,@RequestParam("u_oldPwd")String u_oldPwd,HttpServletResponse res){
+	public Integer updateUserPwd(@RequestParam("u_id")Integer u_id,@RequestParam("u_pwd")String u_pwd,@RequestParam("u_oldPwd")String u_oldPwd,HttpServletResponse res){
 		//跨域设置
 		res.setHeader("Access-Control-Allow-Origin", "*");
-		Integer count=loginService.updatePwd(u_id, u_pwd,u_oldPwd);
+		Integer count=loginService.updateUserPwd(u_id, u_pwd,u_oldPwd);
+		//成功返回1 失败返回0，用于前端提示用户信息
+		return count;
+	}
+	
+	@RequestMapping("/EmpUpdatePwd")
+	@ResponseBody
+	public Integer updateEmpPwd(@RequestParam("emp_id")Integer emp_id,@RequestParam("emp_pwd")String emp_pwd,@RequestParam("emp_oldPwd")String emp_oldPwd,HttpServletResponse res){
+		//跨域设置
+		res.setHeader("Access-Control-Allow-Origin", "*");
+		Integer count=loginService.updateEmpPwd(emp_id, emp_pwd,emp_oldPwd);
 		//成功返回1 失败返回0，用于前端提示用户信息
 		return count;
 	}

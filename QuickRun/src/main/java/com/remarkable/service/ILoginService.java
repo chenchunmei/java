@@ -2,6 +2,9 @@ package com.remarkable.service;
 
 import java.util.Set;
 
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
+
 import com.remarkable.entity.User;
 
 /**
@@ -46,5 +49,13 @@ public interface ILoginService {
 	 * @param u_pwd
 	 * @return
 	 */
-	Integer updatePwd(Integer u_id,String u_pwd,String u_oldPwd);
+	Integer updateUserPwd(Integer u_id,String u_pwd,String u_oldPwd);
+	
+	/**
+	 * 修改骑手密码
+	 * @param emp_id 骑手id
+	 * @param emp_pwd 骑手密码
+	 * @return
+	 */
+	Integer updateEmpPwd(Integer emp_id,String emp_pwd,String emp_oldPwd);
 }

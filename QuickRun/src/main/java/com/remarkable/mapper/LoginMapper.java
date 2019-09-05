@@ -42,8 +42,13 @@ public interface LoginMapper {
 	@Select("select p.permission_name from tb_permission p,tb_user u where u_phone = '#{0}' and u.role_id = p.role_id ")
 	Set<String> getPerms(String phone);
 	
+	/**
+	 * 查询用户的原始密码
+	 * @param u_id 用户密码
+	 * @return
+	 */
 	@Select("select u_pwd from tb_user where u_id=#{u_id}")
-	String findPwdById(Integer u_id);
+	String findUserPwdById(Integer u_id);
 	
 	/**
 	 * 根据用户名修改账号密码
@@ -52,7 +57,24 @@ public interface LoginMapper {
 	 * @return
 	 */
 	@Update("update tb_user set u_pwd = #{u_pwd} where u_id = #{u_id}")
-	Integer updatePwd(@Param("u_id")Integer u_id,@Param("u_pwd")String u_pwd);
+	Integer updateUserPwd(@Param("u_id")Integer u_id,@Param("u_pwd")String u_pwd);
+	
+	/**
+	 * 根据骑手id查询骑手的原始密码
+	 * @param emp_id 骑手id
+	 * @return
+	 */
+	@Select("select emp_pwd from tb_emp where emp_id = #{emp_id}")
+	String findEmpPwdById(Integer emp_id);
+	
+	/**
+	 * 修改骑手密码
+	 * @param emp_id 骑手id
+	 * @param emp_pwd 骑手密码
+	 * @return
+	 */
+	@Update("update tb_emp set emp_pwd = #{emp_pwd} where emp_id = #{emp_id}")
+	Integer updateEmpPwd(@Param("emp_id")Integer emp_id,@Param("emp_pwd")String emp_pwd);
 
 }
 

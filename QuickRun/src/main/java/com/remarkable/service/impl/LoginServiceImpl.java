@@ -2,6 +2,7 @@ package com.remarkable.service.impl;
 
 import java.util.Set;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -72,17 +73,36 @@ public class LoginServiceImpl implements ILoginService {
 	 * @param u_pwd
 	 * @return
 	 */
-	public Integer updatePwd(Integer u_id,String u_pwd,String u_oldPwd){
+	public Integer updateUserPwd(Integer u_id,String u_pwd,String u_oldPwd){
 		//原始的密码
-		String old_pwd=loginMapper.findPwdById(u_id);
+		String old_pwd=loginMapper.findUserPwdById(u_id);
 		//对比原始密码和输入的原始密码是否一致
 		if(u_oldPwd.equals(old_pwd)){
 			//一致就将其保存在数据库
-			return loginMapper.updatePwd(u_id,u_pwd);
+			return loginMapper.updateUserPwd(u_id,u_pwd);
 		}else{
 			//不一致就返回0
 			return 0;
 		}
 	}
-
+	
+	/**
+	 * 骑手修改密码
+	 * @param emp_id 骑手id
+	 * @param emp_pwd 骑手新密码
+	 * @param emp_oldPwd 骑手旧密码
+	 * @return
+	 */
+	public Integer updateEmpPwd(Integer emp_id,String emp_pwd,String emp_oldPwd){
+		//原始的密码
+		String old_pwd=loginMapper.findEmpPwdById(emp_id);
+		//对比原始密码和输入的原始密码是否一致
+		if(emp_oldPwd.equals(old_pwd)){
+			//一致就将其保存在数据库
+			return loginMapper.updateEmpPwd(emp_id,emp_pwd);
+		}else{
+			//不一致就返回0
+			return 0;
+		}
+	}
 }
