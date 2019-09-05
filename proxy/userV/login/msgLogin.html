@@ -9,30 +9,30 @@
 		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
 		<meta content="telephone=no" name="format-detection" />
 		<link rel="stylesheet" href="msgLogin.css" />
+		<script type="text/javascript" src="../../js/jquery-3.4.1.js" ></script>
+		<script type="text/javascript" src="msgLogin.js"></script>
 	</head>
 
 	<body>
 
-		<div class="login-logo circle text-center">短信</div>
+		<div class="login-logo circle text-center">EMP</div>
 
 		<form name="forms" onSubmit="return checkreg()" method="post" class="login-cont">
 			<ul>
-				<li><input type="tel" placeholder="请输入您的手机号"></li>
+				<li><input type="text" placeholder="请输入您的学号" name="emp_sno" id="emp_sno"></li>
 				<li>
-					<span id="box"><input type="text" name="message" placeholder="请输入您的短信验证码"></span>
-					<span id="click"><button type="button" class="yanzhengma text-center">发送验证码</button></span>
+					<span id="box"><input type="password" name="pwd" placeholder="请输入您的密码" id="pwd"></span>
+					<!--<span id="click"><button type="button" class="yanzhengma text-center">发送验证码</button></span>-->
 				</li>
 			</ul>
-			<a href="javascript:;" class="button text-center block">登 录</a>
-			<a href="login.html" class="text-center block font-color">账号密码登录</a>
+			<a type="button" class="button text-center block" onclick="loginEmp()">登 录</a>
+			<a href="login.html" class="text-center block font-color">用户登录请点这里</a>
 			<a href="returnPwd.html" class="text-center block font-color">忘记密码？</a>
-			<p class="text-center">没有账号？
+			<!--<p class="text-center">没有账号？
 				<a href="register.html" class="font-color">立即注册</a>
-			</p>
+			</p>-->
 		</form>
 
 	</body>
-	<script type="text/javascript" src="../../js/jquery-3.4.1.js" ></script>
-	<script type="text/javascript" src="msgLogin.js"></script>
 
 </html>

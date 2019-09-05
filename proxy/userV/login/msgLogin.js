@@ -1,41 +1,7 @@
-var times = 10;
-
-function roof() {
-	if(times == 0) {
-		$('.yanzhengma').text('发送验证码(' + times + 's)');
-		$('.yanzhengma').prop('disabled', false);
-		$('.yanzhengma').text('发送验证码');
-		times = 10;
-		return
-	}
-	$('.yanzhengma').text('发送验证码(' + times + 's)');
-	times--;
-
-	setTimeout(roof, 1000);
-}
-$('.yanzhengma').on('click', function() {
-
-	$(this).prop('disabled', true);
-	roof();
-
-});
-
-function ps() {
-	if(this.forms.password.type = "password")
-		box.innerHTML = "<input type=\"html\" name=\"password\" size=\"20\" value=" + this.forms.password.value + ">";
-	click.innerHTML = "<a href=\"javascript:txt()\" class=\"iconfont icon-open-eye\"></a>"
-}
-
-function txt() {
-	if(this.forms.password.type = "text")
-		box.innerHTML = "<input type=\"password\" name=\"password\" size=\"20\" value=" + this.forms.password.value + ">";
-	click.innerHTML = "<a href=\"javascript:ps()\" class=\"iconfont icon-biyan\"></a>"
-}
-
-function login() {
-	var phone = $("#phone").val();
-	if(phone == "") {
-		alert("用手机号不能为空！");
+function loginEmp() {
+	var emp_sno = $("#emp_sno").val();
+	if(emp_sno == "") {
+		alert("手机号不能为空！");
 		return;
 	};
 	var pwd = $("#pwd").val();
@@ -46,16 +12,21 @@ function login() {
 
 	$.ajax({
 		type: "POST",
-		url: "http://127.0.0.1:8888/QuickRun/login.action",
+		url: "http://127.0.0.1:8888/QuickRun/loginEmp.action",
 		data: {
-			phone: phone,
+			emp_sno: emp_sno,
 			pwd: pwd
 		},
+		/*用于跨域处理*/
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
 		dataType: "JSON",
 		success: function(result) {
-			if(result == "1") {
+			if(result != null) {
 				//跳转到成功页面
-				location.href = "../addOrders.html";
+				location.href = "../orderEmp.html";
 			} else {
 				alert("用户名或者密码不正确!");
 			}
