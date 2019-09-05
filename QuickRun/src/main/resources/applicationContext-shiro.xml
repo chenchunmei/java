@@ -41,6 +41,7 @@
                 /user*/**=roles["user"]
                 <!-- 骑手界面要有派送权限才能访问 -->
                 /emp*/**=perms["emp:send"]
+                /userUpdateState11*=anon
             </value>  
         </property>
     </bean>  
