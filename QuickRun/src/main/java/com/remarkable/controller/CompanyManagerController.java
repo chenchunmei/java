@@ -55,4 +55,11 @@ public class CompanyManagerController {
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		cmsi.insertCompany(company);
 	}
+	
+	@RequestMapping("updateCompany.action")
+	public String updateCompanyState(Company company) {
+		cmsi.updateCompany(company);
+		return "company1.action";
+	}
+	
 }
