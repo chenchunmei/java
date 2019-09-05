@@ -17,7 +17,7 @@ import com.remarkable.service.ICompanyService;
  *
  */
 @Controller
-@CrossOrigin(origins = {"*", "null"})
+/*@CrossOrigin(origins = {"*", "null"})*/
 public class CompanyController {
 
 	//调用快递公司服务层

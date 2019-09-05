@@ -12,7 +12,7 @@ import com.remarkable.entity.OrderDatails;
 import com.remarkable.service.IOrderManagerService;
 
 @Controller
-@CrossOrigin(origins={"*","null"})
+/*@CrossOrigin(origins={"*","null"})*/
 public class OrderManagerController {
 	
 	@Autowired

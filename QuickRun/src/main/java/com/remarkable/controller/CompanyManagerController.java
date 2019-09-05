@@ -14,7 +14,7 @@ import com.remarkable.service.ICompanyManagerService;
 
 
 @Controller
-@CrossOrigin(origins={"*","null"})
+/*@CrossOrigin(origins={"*","null"})*/
 public class CompanyManagerController {
 	
 	@Autowired

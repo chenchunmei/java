@@ -23,7 +23,7 @@ import com.remarkable.service.IUserOrderShowService;
  *
  */
 @Controller
-@CrossOrigin(origins = {"*", "null"})
+/*@CrossOrigin(origins = {"*", "null"})*/
 public class UserOrderShowController {
 	
 	@Autowired

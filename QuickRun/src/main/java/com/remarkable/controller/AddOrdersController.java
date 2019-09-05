@@ -31,7 +31,7 @@ import com.remarkable.service.IAddOrdersService;
  */
 
 @Controller
-@CrossOrigin(origins={"*","null"})
+/*@CrossOrigin(origins={"*","null"})*/
 public class AddOrdersController {
 	
 	@Autowired

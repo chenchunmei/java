@@ -27,7 +27,7 @@ import com.remarkable.service.ICenterService;
  *
  */
 @Controller
-@CrossOrigin(origins={"*","null"})
+/*@CrossOrigin(origins={"*","null"})*/
 public class CenterController {
 	
 	//用户中心service层的对象

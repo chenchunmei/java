@@ -18,7 +18,7 @@ import com.remarkable.service.IAddressService;
  *
  */
 @Controller
-@CrossOrigin(origins = {"*", "null"})
+/*@CrossOrigin(origins = {"*", "null"})*/
 public class AddressController {
 
 	//调用地址服务层

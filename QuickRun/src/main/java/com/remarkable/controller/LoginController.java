@@ -20,7 +20,7 @@ import com.remarkable.entity.User;
 import com.remarkable.service.ILoginService;
 
 @Controller
-@CrossOrigin(origins={"*","null"})
+/*@CrossOrigin(origins={"*","null"})*/
 public class LoginController {
 
 	@Autowired
@@ -37,7 +37,7 @@ public class LoginController {
 		Emp emp = loginService.loginEmp(emp_sno,pwd);
 		request.getSession().setAttribute("emp_id", emp.getEmp_id());
 		System.out.println("----------的管理------------"+request.getSession().getAttribute("emp_id"));
-		System.out.println("asdfasdf "+request.getSession().getId());
+		System.out.println("asdfasdf啊发射点发 "+request.getSession().getId());
 		return emp;
 	}
 	
