@@ -1,5 +1,6 @@
 package com.remarkable.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.remarkable.entity.Emp;
 import com.remarkable.entity.User;
 import com.remarkable.service.ILoginService;
 
@@ -24,6 +26,22 @@ public class LoginController {
 	@Autowired
 	private ILoginService loginService;
 	
+	/**
+	 * 骑手登录
+	 * @param emp_sno 学号
+	 * @param pwd 密码
+	 * @return
+	 */
+	@RequestMapping("/loginEmp.action")
+	public @ResponseBody Emp loginEmp(@RequestParam("emp_sno") String emp_sno, @RequestParam("pwd") String pwd,HttpServletRequest request) {
+		Emp emp = loginService.loginEmp(emp_sno,pwd);
+		request.getSession().setAttribute("emp_id", emp.getEmp_id());
+		System.out.println("----------的管理------------"+request.getSession().getAttribute("emp_id"));
+		System.out.println("asdfasdf "+request.getSession().getId());
+		return emp;
+	}
+	
+	
 	@RequestMapping("/login.action")
 	public @ResponseBody int login(@RequestParam("phone") String phone
 			,@RequestParam("pwd") String pwd,HttpSession session) {
@@ -32,7 +50,7 @@ public class LoginController {
 		System.out.println("sessionid ------------ "+session.getId());
 		try {
 			currentUser.login(token);
-			User user = (User) currentUser.getPrincipal();
+			//User user = (User) currentUser.getPrincipal();
 			//System.out.println("当前登录账号的id"+user.getU_id());
 			//获取当前用户的id，并且传递到前端
 			//System.out.println("这是当前登录账号的用户========="+user);
@@ -44,11 +62,23 @@ public class LoginController {
 		}
 	}
 	
+	/**
+	 * 退出登录
+	 * @return
+	 */
+	@RequestMapping("/loginOut.action")
+	public @ResponseBody int loginOut(){
+		//创建一个认证主体
+		Subject currentUser = SecurityUtils.getSubject();
+		currentUser.logout();
+		return 1;
+	}
+	
 	@RequestMapping("/getUser.action")
 	public @ResponseBody User getUser(HttpSession session) {
 		Subject currentUser = SecurityUtils.getSubject();
 		User user = (User) currentUser.getPrincipal();
-		int u_id = user.getU_id();
+		//int u_id = user.getU_id();
 		//System.out.println("当前用户的u_id+++++++++++"+u_id);
 		//System.out.println("user  : " + user);
 		return user;
@@ -57,7 +87,6 @@ public class LoginController {
 	@RequestMapping("/register.action")
 	public @ResponseBody int register(@RequestParam("phone") String phone,@RequestParam("pwd") String pwd) {
 		//判断验证码是否正确，如果正确，就执行注册
-		
 		int result = loginService.register(phone, pwd);
 		if(result == 0) {//注册失败
 			return 0;
@@ -72,6 +101,18 @@ public class LoginController {
 		//跨域设置
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		Integer count=loginService.updateUserPwd(u_id, u_pwd,u_oldPwd);
+		//成功返回1 失败返回0，用于前端提示用户信息
+		return count;
+	}
+	
+	
+	
+	@RequestMapping("/returnPwd.action")
+	@ResponseBody
+	public Integer returnPwd(@RequestParam("u_id")Integer u_id,@RequestParam("phone")String phone,@RequestParam("repeatmima")String repeatmima,HttpServletResponse res){
+		//跨域设置
+		res.setHeader("Access-Control-Allow-Origin", "*");
+		Integer count=loginService.returnPwd(phone,repeatmima);
 		//成功返回1 失败返回0，用于前端提示用户信息
 		return count;
 	}
