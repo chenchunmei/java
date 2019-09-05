@@ -21,7 +21,6 @@ import com.remarkable.service.IEmpOrderService;
  *
  */
 @Controller
-@CrossOrigin(origins = {"*", "null"})
 public class EmpOrderController {
 
 	//调用骑手服务层
