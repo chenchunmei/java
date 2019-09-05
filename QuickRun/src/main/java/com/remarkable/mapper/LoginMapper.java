@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import com.remarkable.entity.Emp;
 import com.remarkable.entity.User;
 
 @Repository
@@ -20,6 +21,14 @@ public interface LoginMapper {
 	 */
 	@Select("select * from tb_user where u_phone = #{0}")
 	User selUserByPhone(String phone);
+	
+	/**
+	 * 根据学号查询骑手的信息
+	 * @param phone
+	 * @return
+	 */
+	@Select("select * from tb_emp where emp_sno = #{0} and emp_pwd = #{1}")
+	Emp selEmpBySno(String emp_sno,String emp_pwd);
 	
 	/**
 	 * 注册用户账号
@@ -50,6 +59,9 @@ public interface LoginMapper {
 	@Select("select u_pwd from tb_user where u_id=#{u_id}")
 	String findUserPwdById(Integer u_id);
 	
+	@Select("select u_pwd from tb_user where u_phone=#{u_phone}")
+	String findPwdByPhone(String u_phone);
+	
 	/**
 	 * 根据用户名修改账号密码
 	 * @param u_id 用户id
@@ -75,6 +87,16 @@ public interface LoginMapper {
 	 */
 	@Update("update tb_emp set emp_pwd = #{emp_pwd} where emp_id = #{emp_id}")
 	Integer updateEmpPwd(@Param("emp_id")Integer emp_id,@Param("emp_pwd")String emp_pwd);
+	
+	/**
+	 * 根据用户名找回账号密码
+	 * @param u_id 用户id
+	 * @param u_pwd用户密码
+	 * @return
+	 */
+	@Update("update tb_user set u_pwd = #{u_pwd} where u_phone = #{u_phone}")
+	Integer returnPwd(@Param("u_phone")String u_phone,@Param("u_pwd")String u_pwd);
 
+	
 }
 
