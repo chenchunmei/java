@@ -45,7 +45,11 @@ $(function(){
           color: 'danger',
           onClick: function() {
 		      $$.confirm('你确定退出吗?', function () {
-		         window.location.href = "userV/login/login.html";
+		      	 $.post(server_url+"loginOut.action",function(result){
+		      	 	if(result==1){
+		      	 		location.href = "userV/login/login.html";
+		      	 	}
+				});
 		      });
           }
         }
