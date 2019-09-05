@@ -37,12 +37,8 @@ public class EmpOrderController {
 	 * @return
 	 */
 	@RequestMapping("/orderEmpAll.action")
-	public @ResponseBody List<Order> findOrderAll(Order order,HttpServletRequest request){
-		System.out.println("当前骑手的id==================+++++++++++++++++++++=================");
-		System.out.println("asdfasfda "+request.getSession().getId());
-		int emp_id = (int) request.getSession().getAttribute("emp_id");
-		System.out.println("当前骑手的id==================================="+emp_id);
-		List<Order> orderList = empOrderServiceImpl.findOrderAll(emp_id, order.getOrd_code(), order.getCom_id(), order.getAdd_id());
+	public @ResponseBody List<Order> findOrderAll(Order order){
+		List<Order> orderList = empOrderServiceImpl.findOrderAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
 	
