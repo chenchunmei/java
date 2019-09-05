@@ -13,10 +13,6 @@ function txt() {
 
 function login() {
 	
-	var current_id=localStorage.getItem("current_id");
-	//alert(current_id);
-	console.log(current_id);
-	
 	var phone = $("#phone").val();
 	if(phone == "") {
 		alert("手机号不能为空！");
@@ -43,7 +39,7 @@ function login() {
 		dataType: "JSON",
 		success: function(result) {
 			
-			if(result == "1") {
+			if(result == 1) {
 				//跳转到成功页面
 				location.href = "../addOrders.html";
 			} else {

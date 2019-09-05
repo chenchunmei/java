@@ -36,7 +36,7 @@
 		<div class="register">
 			<div class="res-item">
 
-				<input type="tel" placeholder="手机号" class="input-item mobile" id="phone">
+				<input type="tel" placeholder="手机号" class="input-item phone" id="phone">
 				<i class="res-icon am-icon-phone"></i>
 			</div>
 			<!--<div class="res-item">
@@ -47,16 +47,17 @@
 			</div>-->
 			<div class="res-item">
 
-				<input type="passWord" placeholder="请输入新密码" class="input-item mima" id="mima">
+				<input type="passWord" placeholder="请输入新密码" class="input-item pwd" id="pwd">
 				<i class="res-icon am-icon-check-square-o"></i>
 			</div>
 			<div class="res-item">
 
-				<input type="passWord" placeholder="再次确认密码" class="input-item repeatmima" id="repeatmima">
+				<input type="passWord" placeholder="再次确认密码" class="input-item repeatpwd" id="repeatpwd">
 				<i class="res-icon am-icon-check-circle-o"></i>
 			</div>
 			<div class="res-btn">
-				<button type="button" id="res-btn" class="am-btn am-btn-block">提交</button>
+				<button type="button" id="change" class="am-btn am-btn-block" onclick="change()">提交</button>
+				
 			</div>
 		</div>
 
@@ -64,7 +65,6 @@
 		<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
 		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 		<script src="../../js/jquery-3.4.1.js"></script>
-		<script type="text/javascript" src="../../js/getUser.js" ></script>
 		<script type="text/javascript" src="returnPwd.js"></script>
 
 	</body>
