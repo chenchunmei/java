@@ -75,6 +75,7 @@ var app = new Vue({
 			"ord_rec_name": ord_rec_name,
 			"ord_pick_code": ord_pick_code,
 			"ord_phone": ord_phone,
+			"ord_state": 1,
 			"com_id": com_id,
 			"add_id": add_id,
 			"ord_wight": ord_wight,

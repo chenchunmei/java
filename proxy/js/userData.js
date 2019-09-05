@@ -40,7 +40,7 @@ layui.use(['form', 'layedit', 'upload'], function(){
 	}
 
 	$("#back").click(function() {
-		window.history.back(-1);
+		window.location.href="userset.html";
 	})
 
 	$("#update").click(function() {
@@ -67,7 +67,7 @@ layui.use(['form', 'layedit', 'upload'], function(){
 	});
 
 	function cancel() {
-		window.history.back(-1);
+			window.location.href="userset.html";
 	}
 
 	  //普通图片上传

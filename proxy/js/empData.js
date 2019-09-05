@@ -37,7 +37,7 @@ $(function(){
 	}
 	
 	$("#back").click(function(){
-		window.history.back(-1);
+		window.location.href="empset.html";
 	})
 	
 	$("#update").click(function(){
@@ -61,7 +61,7 @@ $(function(){
 	});
 	
 	function cancel() {
-		window.history.back(-1);
+		window.location.href="empset.html";
 	}
 		
 });
