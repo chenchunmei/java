@@ -2,6 +2,9 @@ package com.remarkable.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,13 +37,12 @@ public class EmpOrderController {
 	 * @return
 	 */
 	@RequestMapping("/orderEmpAll.action")
-	public @ResponseBody List<Order> findOrderAll(Order order){
-		order.setEmp_id(1);
-		//==========================取得当前登录骑手的骑手信息对象
-		/*Subject currentUser = SecurityUtils.getSubject();
-		Emp emp = (emp) currentUser.getPrincipal();*/
-		//==========================取得当前登录用户的用户信息对象
-		List<Order> orderList = empOrderServiceImpl.findOrderAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
+	public @ResponseBody List<Order> findOrderAll(Order order,HttpServletRequest request){
+		System.out.println("当前骑手的id==================+++++++++++++++++++++=================");
+		System.out.println("asdfasfda "+request.getSession().getId());
+		int emp_id = (int) request.getSession().getAttribute("emp_id");
+		System.out.println("当前骑手的id==================================="+emp_id);
+		List<Order> orderList = empOrderServiceImpl.findOrderAll(emp_id, order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
 	
