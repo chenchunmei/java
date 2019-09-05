@@ -44,12 +44,7 @@ var app = new Vue({
 	
 	//投诉
 	function complaint(ord_code){
-		window.$$ = window.Zepto = Zepto;
-		if(userorder.ord_complaint == ""){
 			window.location.href="compaint.html?ord_code="+ord_code;
-		}else{
-			 $$.alert('您已投诉');
-		}
 	}
 	
 	//回车键搜索
