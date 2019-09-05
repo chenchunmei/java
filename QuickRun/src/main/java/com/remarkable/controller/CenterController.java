@@ -115,10 +115,8 @@ public class CenterController {
 	 */
 	@RequestMapping("/showEmp")
 	@ResponseBody
-	public Emp showEmp(HttpServletRequest request){
-		int emp_id = (int) request.getSession().getAttribute("emp_id");
+	public Emp showEmp(Integer emp_id,HttpServletRequest request){
 		Emp emp = centerServiceImpl.findEmpById(emp_id);
-		System.out.println(emp);
 		return emp;
 	}
 	
@@ -130,8 +128,6 @@ public class CenterController {
 	@RequestMapping("/updateEmp")
 	@ResponseBody
 	public int updateEmp(Emp emp,HttpServletRequest request){
-		int emp_id = (int) request.getSession().getAttribute("emp_id");
-		emp.setEmp_id(emp_id);
 		System.out.println("================="+emp);
 		int count= centerServiceImpl.updateEmp(emp);
 		System.out.println(count);
@@ -148,10 +144,9 @@ public class CenterController {
 	 */
 	@RequestMapping("/insertComplaint")
 	@ResponseBody
-	public Integer insertComplaint(String ord_complaint,String ord_code,HttpServletResponse res,HttpServletRequest request){
+	public Integer insertComplaint(String ord_complaint,String ord_code,Integer emp_id,HttpServletResponse res,HttpServletRequest request){
 		//res.setHeader("Access-Control-Allow-Origin", "*");
 		System.out.println(ord_complaint);
-		int emp_id = (int) request.getSession().getAttribute("emp_id");
 		return centerServiceImpl.insertCompaint(ord_complaint, ord_code,emp_id);
 	}
 }
