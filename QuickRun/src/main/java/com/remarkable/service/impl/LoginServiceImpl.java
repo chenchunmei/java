@@ -5,8 +5,8 @@ import java.util.Set;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.remarkable.entity.Emp;
 import com.remarkable.entity.User;
 import com.remarkable.mapper.LoginMapper;
 import com.remarkable.service.ILoginService;
@@ -34,6 +34,15 @@ public class LoginServiceImpl implements ILoginService {
 		return user;
 	}
 
+	/**
+	 * 骑手登录
+	 */
+	@Override
+	public Emp loginEmp(String emp_sno,String emp_pwd) {
+		Emp emp = loginMapper.selEmpBySno(emp_sno,emp_pwd);
+		return emp;
+	}
+	
 	/**
 	 * 注册
 	 * @param phone 手机号
@@ -80,6 +89,25 @@ public class LoginServiceImpl implements ILoginService {
 		if(u_oldPwd.equals(old_pwd)){
 			//一致就将其保存在数据库
 			return loginMapper.updateUserPwd(u_id,u_pwd);
+		}else{
+			//不一致就返回0
+			return 0;
+		}
+	}
+	
+	/**
+	 * 根据用户Id修改用户密码
+	 * @param u_id
+	 * @param u_pwd
+	 * @return
+	 */
+	public Integer returnPwd(String u_phone,String u_pwd){
+		//原始的密码
+		String old_pwd=loginMapper.findPwdByPhone(u_phone);
+		//对比原始密码和输入的原始密码是否一致
+		if(u_pwd.equals(old_pwd)){
+			//一致就将其保存在数据库
+			return loginMapper.returnPwd(u_phone,u_pwd);
 		}else{
 			//不一致就返回0
 			return 0;
