@@ -1,0 +1,17 @@
+#div1{
+	width: 370px;
+	height: 150px;
+	position: relative;
+	overflow-x: auto;
+}
+#div1 ul{
+	position:absolute;
+	left: 0;
+	top: 0;
+}
+#div1 ul li {
+	float: left;
+	width: 370px;
+	height: 150px;
+	list-style: none;
+}
