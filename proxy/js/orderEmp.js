@@ -46,9 +46,7 @@
 		var ord_code=null;
 		var search1=$("#search1").val();
 		if(search1 != null && search1 != ''){
-			
 			ord_code="%"+search1+"%";
-			alert(ord_code);
 		}
 		//公司id
 		var com_id=0;
@@ -259,10 +257,6 @@
 		});
 	}
 	
-	/*cols[0].values = new Array();
-	$(result).each(function(){
-		cols[0].values.push($(this));
-	});*/
 	//加载所有快递公司
 	function companyAll(){
 		$.post(server_url+"companyAll.action",function(result){
@@ -321,7 +315,9 @@
 	
 	//加载骑手派送地址
 	function addressAll(){
-		$.post(server_url+"addressEmp.action",function(result){
+		//骑手id
+		var emp_id = localStorage.getItem("emp_id");
+		$.post(server_url+"addressEmp.action",{"emp_id":emp_id},function(result){
 			//创建一个数组装遍历的内容
 			var address = new Array();
 			address.push("全部");
