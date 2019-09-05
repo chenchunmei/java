@@ -2,8 +2,6 @@ package com.remarkable.controller;
 
 import java.util.List;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.remarkable.entity.Emp;
 import com.remarkable.entity.Order;
-import com.remarkable.entity.User;
 import com.remarkable.service.IEmpOrderService;
 
 /**
