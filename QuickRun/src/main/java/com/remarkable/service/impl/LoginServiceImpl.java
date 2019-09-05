@@ -102,16 +102,8 @@ public class LoginServiceImpl implements ILoginService {
 	 * @return
 	 */
 	public Integer returnPwd(String u_phone,String u_pwd){
-		//原始的密码
-		String old_pwd=loginMapper.findPwdByPhone(u_phone);
-		//对比原始密码和输入的原始密码是否一致
-		if(u_pwd.equals(old_pwd)){
-			//一致就将其保存在数据库
-			return loginMapper.returnPwd(u_phone,u_pwd);
-		}else{
-			//不一致就返回0
-			return 0;
-		}
+		Integer row = loginMapper.returnPwd(u_phone, u_pwd);
+		return row;
 	}
 	
 	/**
