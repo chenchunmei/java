@@ -15,7 +15,6 @@ $(function() {
 		}
 
 		var emp = {
-			"emp_id": 1,
 			"emp_pwd": newpassword,
 			"emp_oldPwd": oldpassword
 		}
