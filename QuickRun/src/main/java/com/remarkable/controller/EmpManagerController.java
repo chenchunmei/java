@@ -14,7 +14,7 @@ import com.remarkable.entity.Emp;
 import com.remarkable.service.IEmpManagerService;
 
 @Controller
-@CrossOrigin(origins={"*","null"})
+/*@CrossOrigin(origins={"*","null"})*/
 public class EmpManagerController {
 	
 	@Autowired
