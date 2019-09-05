@@ -2,6 +2,8 @@ package com.remarkable.controller;
 
 import java.util.List;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.remarkable.entity.Emp;
 import com.remarkable.entity.Order;
+import com.remarkable.entity.User;
 import com.remarkable.service.IEmpOrderService;
 
 /**
@@ -36,6 +39,10 @@ public class EmpOrderController {
 	@RequestMapping("/orderEmpAll.action")
 	public @ResponseBody List<Order> findOrderAll(Order order){
 		order.setEmp_id(1);
+		//==========================取得当前登录骑手的骑手信息对象
+		/*Subject currentUser = SecurityUtils.getSubject();
+		Emp emp = (emp) currentUser.getPrincipal();*/
+		//==========================取得当前登录用户的用户信息对象
 		List<Order> orderList = empOrderServiceImpl.findOrderAll(order.getEmp_id(), order.getOrd_code(), order.getCom_id(), order.getAdd_id());
 		return orderList;
 	}
