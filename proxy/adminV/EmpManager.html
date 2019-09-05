@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>快递公司信息后台管理</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8" />
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link rel="stylesheet" href="css/font.css">
+		<link rel="stylesheet" href="css/xadmin.css">
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/xadmin.js"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<!--
+		<script type="text/javascript" src="js/ajaxutil.js"></script>
+		-->
+		<script type="text/javascript" src="EmpManager.js"></script>
+	</head>
+
+	<body>
+		<div  id="app">
+			<div class="x-nav">
+				<span >
+        <a>
+          <cite>快递公司管理</cite></a>
+      </span>
+      
+			</div>
+			<div class="layui-fluid">
+				<div class="layui-row layui-col-space15">
+					<div class="layui-col-md12">
+						<div class="layui-card">
+							<div class="layui-card-body ">
+								<form class="layui-form layui-col-space5">
+									<div class="layui-inline layui-show-xs-block">
+										<input type="text" value="" placeholder="请输入公司名" autocomplete="off" class="layui-input com_name">
+									</div>
+									<div class="layui-inline layui-show-xs-block">
+										<button class="layui-btn search_btn" type="button"  lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+									</div>
+									<div class="layui-inline layui-show-xs-block">
+										<a class="layui-btn layui-btn-small"  onclick="location.reload()" title="刷新">
+        								<i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+									</div>
+									 
+								</form>
+							</div>
+							<div class="layui-card-body ">
+								<table class="layui-table layui-form">
+									<colgroup>
+										<col width="25%">
+										<col width="25%">
+										<col width="25%">
+										<col width="25%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th>公司ID</th>
+											<th>公司名字</th>
+											<th>公司状态</th>										
+											<th>操作栏</th>
+										</tr>
+									</thead>
+									<tbody>
+										<template v-for="list in list">
+											<tr>
+												<td>{{list.com_id}}</td>
+												<td>{{list.com_name}}</td>
+												<td>
+													<span v-if="list.add_state==0">该公司正常营业</span>
+													<span v-if="list.add_state==1">该公司暂停营业</span>
+												</td>
+												<td>
+													<i>&nbsp;&nbsp;</i>
+													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-normal" @click="showCompanycontent(list.com_id)">
+													<i class="layui-icon layui-icon-list"></i>查看</a>
+													<i>&nbsp;&nbsp;</i>
+													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-warm" @click="addCompany()">
+													<i class="layui-icon layui-icon-add-1"></i>添加</a>
+													<i>&nbsp;&nbsp;</i>
+													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-warm" @click="updateCompany(list.com_id)">
+													<i class="layui-icon layui-icon-add-1"></i>修改</a>
+													<i>&nbsp;&nbsp;</i>
+													<a v-if="list.add_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockComoanyState(list.com_id,list.add_state)"><i class="layui-icon"></i>
+													{{list.add_state==0?"打烊":"营业"}}</a>
+													<a v-if="list.add_state==1" class='layui-btn layui-btn-mini layui-btn-danger' @click="lockComoanyState(list.com_id,list.add_state)"><i class="layui-icon"></i>
+													{{list.add_state==0?"打烊":"营业"}}</a>
+													<a href="javascript:void(0)" title="删除" @click="deleteCompany(list.com_id)" id="deletCompany" :com_id="list.com_id" class="">
+													<i class="layui-icon">&nbsp;&nbsp;&nbsp;&nbsp;&#xe640;</i></a>
+												</td>
+												</td>
+											</tr>
+										</template>
+									</tbody>
+								</table>
+							</div>
+							<!--显示分页的地方-->
+							<center>
+								<div id="laypage"></div>
+							</center>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
