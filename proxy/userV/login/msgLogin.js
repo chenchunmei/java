@@ -1,6 +1,7 @@
 function loginEmp() {
-	var emp_sno = $("#emp_sno").val();
-	if(emp_sno == "") {
+
+	varemp_snoe = $("emp_snoe").val();
+	ifemp_snoe == "") {
 		alert("手机号不能为空！");
 		return;
 	};
@@ -23,8 +24,9 @@ function loginEmp() {
 		},
 		crossDomain: true,
 		dataType: "JSON",
-		success: function(result) {
+		success: function(result) 
 			localStorage.setItem("emp_id",result.emp_id);
+
 			if(result != null) {
 				//跳转到成功页面
 				location.href = "../orderEmp.html";
