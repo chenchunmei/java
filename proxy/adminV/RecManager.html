@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>用户信息后台管理</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8" />
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link rel="stylesheet" href="css/font.css">
+		<link rel="stylesheet" href="css/xadmin.css">
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/xadmin.js"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<!--
+		<script type="text/javascript" src="js/ajaxutil.js"></script>
+		-->
+		<script type="text/javascript" src="RecManager.js"></script>
+	</head>
+
+	<body>
+		<div  id="app">
+			<div class="x-nav">
+				<span >
+        <a>
+          <cite>用户信息管理</cite></a>
+      </span>
+      
+			</div>
+			<div class="layui-fluid">
+				<div class="layui-row layui-col-space15">
+					<div class="layui-col-md12">
+						<div class="layui-card">
+							<div class="layui-card-body ">
+								<form class="layui-form layui-col-space5">
+								</form>
+							</div>
+							<div class="layui-card-body ">
+								<table class="layui-table layui-form">
+									<colgroup>
+										<col width="25%">
+										<col width="25%">
+										<col width="25%">
+										<col width="25%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th>接受时间ID</th>
+											<th>接收时间详情</th>
+											<th>状态</th>										
+											<th>操作栏</th>
+										</tr>
+									</thead>
+									<tbody>
+										<template v-for="list in list">
+											<tr>
+												<td>{{list.rec_id}}</td>
+												<td>{{list.rec_detail}}</td>
+												<td>
+													<span v-if="list.rec_state==0">配送中</span>
+													<span v-if="list.rec_state==1">不配送</span>
+												</td>
+												<td>
+													<i>&nbsp;&nbsp;</i>
+													<a v-if="list.rec_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockRecState(list.rec_id,list.rec_state)"><i class="layui-icon"></i>
+													{{list.rec_state==0?"不配送":"配送中"}}</a>
+													<a v-if="list.rec_state==1" class='layui-btn layui-btn-mini layui-btn-danger' @click="lockRecState(list.rec_id,list.rec_state)"><i class="layui-icon"></i>
+													{{list.rec_state==0?"不配送":"配送中"}}</a>
+													<a href="javascript:void(0)" title="删除" @click="deleteRec(list.rec_id)" id="deleteRec" :rec_id="list.rec_id" class="">
+													<i class="layui-icon">&nbsp;&nbsp;&nbsp;&nbsp;&#xe640;</i></a>
+												</td>
+												</td>
+											</tr>
+										</template>
+									</tbody>
+								</table>
+							</div>
+							<!--显示分页的地方-->
+							<center>
+								<div id="laypage"></div>
+							</center>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
