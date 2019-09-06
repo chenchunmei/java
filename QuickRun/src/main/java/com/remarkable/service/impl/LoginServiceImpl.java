@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.remarkable.entity.Admin;
 import com.remarkable.entity.Emp;
 import com.remarkable.entity.User;
 import com.remarkable.mapper.LoginMapper;
@@ -21,6 +22,17 @@ public class LoginServiceImpl implements ILoginService {
 
 	@Autowired
 	private LoginMapper loginMapper;
+	
+	/**
+	 * 根据管理员账号和密码查询
+	 * @param adm_account
+	 * @param adm_pwd
+	 * @return
+	 */
+	public Admin selAdminByAccAndPwd(String adm_account,String adm_pwd) {
+		Admin admin = loginMapper.selAdminByAccAndPwd(adm_account, adm_pwd);
+		return admin;
+	}
 	
 	/**
 	 * 登录

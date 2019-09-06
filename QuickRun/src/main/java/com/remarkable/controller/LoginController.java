@@ -10,11 +10,11 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.remarkable.entity.Admin;
 import com.remarkable.entity.Emp;
 import com.remarkable.entity.User;
 import com.remarkable.service.ILoginService;
@@ -27,17 +27,26 @@ public class LoginController {
 	private ILoginService loginService;
 	
 	/**
+	 * 根据管理员账号和密码查询
+	 * @param adm_account
+	 * @param adm_pwd
+	 * @return
+	 */
+	@RequestMapping("/loginAdmin.action")
+	public @ResponseBody Admin selAdminByAccAndPwd(@RequestParam("adm_account") String adm_account, @RequestParam("adm_pwd") String adm_pwd) {
+		Admin admin = loginService.selAdminByAccAndPwd(adm_account, adm_pwd);
+		return admin;
+	}
+	
+	/**
 	 * 骑手登录
 	 * @param emp_sno 学号
 	 * @param pwd 密码
 	 * @return
 	 */
 	@RequestMapping("/loginEmp.action")
-	public @ResponseBody Emp loginEmp(@RequestParam("emp_sno") String emp_sno, @RequestParam("pwd") String pwd,HttpServletRequest request) {
+	public @ResponseBody Emp loginEmp(@RequestParam("emp_sno") String emp_sno, @RequestParam("pwd") String pwd) {
 		Emp emp = loginService.loginEmp(emp_sno,pwd);
-		request.getSession().setAttribute("emp_id", emp.getEmp_id());
-		System.out.println("----------的管理------------"+request.getSession().getAttribute("emp_id"));
-		System.out.println("asdfasdf啊发射点发 "+request.getSession().getId());
 		return emp;
 	}
 	

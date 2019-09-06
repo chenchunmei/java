@@ -8,12 +8,22 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import com.remarkable.entity.Admin;
 import com.remarkable.entity.Emp;
 import com.remarkable.entity.User;
 
 @Repository
 public interface LoginMapper {
 
+	/**
+	 * 根据管理员账号和密码查询
+	 * @param adm_account
+	 * @param adm_pwd
+	 * @return
+	 */
+	@Select("select * from tb_admin where adm_account = #{0} and adm_pwd = #{1}")
+	Admin selAdminByAccAndPwd(String adm_account,String adm_pwd);
+	
 	/**
 	 * 根据手机号码查询出用户的所有信息
 	 * @param phone

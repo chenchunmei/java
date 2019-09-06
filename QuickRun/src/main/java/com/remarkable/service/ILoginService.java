@@ -2,6 +2,9 @@ package com.remarkable.service;
 
 import java.util.Set;
 
+import org.apache.ibatis.annotations.Select;
+
+import com.remarkable.entity.Admin;
 import com.remarkable.entity.Emp;
 import com.remarkable.entity.User;
 
@@ -12,6 +15,14 @@ import com.remarkable.entity.User;
  */
 public interface ILoginService {
 
+	/**
+	 * 根据管理员账号和密码查询
+	 * @param adm_account
+	 * @param adm_pwd
+	 * @return
+	 */
+	Admin selAdminByAccAndPwd(String adm_account,String adm_pwd);
+	
 	/**
 	 * 登录
 	 * @param phone 手机号
