@@ -2,6 +2,16 @@ $(function() {
 	var code = location.search;
 	var flag = code.substr(code.indexOf("=") + 1);
 	window.$$ = window.Zepto = Zepto
+	
+	$("#back").click(function(){
+		if(flag==1){
+			window.location.href = "../../userset.html";
+		}else {
+			window.location.href = "../../emprset.html";
+		}
+		
+	});
+	
 	$("#res-btn").click(function() {
 		//取得用户的id和密码
 		var u_id = current_id;
@@ -27,8 +37,9 @@ $(function() {
 				data: user,
 				success: function(result) {
 					if(result == 1) {
-						$$.toast("修改密码成功");
-						window.location.href = "login.html";
+						$$.alert('修改成功！请重新登录', function () {
+				         window.location.href = "login.html";
+				      });
 					} else {
 						$$.toast("原密码不正确");
 					}
@@ -42,8 +53,10 @@ $(function() {
 				data: emp,
 				success: function(result) {
 					if(result == 1) {
-						$$.toast('操作成功，正在跳转...');
-						window.location.href = "login.html";
+						//$$.toast('操作成功，正在跳转...');
+						$$.alert('修改成功！请重新登录', function () {
+				         window.location.href = "login.html";
+				      });
 					} else {
 						$$.toast("原密码不正确");
 					}

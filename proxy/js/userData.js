@@ -23,18 +23,31 @@ layui.use(['form', 'layedit', 'upload'], function(){
 	function loadList() {
 		var u_id = current_id;
 		$.post("http://127.0.0.1:8888/QuickRun/showUser.action",{"u_id":u_id}, function(result) {
+			//格式化时间
 			var da = result.user.u_birthday;  
 			da = new Date(da);  
 			var year = da.getFullYear();  
 			var month = da.getMonth() + 1;
 			var date = da.getDate();
-			if(month < 10) {
-				var time = year + "-0" + month + "-" + date;
+			if(month < 10 && date < 10) {
+				var time = year + "-0" + month + "-0" +date;
 			} else {
 				var time = year + "-" + month + "-" + date;
 			}
 			result.u_birthday = time;
 			$("#u_birthday").val(time);
+			
+			//判断性别回显到界面
+			
+			if(result.user.u_sex ==0){
+					$("#nv").attr("selected", "selected");
+			}else{
+					$("#nan").attr("selected", "selected");
+			}
+			$("#u_sex").click(function(){
+				$("#nv").attr("selected", "");
+				$("#nv").attr("selected", "");
+			})
 			app.user = result.user;
 		})
 	}
@@ -60,7 +73,8 @@ layui.use(['form', 'layedit', 'upload'], function(){
 			data: user,
 			success: function(data) {
 				$$.toast("修改成功");
-				loadList();
+				window.location.href="userset.html";
+				//loadList();
 			}
 		});
 
@@ -73,7 +87,7 @@ layui.use(['form', 'layedit', 'upload'], function(){
 	  //普通图片上传
 	  var uploadInst = upload.render({
 	    elem: '#test1'
-	    ,url: 'http://127.0.0.1:8888/QuickRun/uploadImage.action?u_id'+current_id
+	    ,url: 'http://127.0.0.1:8888/QuickRun/uploadImage.action?u_id='+current_id
 	    ,before: function(obj){
 	      //预读本地文件示例，不支持ie8
 	      obj.preview(function(index, file, result){
