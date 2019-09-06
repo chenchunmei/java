@@ -11,6 +11,7 @@ public class Address {
 	//负责棋手id
 	private int emp_id;
 	//负责骑手
+	private String emp_name;
 	private Emp emp;
 	
 	public Emp getEmp() {
