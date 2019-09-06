@@ -18,6 +18,9 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 				//调用自已的
 				deleteAdd(add_id);
 			},
+			updateAdd: function(add_id){
+				updateAdd(add_id);
+			},
 		},
 		created: function() {
 			//调用加载数据
@@ -99,5 +102,14 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			});
 		});
 
+	}
+	function updateAdd(add_id){
+		var index = layui.layer.open({
+			title: "更新公司",
+			area: ['500px', '400px'],
+			type: 2,
+			content: "UpdateEmpAdd.html?add_id="+add_id
+		})
+		
 	}
 })

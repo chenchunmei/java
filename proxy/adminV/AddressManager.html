@@ -14,6 +14,7 @@
 		<script type="text/javascript" src="js/xadmin.js"></script>
 		<script type="text/javascript" src="js/vue.js"></script>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/ajaxutil.js"></script>
 		<!--
 		<script type="text/javascript" src="js/ajaxutil.js"></script>
 		-->
@@ -39,8 +40,9 @@
 							<div class="layui-card-body ">
 								<table class="layui-table layui-form">
 									<colgroup>
-										<col width="25%">
-										<col width="25%">
+										<col width="15%">
+										<col width="15%">
+										<col width="20%">
 										<col width="25%">
 										<col width="25%">
 									</colgroup>
@@ -48,6 +50,7 @@
 										<tr>
 											<th>地址ID</th>
 											<th>详细地址</th>
+											<th>负责骑手名称</th>
 											<th>状态</th>										
 											<th>操作栏</th>
 										</tr>
@@ -57,11 +60,14 @@
 											<tr>
 												<td>{{list.add_id}}</td>
 												<td>{{list.add_detail}}</td>
+												<td>{{list.emp_name}}</td>
 												<td>
 													<span v-if="list.add_state==0">配送</span>
 													<span v-if="list.add_state==1">不配送</span>
 												</td>
-												<td>
+												<td><i>&nbsp;&nbsp;</i>
+													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-warm" @click="updateAdd(list.add_id)">
+													<i class="layui-icon layui-icon-add-1"></i>修改</a>
 													<i>&nbsp;&nbsp;</i>
 													<a v-if="list.add_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockAddState(list.add_id,list.add_state)"><i class="layui-icon"></i>
 													{{list.rec_state==0?"不配送":"配送"}}</a>
