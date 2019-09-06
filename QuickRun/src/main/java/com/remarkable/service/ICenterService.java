@@ -46,7 +46,7 @@ public interface ICenterService {
 	 * @param images
 	 * @return
 	 */
-	public Integer insertImages(Images images); 
+	public Integer insertImages(Images images,Integer u_id); 
 	
 	/**
 	 * 根据用户id 查找用户头像

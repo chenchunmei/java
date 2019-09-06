@@ -65,7 +65,8 @@ public class CenterServiceImpl implements ICenterService{
 	 * @param images
 	 * @return
 	 */
-	public Integer insertImages(Images images) {
+	public Integer insertImages(Images images,Integer u_id) {
+		images.setU_id(u_id);
 		return centerMapper.insertImages(images);
 	}
 
@@ -75,7 +76,21 @@ public class CenterServiceImpl implements ICenterService{
 	 * @return
 	 */
 	public Images findImagesByid(Integer u_id) {
-		return centerMapper.findImagesByid(u_id);
+		//第一次查找有没有该用户的头像
+		Images images = new Images();
+		Images img=centerMapper.findImagesByid(u_id);
+		//设置默认的头像路径
+		String imagesPath="D:\\Workspaces\\maven_1711\\QuickRun\\src\\main\\webapp\\uploads\\b7555187fd174be1b7540f0a7e4fa5851567740065257d1.gif";
+		//没有头像则先添加一个默认的头像
+		if(img == null ){
+			images.setU_id(u_id);
+			images.setIma_address(imagesPath);
+			//添加头像
+			centerMapper.insertImages(images);
+			//再次查询头像并返回
+			img=centerMapper.findImagesByid(u_id);
+		}
+		return img;
 	}
 	/**
 	 * 根据订单编号投诉
@@ -114,6 +129,7 @@ public class CenterServiceImpl implements ICenterService{
 	 * @param u_id
 	 */
 	public void judgeInsertImages(Images images, Integer u_id) {
+		images.setU_id(u_id);
 		//查看是否当前用户是否有头像，有则修改，无则添加
 		Integer result=centerMapper.findImageByU_Id(u_id);
 		
