@@ -18,7 +18,8 @@ $(function(){
 	})
 	
 	function loadList(){
-		$.post(server_url+"showEmp.action",function(result){
+		var emp_id=localStorage.getItem("emp_id");
+		$.post(server_url+"showEmp.action",{"emp_id":emp_id},function(result){
 			var da = result.u_birthday;
 		    da = new Date(da);
 		    var year = da.getFullYear();
@@ -32,7 +33,6 @@ $(function(){
 			result.u_birthday = time;
 			$("#u_birthday").val(time);
 			app.emp = result;
-			console.log(result)
 		})
 	}
 	
@@ -56,7 +56,7 @@ $(function(){
 			data:emp,
 			success:function(data){
 				$$.toast("修改成功");
-				loadList();
+				window.location.href="empset.html";
 			}
 		});
 		
