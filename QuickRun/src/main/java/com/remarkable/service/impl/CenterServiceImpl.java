@@ -80,7 +80,7 @@ public class CenterServiceImpl implements ICenterService{
 		Images images = new Images();
 		Images img=centerMapper.findImagesByid(u_id);
 		//设置默认的头像路径
-		String imagesPath="D:\\Workspaces\\maven_1711\\QuickRun\\src\\main\\webapp\\uploads\\b7555187fd174be1b7540f0a7e4fa5851567740065257d1.gif";
+		String imagesPath="D:\\Workspaces\\maven_1711\\QuickRun\\src\\main\\webapp\\uploads\\default.gif";
 		//没有头像则先添加一个默认的头像
 		if(img == null ){
 			images.setU_id(u_id);
