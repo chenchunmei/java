@@ -58,6 +58,7 @@ public class LoginController {
 		UsernamePasswordToken token = new UsernamePasswordToken(phone,pwd);
 		System.out.println("sessionid ------------ "+session.getId());
 		try {
+			//System.out.println("到这来了吗？");
 			currentUser.login(token);
 			//User user = (User) currentUser.getPrincipal();
 			//System.out.println("当前登录账号的id"+user.getU_id());
