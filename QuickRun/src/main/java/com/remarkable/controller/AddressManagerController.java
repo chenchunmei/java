@@ -1,5 +1,7 @@
 package com.remarkable.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Address;
+import com.remarkable.entity.Emp;
 import com.remarkable.entity.Rectime;
 import com.remarkable.service.IAddressManagerService;
 import com.remarkable.service.IRecManagerService;
@@ -39,5 +42,15 @@ public class AddressManagerController {
 		iams.updateState(add_state, add_id);
 		return "AddManager.action";
 	}
-
+	
+	@RequestMapping("SelectEmpname.action")
+	public  @ResponseBody List<Emp>  SelectEmpname()  {
+		return iams.SelectEmpName();
+	}
+	
+	@RequestMapping("AddManagerEmpid.action")
+	public String updateAddStateEmpid(Integer emp_id, String add_id,HttpServletResponse res) {
+		iams.updateEmpid(emp_id, add_id);
+		return "AddManager.action";
+	}
 }

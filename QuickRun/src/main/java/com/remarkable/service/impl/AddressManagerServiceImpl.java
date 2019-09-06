@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Address;
+import com.remarkable.entity.Emp;
 import com.remarkable.entity.Rectime;
 import com.remarkable.mapper.AddressManagerMapper;
 import com.remarkable.service.IAddressManagerService;
@@ -37,6 +38,16 @@ public class AddressManagerServiceImpl implements IAddressManagerService {
 	@Override
 	public int updateState(Integer add_state, String add_id) {
 		return amm.updateState(add_state, add_id);
+	}
+
+	@Override
+	public List<Emp> SelectEmpName() {
+		return amm.SelectEmpname();
+	}
+
+	@Override
+	public int updateEmpid(Integer emp_id, String add_id) {
+		return amm.updateEmpid(emp_id, add_id);
 	}
 
 }
