@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>密码登录</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="stylesheet" href="login.css" />
+		
+	</head>
+
+	<body>
+
+		<div class="login-logo circle text-center">Admin</div>
+
+		<form name="loginFrom" onSubmit="return checkreg()" method="post" class="login-cont">
+			<ul>
+				<li><input type="text" id="account" name="account" placeholder="请输入您的帐号"></li>
+				<li>
+					<span id="box"><input id="pwd" type="password" name="pwd" placeholder="请输入您的密码"></span>
+					<span id="click"><a href="javascript:ps()" class="iconfont icon-biyan"></a></span></li>
+			</ul>
+			<a type="button" class="button text-center block" onclick="loginAdmin()">登 录</a>
+			<a href="msgLogin.html" class="text-center block font-color">骑手请点这里</a>
+			<!--<a href="returnPwd.html" class="text-center block font-color">忘记密码？</a>-->
+		</form>
+
+	</body>
+	<script type="text/javascript" src="../../js/jquery-3.4.1.js"></script>
+	<script type="text/javascript" src="loginAdmin.js"></script>
+</html>
