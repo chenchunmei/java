@@ -57,6 +57,19 @@ var app = new Vue({
 			app.rec = result;
 		})
 	}
+	
+	//手机号格式
+	window.onload = function() {
+			var inpEle = document.getElementById('ord_phone');
+			var myreg = /^1[3458]\d{9}$/;
+			inpEle.onblur = function() {
+				var inpVal = this.value;
+				if(!myreg.exec(inpVal)) {
+					window.$$ = window.Zepto = Zepto;
+					$$.toast("手机号输入错误");
+				} 
+			}
+		}
 
 	//添加发单信息
 	$("#sendOrder").click(function() {
