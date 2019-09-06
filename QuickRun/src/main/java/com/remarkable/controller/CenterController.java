@@ -65,7 +65,6 @@ public class CenterController {
 		//获取服务器的真实路径
 		String realPath = request.getServletContext().getRealPath("/uploads/");
 		String path=request.getServletContext().getContextPath();
-		System.err.println(path);
 		
 		//获取文件上传的真实路径
 		String realFileName = realPath + "\\" + uuid +newFileName;
@@ -86,9 +85,8 @@ public class CenterController {
 			images.setIma_address(realFileName);
 			//===============
 			int u_id = Integer.parseInt(request.getParameter("u_id"));
-			images.setU_id(u_id);
 			//调用service层上传图片的方法
-			centerServiceImpl.judgeInsertImages(images, 1);
+			centerServiceImpl.judgeInsertImages(images, u_id);
 		}catch(Exception e){
 			//上传失败
 			map.put("code", 1);
@@ -103,8 +101,8 @@ public class CenterController {
 	 * @return 返回images对象
 	 */
 	@RequestMapping("/showUser.action")
-	public @ResponseBody Images showUser(HttpServletRequest request){
-		int u_id = Integer.parseInt(request.getParameter("u_id"));
+	public @ResponseBody Images showUser(Integer u_id,HttpServletRequest request){
+		System.err.println(u_id);
 		Images images=centerServiceImpl.findImagesByid(u_id);
 		return images;
 	}
