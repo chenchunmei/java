@@ -56,7 +56,7 @@
 				     	<div class="card-header no-border">
 					      <div class="facebook-name">编号：{{userorder.ord_code}}</div>
 					      <a v-if="userorder.ord_complaint == null" class="button" style="float: right;" @click="complaint(userorder.ord_code)">投诉</a>
-					      <a v-if="userorder.ord_complaint != null"  class="button" style="float: right;" id="complaintfalse">投诉</a>
+					      <a v-if="userorder.ord_complaint != null"  class="button" style="float: right;" @click="complaintfalse(userorder.ord_code)">投诉</a>
 					    </div>
 					    <div valign="bottom" class="card-header color-white no-border no-padding">
 					      <img class='card-cover' src="../img/d1.gif"  height="100px" alt="">

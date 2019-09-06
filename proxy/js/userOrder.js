@@ -19,7 +19,10 @@ var app = new Vue({
 			},
 			oversend: function(ord_code) {
 				oversend(ord_code)
-			}
+			},
+			complaintfalse:function(ord_code){
+				complaintfalse(ord_code)
+			},
 		},
 		created: function() {
 				loadOrderList();
@@ -60,10 +63,11 @@ var app = new Vue({
 	});
 	
 
-	$("#complaintfalse").click(function(){
+	function complaintfalse(ord_code){
 		window.$$ = window.Zepto = Zepto;
 		$$.toast("您已投诉");
-	})
+	}
+	
 	//用户确认完成
 	function oversend(ord_code){
 		window.$$ = window.Zepto = Zepto;
