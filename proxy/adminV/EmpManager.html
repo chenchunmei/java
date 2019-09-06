@@ -48,7 +48,11 @@
 										<a class="layui-btn layui-btn-small"  onclick="location.reload()" title="刷新">
         								<i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
 									</div>
-									 
+									 <i>&nbsp;&nbsp;
+									 </i>
+										<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini lay-event=edit layui-btn-normal" @click="addEmp()">
+										<i class="layui-icon layui-icon-add-1"></i>添加</a>
+										<i>&nbsp;&nbsp;</i>
 								</form>
 							</div>
 							<div class="layui-card-body ">
@@ -92,10 +96,6 @@
 													<span v-if="list.emp_state==1">停用</span>
 												</td>
 												<td>
-													<i>&nbsp;&nbsp;</i>
-													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-warm" @click="addEmp()">
-													<i class="layui-icon layui-icon-add-1"></i>添加</a>
-													<i>&nbsp;&nbsp;</i>
 													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-warm" @click="updateEmp(list.emp_id)">
 													<i class="layui-icon layui-icon-add-1"></i>修改</a>
 													<i>&nbsp;&nbsp;</i>
