@@ -26,24 +26,24 @@ public interface AddOrdersMapper {
 	public void insertOrder(Order order);
 	
 	/**
-	 * 查询快递信息
+	 * 查询快递公司信息
 	 * @return
 	 */
-	@Select("select com_id,com_name from tb_company")
+	@Select("select com_id,com_name from tb_company where com_state = 0")
 	List<Company> queryCom();
 	
 	/**
 	 * 查询接收地址信息
 	 * @return
 	 */
-	@Select("select add_id,add_detail from tb_address")
+	@Select("select add_id,add_detail from tb_address where add_state = 0")
 	List<Address> queryAdd();
 	
 	/**
 	 * 查询接收时间信息
 	 * @return
 	 */
-	@Select("select rec_id,rec_detail from tb_rec")
+	@Select("select rec_id,rec_detail from tb_rec where rec_state = 0")
 	List<Rectime> queryTime();
 	
 	/**
