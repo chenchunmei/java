@@ -13,7 +13,6 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,7 +20,6 @@ import com.remarkable.entity.Address;
 import com.remarkable.entity.Company;
 import com.remarkable.entity.Order;
 import com.remarkable.entity.Rectime;
-import com.remarkable.entity.User;
 import com.remarkable.service.IAddOrdersService;
 
 /**
@@ -31,12 +29,10 @@ import com.remarkable.service.IAddOrdersService;
  */
 
 @Controller
-/*@CrossOrigin(origins={"*","null"})*/
 public class AddOrdersController {
 	
 	@Autowired
 	private IAddOrdersService addOrdersServiceImpl;
-	
 	
 	/**
 	 * 添加发布信息
@@ -45,22 +41,14 @@ public class AddOrdersController {
 	 */
 	@RequestMapping("/insert.action")
 	@ResponseBody
-	public void insertOrder(Order order,HttpServletResponse res,HttpServletRequest request){
-		//跨域问题
-		//res.setHeader("Access-Control-Allow-Origin", "*");
-		//System.out.println("+++++++++++++++++++++++++++当前用户sessionid"+request.getSession().getId());
+	public void insertOrder(Order order,HttpServletRequest request){
 		//获得订单编号
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 		String ord_code =sdf.format(new Date())+(new Random().nextInt(900)+100);
 		//取得发布时间
 		Date ord_send_time=new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		//format.format(ord_send_time);
-		//==========================取得当前登录用户的用户信息对象
-		Subject currentUser = SecurityUtils.getSubject();
-		//User user = (User) currentUser.getPrincipal();
+		//取得当前用户id
 		int u_id = Integer.parseInt(request.getParameter("u_id"));
-		//==========================取得当前登录用户的用户信息对象
 		order.setU_id(u_id);
 		order.setOrd_code(ord_code);
 		order.setOrd_send_time(ord_send_time);
