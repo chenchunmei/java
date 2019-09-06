@@ -58,7 +58,7 @@
 		</association>
 	</resultMap>
 	<select id="findOrderdetailsByordId" parameterType="order" resultMap="findOrderdetailsByordIdMap">
-		select  o.ord_rec_name,o.ord_pick_code,o.ord_phone,o.ord_complaint
+		select  o.ord_rec_name,o.ord_pick_code,o.ord_phone,o.ord_complaint,
 		c.com_name,a.add_detail,o.ord_send_time,r.rec_detail,o.ord_remark,
 		e.emp_name,e.emp_phone ,e2.emp_name forward
 		from tb_order o left join tb_address a on o.add_id=a.add_id 
