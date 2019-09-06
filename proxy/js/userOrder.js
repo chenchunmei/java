@@ -60,6 +60,10 @@ var app = new Vue({
 	});
 	
 
+	$("#complaintfalse").click(function(){
+		window.$$ = window.Zepto = Zepto;
+		$$.toast("您已投诉");
+	})
 	//用户确认完成
 	function oversend(ord_code){
 		window.$$ = window.Zepto = Zepto;
