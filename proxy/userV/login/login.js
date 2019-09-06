@@ -39,7 +39,7 @@ function login() {
 		dataType: "JSON",
 		success: function(result) {
 			
-			if(result != null) {
+			if(result != 0) {
 				//跳转到成功页面
 				location.href = "../addOrders.html";
 			} else {
