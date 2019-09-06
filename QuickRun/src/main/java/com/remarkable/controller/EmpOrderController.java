@@ -2,14 +2,9 @@ package com.remarkable.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.remarkable.entity.Emp;
@@ -30,10 +25,7 @@ public class EmpOrderController {
 	
 	/**
 	 * 查询骑手的所有订单
-	 * @param emp_id
-	 * @param ord_code
-	 * @param com_id
-	 * @param add_id
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/orderEmpAll.action")
@@ -44,10 +36,7 @@ public class EmpOrderController {
 	
 	/**
 	 * 查询骑手未送达的所有订单
-	 * @param emp_id
-	 * @param ord_code
-	 * @param com_id
-	 * @param add_id
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/orderEmpNo.action")
@@ -58,10 +47,7 @@ public class EmpOrderController {
 	
 	/**
 	 * 查询骑手已经送达的所有订单
-	 * @param emp_id
-	 * @param ord_code
-	 * @param com_id
-	 * @param add_id
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/orderEmp.action")
@@ -72,10 +58,7 @@ public class EmpOrderController {
 	
 	/**
 	 * 查询骑手转交的所有订单
-	 * @param emp_id
-	 * @param ord_code
-	 * @param com_id
-	 * @param add_id
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/orderForwardSend.action")
@@ -86,9 +69,7 @@ public class EmpOrderController {
 	
 	/**
 	 * 查询骑手收到转交的所有订单
-	 * @param ord_forward
-	 * @param ord_code
-	 * @param com_id
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/orderForwardPut.action")
@@ -99,7 +80,7 @@ public class EmpOrderController {
 	
 	/**
 	 * 根据订单id查询订单详情
-	 * @param ord_id
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/orderDetailEmp.action")
@@ -110,7 +91,7 @@ public class EmpOrderController {
 	
 	/**
 	 * 骑手确认送达快递
-	 * @param ord_id
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/updateOrderDelivery.action")
@@ -121,8 +102,7 @@ public class EmpOrderController {
 	
 	/**
 	 * 骑手转交快递
-	 * @param ord_id
-	 * @param ord_forward
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/updateOrderForward.action")
