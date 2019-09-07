@@ -39,7 +39,7 @@
 	</resultMap>
 	<select id="findOrderAll" parameterType="order" resultMap="findOrderAllMap">
 		select 
-		tb.ord_id,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
+		tb.ord_id,tb.ord_code,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
 		from tb_order tb 
 		left join tb_company tc on tc.com_id =tb.com_id 
 		left join tb_rec tr on tr.rec_id = tb.rec_id 
@@ -97,7 +97,7 @@
 	</resultMap>
 	<select id="findNoOrderAndEmpAll" parameterType="order" resultMap="findNoOrderAndEmpAllMap">
 		select 
-		tb.ord_id,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
+		tb.ord_id,tb.ord_code,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
 		from tb_order tb 
 		left join tb_company tc on tc.com_id =tb.com_id 
 		left join tb_rec tr on tr.rec_id = tb.rec_id 
@@ -156,7 +156,7 @@
 	</resultMap>
 	<select id="findOrderAndEmpAll" parameterType="order" resultMap="findOrderAndEmpAllMap">
 		select 
-		tb.ord_id,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
+		tb.ord_id,tb.ord_code,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
 		from tb_order tb 
 		left join tb_company tc on tc.com_id =tb.com_id 
 		left join tb_rec tr on tr.rec_id = tb.rec_id 
@@ -215,7 +215,7 @@
 	</resultMap>
 	<select id="findSendOrderByForward" parameterType="order" resultMap="findSendOrderByForwardMap">
 		select 
-		tb.ord_id,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
+		tb.ord_id,tb.ord_code,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
 		from tb_order tb 
 		left join tb_company tc on tc.com_id =tb.com_id 
 		left join tb_rec tr on tr.rec_id = tb.rec_id 
@@ -274,7 +274,7 @@
 	</resultMap>
 	<select id="findPutOrderByForward" parameterType="order" resultMap="findPutOrderByForwardMap">
 		select 
-		tb.ord_id,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
+		tb.ord_id,tb.ord_code,tc.com_name,tb.ord_pick_code,tb.ord_rec_name,tb.ord_wight,tr.rec_detail,tb.ord_phone,ta.add_detail,tb.ord_remark,tb.ord_state 
 		from tb_order tb 
 		left join tb_company tc on tc.com_id =tb.com_id 
 		left join tb_rec tr on tr.rec_id = tb.rec_id 
