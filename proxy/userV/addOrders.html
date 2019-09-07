@@ -5,9 +5,6 @@
 -->
 <html>
 	<head>
-		<header class="bar bar-nav">
-			<h1 class='title'>发布订单</h1>
-		</header>
 		<title>发布订单</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -20,7 +17,6 @@
 		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
 		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
 		<link rel="stylesheet" href="../aui/css/aui.css" />
-		
 	</head>
 
 	<body>
@@ -47,6 +43,9 @@
 		<div id="app">
 			<form action="#" method="post" id="addOrders" name="addOrders">
 				<div class="content">
+					<header class="bar bar-nav">
+						<h1 class='title'>发布订单</h1>
+					</header>
 					<div class="list-block">
 						<div class="aui-tips " id="tips-1">
 					    <i class="aui-iconfont aui-icon-info"></i>
@@ -54,7 +53,6 @@
 					    <i class="aui-iconfont aui-icon-close"></i>
 					</div>
 						<ul>
-							<input type="text" hidden="hidden" id="u_id" value="" name="u_id" />
 							<li>
 								<div class="item-content">
 									<div class="item-media"><i class="icon icon-form-name"></i></div>
@@ -170,10 +168,11 @@
 						</ul>
 					</div>
 					<div class="content-block">
-						<div class="row"  id="sendOrder">
-							<a href="#" class="button button-big button-fill button-success" >提交</a>
+						<div class="row"  id="sendOrder" style="margin-top: -30px;">
+							<a href="#" class="button button-big button-fill button-success">提交</a>
 						</div>
 					</div>
+					<br />
 				</div>
 			</form>
 		</div>
