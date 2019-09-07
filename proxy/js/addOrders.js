@@ -61,7 +61,7 @@ var app = new Vue({
 	//手机号格式
 	window.onload = function() {
 			var inpEle = document.getElementById('ord_phone');
-			var myreg = /^1[3458]\d{9}$/;
+			var myreg = /^1[3456789]\d{9}$/;
 			inpEle.onblur = function() {
 				var inpVal = this.value;
 				if(!myreg.exec(inpVal)) {
