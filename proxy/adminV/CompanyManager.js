@@ -10,9 +10,9 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			list: {} //定义一个数据
 		},
 		methods: { //定义VUE中函数
-			lockComoanyState: function(com_id, add_state) {
+			lockComoanyState: function(com_id, com_state) {
 				//调用自已的
-				lockComoanyState(com_id, add_state);
+				lockComoanyState(com_id, com_state);
 			},
 			deleteCompany: function(com_id) {
 				//调用自已的
@@ -71,26 +71,26 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 		loadList();
 	});
 
-	function lockComoanyState(com_id, add_state) {
+	function lockComoanyState(com_id, com_state) {
 		//为0 则进行注销
-		if(add_state == 1) {
+		if(com_state == 1) {
 			layer.confirm('确定修改公司编号为[' + com_id + ']的公司？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
-				$.post("http://localhost:8888/QuickRun/companyUpdateState.action",{"com_id":com_id,"add_state":0},
+				$.post("http://localhost:8888/QuickRun/companyUpdateState.action",{"com_id":com_id,"com_state":0},
 				function(result) {					
 					layer.msg("修改为营业成功");						
 					loadList();										
 					layer.close(index);
 				})
 			});
-		} else if(add_state == 0){ //其它为1则进行复原
+		} else if(com_state == 0){ //其它为1则进行复原
 			layer.confirm('确定修改公司编号为[' + com_id + ']的公司？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
-				$.post("http://localhost:8888/QuickRun/companyUpdateState.action",{"com_id":com_id,"add_state":1},
+				$.post("http://localhost:8888/QuickRun/companyUpdateState.action",{"com_id":com_id,"com_state":1},
 				function(result) {
 					layer.msg("修改为打烊成功");						
 					loadList();	

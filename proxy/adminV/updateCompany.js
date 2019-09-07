@@ -18,7 +18,7 @@ layui.use(['form','laydate','layer','jquery'],function(){
 			var company = result;
 			$(".com_name").val(company.com_name);
 			$(".com_content").val(company.com_content);
-			$(".add_state option[value="+company.add_state+"]").prop("selected","selected");
+			$(".com_state option[value="+company.com_state+"]").prop("selected","selected");
 				
 		//表单重新渲染
 		form.render();
@@ -29,13 +29,13 @@ layui.use(['form','laydate','layer','jquery'],function(){
 		
 		var com_name = $(".com_name").val();
 		var com_content = $(".com_content").val();
-		var add_state = $(".add_state").val();
+		var com_state = $(".com_state").val();
 		
 		var company = {
 			"com_id":com_id,
 			"com_name": com_name,
 			"com_content": com_content,
-			"add_state": add_state
+			"com_state": com_state
 		}
 		console.log(company)
 		$.post("http://localhost:8888/QuickRun/updateCompany.action", company,

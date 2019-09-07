@@ -9,12 +9,12 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 	$("button[lay-filter='addCompany']").click(function() {
 		var com_name = $(".com_name").val();
 		var com_content = $(".com_content").val();
-		var add_state = $(".add_state").val();
+		var com_state = $(".com_state").val();
 		
 		var company = {
 			"com_name": com_name,
 			"com_content": com_content,
-			"add_state": add_state
+			"com_state": com_state
 		}
 		$.post("http://localhost:8888/QuickRun/insertCompany.action", company,
 			function(result) {	
