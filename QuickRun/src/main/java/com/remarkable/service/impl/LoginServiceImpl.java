@@ -2,7 +2,6 @@ package com.remarkable.service.impl;
 
 import java.util.Set;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -19,8 +19,12 @@ import com.remarkable.entity.Emp;
 import com.remarkable.entity.User;
 import com.remarkable.service.ILoginService;
 
+/**
+ * 登录控制层
+ * @author 向林俊
+ *
+ */
 @Controller
-/*@CrossOrigin(origins={"*","null"})*/
 public class LoginController {
 
 	@Autowired
@@ -50,24 +54,22 @@ public class LoginController {
 		return emp;
 	}
 	
-	
+	/**
+	 * 用户登录
+	 * @param phone
+	 * @param pwd
+	 * @return
+	 */
 	@RequestMapping("/login.action")
 	public @ResponseBody int login(@RequestParam("phone") String phone
-			,@RequestParam("pwd") String pwd,HttpSession session) {
+			,@RequestParam("pwd") String pwd) {
 		Subject currentUser = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(phone,pwd);
-		System.out.println("sessionid ------------ "+session.getId());
 		try {
 			//System.out.println("到这来了吗？");
 			currentUser.login(token);
-			//User user = (User) currentUser.getPrincipal();
-			//System.out.println("当前登录账号的id"+user.getU_id());
-			//获取当前用户的id，并且传递到前端
-			//System.out.println("这是当前登录账号的用户========="+user);
-			/*session.setAttribute("user", user);*/
 			return 1;
 		}catch(AuthenticationException ae) {
-			System.out.println("登录失败："+ae.getMessage());
 			return 0;
 		}
 	}
