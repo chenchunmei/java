@@ -109,6 +109,7 @@ var app = new Vue({
 				window.$$ = window.Zepto = Zepto;
 				$$.toast("发布成功");
 				location.reload();
+				window.location.href="userOrder.html";
 			}
 		});
 	});
