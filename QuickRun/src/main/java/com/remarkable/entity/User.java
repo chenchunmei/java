@@ -21,8 +21,8 @@ public class User {
 	//性别
 	private int u_sex;
 	//出生年月日
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@JSONField(format ="yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
 	private Date u_birthday;
 	//状态
 	private int  u_state;
