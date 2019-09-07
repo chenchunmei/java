@@ -13,7 +13,11 @@ import com.remarkable.entity.Company;
 import com.remarkable.entity.Rectime;
 import com.remarkable.entity.User;
 import com.remarkable.service.IRecManagerService;
-
+/**
+ * 接收时间后台管理控制层
+ * @author 李明哲
+ *
+ */
 @Controller
 @CrossOrigin(origins={"*","null"})
 public class RecManagerController {

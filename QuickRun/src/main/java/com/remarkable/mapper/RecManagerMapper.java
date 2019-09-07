@@ -10,7 +10,11 @@ import org.apache.ibatis.annotations.Update;
 
 import com.remarkable.entity.Company;
 import com.remarkable.entity.Rectime;
-
+/**
+ * 接受时间后台管理
+ * @author 李明哲
+ *
+ */
 public interface RecManagerMapper {
 	
 	@Select("select * from tb_rec")

@@ -11,7 +11,11 @@ import org.apache.ibatis.annotations.Update;
 import com.remarkable.entity.Address;
 import com.remarkable.entity.Company;
 import com.remarkable.entity.Emp;
-
+/**
+ * 地址后台管理
+ * @author 李明哲
+ *
+ */
 public interface AddressManagerMapper {
 	
 	@Select("select add_id,add_detail,add_state,emp_name from tb_address ta "

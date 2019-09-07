@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Emp;
 import com.remarkable.service.IEmpManagerService;
-
+/**
+ * 骑手后台管理控制层
+ * @author 李明哲
+ *
+ */
 @Controller
 /*@CrossOrigin(origins={"*" ,"null"})*/
 public class EmpManagerController {

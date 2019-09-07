@@ -12,7 +12,11 @@ import com.remarkable.entity.Emp;
 import com.remarkable.entity.User;
 import com.remarkable.mapper.EmpManagerMapper;
 import com.remarkable.service.IEmpManagerService;
-
+/**
+ * 骑手管理接口实现层
+ * @author 李明哲
+ *
+ */
 @Service
 public class EmpManagerServiceImpl implements IEmpManagerService {
 

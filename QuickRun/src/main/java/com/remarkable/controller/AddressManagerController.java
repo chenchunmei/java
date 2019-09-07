@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Address;
-import com.remarkable.entity.Company;
 import com.remarkable.entity.Emp;
-import com.remarkable.entity.Rectime;
 import com.remarkable.service.IAddressManagerService;
-import com.remarkable.service.IRecManagerService;
-
+/**
+ * 地址后台管理控制层
+ * @author 李明哲
+ *
+ */
 @Controller
 @CrossOrigin(origins={"*","null"})
 public class AddressManagerController {

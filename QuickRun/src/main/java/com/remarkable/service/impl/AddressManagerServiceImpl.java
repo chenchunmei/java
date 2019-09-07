@@ -9,10 +9,13 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Address;
 import com.remarkable.entity.Emp;
-import com.remarkable.entity.Rectime;
 import com.remarkable.mapper.AddressManagerMapper;
 import com.remarkable.service.IAddressManagerService;
-
+/**
+ * 地址管理接口实现层
+ * @author 李明哲
+ *
+ */
 @Service
 public class AddressManagerServiceImpl implements IAddressManagerService {
 	

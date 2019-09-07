@@ -10,7 +10,11 @@ import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Rectime;
 import com.remarkable.mapper.RecManagerMapper;
 import com.remarkable.service.IRecManagerService;
-
+/**
+ * 接受时间管理接口实现层
+ * @author 李明哲
+ *
+ */
 @Service
 public class RecManagerServiceImpl implements IRecManagerService {
 

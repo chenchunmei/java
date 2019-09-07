@@ -9,7 +9,11 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.remarkable.entity.Emp;
-
+/**
+ * 骑手后台管理
+ * @author 李明哲
+ *
+ */
 public interface EmpManagerMapper {
 	
 	@Select("select * from tb_emp")

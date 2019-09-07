@@ -2,7 +2,11 @@ package com.remarkable.service;
 
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.User;
-
+/**
+ * 用户管理服务层
+ * @author 李明哲
+ *
+ */
 public interface IUserManagerService {
 	
 	PageInfo<User> showUser(Integer page,Integer pageSize);

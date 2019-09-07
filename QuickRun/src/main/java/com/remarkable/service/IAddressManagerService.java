@@ -6,7 +6,11 @@ import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Address;
 import com.remarkable.entity.Company;
 import com.remarkable.entity.Emp;
-
+/**
+ * 地址管理服务层
+ * @author 李明哲
+ *
+ */
 public interface IAddressManagerService {
 	
 	PageInfo<Address> showAdd(Integer page,Integer pageSize);

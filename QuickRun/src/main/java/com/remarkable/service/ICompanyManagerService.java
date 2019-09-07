@@ -2,7 +2,11 @@ package com.remarkable.service;
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Company;
 
-
+/**
+ * 公司管理服务层
+ * @author 李明哲
+ *
+ */
 public interface ICompanyManagerService {
 	
 	

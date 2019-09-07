@@ -12,7 +12,11 @@ import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Company;
 import com.remarkable.service.ICompanyManagerService;
 
-
+/**
+ * 公司后台管理控制层
+ * @author 李明哲
+ *
+ */
 @Controller
 /*@CrossOrigin(origins={"*","null"})*/
 public class CompanyManagerController {

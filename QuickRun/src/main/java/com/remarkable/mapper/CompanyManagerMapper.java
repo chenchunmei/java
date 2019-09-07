@@ -7,7 +7,11 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.remarkable.entity.Company;
-
+/**
+ * 公司后台管理
+ * @author 李明哲
+ *
+ */
 public interface CompanyManagerMapper {
 	
 	@Select("select * from tb_company")

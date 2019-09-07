@@ -11,7 +11,11 @@ import com.remarkable.entity.Order;
 import com.remarkable.entity.OrderDatails;
 import com.remarkable.mapper.OrderManagerMapper;
 import com.remarkable.service.IOrderManagerService;
-
+/**
+ * 订单管理接口实现层
+ * @author 李明哲
+ *
+ */
 @Service
 public class OrderManagerServiceImpl implements IOrderManagerService {
 	

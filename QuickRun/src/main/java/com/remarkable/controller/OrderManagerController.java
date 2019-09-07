@@ -10,7 +10,11 @@ import com.remarkable.entity.Company;
 import com.remarkable.entity.Order;
 import com.remarkable.entity.OrderDatails;
 import com.remarkable.service.IOrderManagerService;
-
+/**
+ * 订单后台管理控制层
+ * @author 李明哲
+ *
+ */
 @Controller
 /*@CrossOrigin(origins={"*","null"})*/
 public class OrderManagerController {

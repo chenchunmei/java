@@ -10,7 +10,11 @@ import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Company;
 import com.remarkable.mapper.CompanyManagerMapper;
 import com.remarkable.service.ICompanyManagerService;
-
+/**
+ * 公司管理接口实现层
+ * @author 李明哲
+ *
+ */
 @Service
 public class CompanyManagerServiceImpl implements ICompanyManagerService{
 	

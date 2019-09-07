@@ -8,7 +8,11 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.remarkable.entity.User;
-
+/**
+ * 用户后台管理
+ * @author 李明哲
+ *
+ */
 public interface UserManagerMapper {
 	
 	@Select("select * from tb_user")

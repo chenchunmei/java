@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.User;
 import com.remarkable.service.IUserManagerService;
-
+/**
+ * 用户后台管理控制层
+ * @author 李明哲
+ *
+ */
 @Controller
 @CrossOrigin(origins={"*","null"})
 public class UserManagerController {

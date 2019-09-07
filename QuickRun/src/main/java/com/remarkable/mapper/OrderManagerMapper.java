@@ -7,7 +7,11 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.remarkable.entity.Order;
 import com.remarkable.entity.OrderDatails;
-
+/**
+ * 订单后台管理
+ * @author 李明哲
+ *
+ */
 public interface OrderManagerMapper {
 	
 	@Select("select ord_code,ord_send_time,ord_pick_code,Ord_phone,ord_rec_name, "

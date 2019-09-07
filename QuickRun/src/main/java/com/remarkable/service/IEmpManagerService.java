@@ -2,7 +2,11 @@ package com.remarkable.service;
 
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Emp;
-
+/**
+ * 骑手管理服务层
+ * @author 李明哲
+ *
+ */
 public interface IEmpManagerService {
 	
 	PageInfo<Emp> showEmp(Integer page,Integer pageSize);

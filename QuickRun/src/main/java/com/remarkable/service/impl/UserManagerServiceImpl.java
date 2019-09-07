@@ -11,7 +11,11 @@ import com.remarkable.entity.Company;
 import com.remarkable.entity.User;
 import com.remarkable.mapper.UserManagerMapper;
 import com.remarkable.service.IUserManagerService;
-
+/**
+ * 用户管理接口实现层
+ * @author 李明哲
+ *
+ */
 @Service
 public class UserManagerServiceImpl implements IUserManagerService{
 	
