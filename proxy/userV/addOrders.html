@@ -41,7 +41,7 @@
 		</nav>
 		
 		<div id="app">
-			<form action="#" method="post" id="addOrders" name="addOrders">
+			<form action="#" method="post" id="addOrders" name="addOrders" onsubmit="return check()">
 				<div class="content">
 					<header class="bar bar-nav">
 						<h1 class='title'>发布订单</h1>
@@ -72,7 +72,7 @@
 										<i class="aui-iconfont aui-icon-cert"></i>&nbsp;&nbsp;
 										<div class="item-title label">取货码</div>
 										<div class="item-input">
-											<input type="text" id="ord_pick_code" maxlength="8">
+											<input type="text" id="ord_pick_code" maxlength="8" onblur="myFunction()">
 										</div>
 									</div>
 								</div>
@@ -84,7 +84,7 @@
 										<i class="aui-iconfont aui-icon-phone"></i>&nbsp;&nbsp;
 										<div class="item-title label">联系电话</div>
 										<div class="item-input">
-											<input type="text" id="ord_phone" >
+											<input type="text" id="ord_phone" maxlength="11" onblur="myFunction2()">
 										</div>
 									</div>
 								</div>
@@ -130,7 +130,7 @@
 										 <i class="aui-iconfont aui-icon-pencil"></i>&nbsp;&nbsp;
 										<div class="item-title label">包裹重量(Kg)</div>
 										<div class="item-input">
-											<input type="text" id="ord_wight">
+											<input type="text" id="ord_wight" maxlength="4" onblur="myFunction3()">
 										</div>
 									</div>
 								</div>
