@@ -82,11 +82,11 @@
 													<a data-method="offset" data-type="auto" class="layui-btn layui-btn-mini layui-btn-warm" @click="updateCompany(list.com_id)">
 													<i class="layui-icon layui-icon-add-1"></i>修改</a>
 													<i>&nbsp;&nbsp;</i>
-													<a v-if="list.com_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockComoanyState(list.com_id,list.com_state)"><i class="layui-icon"></i>
+													<a v-if="list.com_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockComoanyState(list.com_id,list.com_state,list.com_name)"><i class="layui-icon"></i>
 													{{list.com_state==0?"打烊":"营业"}}</a>
 													<a v-if="list.com_state==1" class='layui-btn layui-btn-mini layui-btn-danger' @click="lockComoanyState(list.com_id,list.com_state)"><i class="layui-icon"></i>
 													{{list.com_state==0?"打烊":"营业"}}</a>
-													<a href="javascript:void(0)" title="删除" @click="deleteCompany(list.com_id)" id="deletCompany" :com_id="list.com_id" class="">
+													<a href="javascript:void(0)" title="删除" @click="deleteCompany(list.com_id,list.name)" id="deletCompany" :com_id="list.com_id" class="">
 													<i class="layui-icon">&nbsp;&nbsp;&nbsp;&nbsp;&#xe640;</i></a>
 												</td>
 												</td>

@@ -46,7 +46,7 @@ layui.use(['form','laydate','layer','jquery'],function(){
 						var index = parent.layer.getFrameIndex(window.name);获取当前弹窗的Id
 						parent.layer.close(index);关闭
 					},500);
-					layer.msg("添加成功");
+					layer.msg("修改成功");
 			});
 	});
 		

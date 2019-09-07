@@ -10,15 +10,15 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			list: {} //定义一个数据
 		},
 		methods: { //定义VUE中函数
-			lockComoanyState: function(com_id, com_state) {
+			lockComoanyState: function(com_id, com_state,com_name) {
 				//调用自已的
-				lockComoanyState(com_id, com_state);
+				lockComoanyState(com_id, com_state,com_name);
 			},
-			deleteCompany: function(com_id) {
+			deleteCompany: function(com_id,com_name) {
 				//调用自已的
 				deleteCompany(com_id);
 			},
-			showCompanycontent: function(com_id){
+			showCompanycontent: function(com_id,com_name){
 				showCompanycontent(com_id);
 			},
 			addCompany: function(){
@@ -71,10 +71,10 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 		loadList();
 	});
 
-	function lockComoanyState(com_id, com_state) {
+	function lockComoanyState(com_id, com_state,com_name) {
 		//为0 则进行注销
 		if(com_state == 1) {
-			layer.confirm('确定修改公司编号为[' + com_id + ']的公司？', {
+			layer.confirm('确定修改公司编号为[' + com_name + ']的公司？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
@@ -86,7 +86,7 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 				})
 			});
 		} else if(com_state == 0){ //其它为1则进行复原
-			layer.confirm('确定修改公司编号为[' + com_id + ']的公司？', {
+			layer.confirm('确定修改公司编号为[' + com_name + ']的公司？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
@@ -102,8 +102,8 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 	}
 
 	//删除用户 
-	function deleteCompany(com_id) {
-		layer.confirm('确定删除[' + com_id + ']公司？', {
+	function deleteCompany(com_id,com_name) {
+		layer.confirm('确定删除[' + com_name + ']公司？', {
 			icon: 3,
 			title: '提示信息'
 		}, function(index) {
