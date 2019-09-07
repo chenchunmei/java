@@ -21,17 +21,17 @@ public interface CompanyManagerMapper {
 			+ " where com_id = #{com_id}")
 	int deletecompany(@Param("com_id") Integer com_id );
 	
-	@Update("update tb_company set add_state=#{add_state} where com_id=#{com_id}")
-	int updateState(@Param("add_state") Integer add_state ,@Param("com_id") String com_id);
+	@Update("update tb_company set com_state=#{com_state} where com_id=#{com_id}")
+	int updateState(@Param("com_state") Integer com_state ,@Param("com_id") String com_id);
 	
 	@Select("select * from tb_company where com_id=#{com_id}")
 	Company selectCompanyById(@Param("com_id") Integer com_id);
 	
-	@Insert ("insert into tb_company(com_name,com_content,add_state) "
-			+ " values(#{com_name},#{com_content},#{add_state})")
+	@Insert ("insert into tb_company(com_name,com_content,com_state) "
+			+ " values(#{com_name},#{com_content},#{com_state})")
 	public void insertCompany(Company company);
 	
-	@Update("update tb_company set com_name=#{com_name},com_content=#{com_content},add_state=#{add_state} "
+	@Update("update tb_company set com_name=#{com_name},com_content=#{com_content},com_state=#{com_state} "
 			+ " where com_id=#{com_id}")
 	int updateCompany(Company company);
 

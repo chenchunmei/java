@@ -48,8 +48,8 @@ public class CompanyManagerServiceImpl implements ICompanyManagerService{
 	}
 
 	@Override
-	public int updateState(Integer add_state, String com_id) {
-		return cmm.updateState(add_state, com_id);
+	public int updateState(Integer com_state, String com_id) {
+		return cmm.updateState(com_state, com_id);
 	}
 
 	@Override

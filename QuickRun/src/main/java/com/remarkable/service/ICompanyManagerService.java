@@ -12,7 +12,7 @@ public interface ICompanyManagerService {
 	
 	int deletecompany(Integer com_id );
 	
-	int updateState(Integer add_state,String com_id);
+	int updateState(Integer com_state,String com_id);
 	
 	Company selectCompanyById(Integer com_id);
 	

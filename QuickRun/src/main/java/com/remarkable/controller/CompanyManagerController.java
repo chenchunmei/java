@@ -37,8 +37,8 @@ public class CompanyManagerController {
 	}
 	
 	@RequestMapping("companyUpdateState.action")
-	public String updateCompanyState(Integer add_state, String com_id) {
-		cmsi.updateState(add_state, com_id);
+	public String updateCompanyState(Integer com_state, String com_id) {
+		cmsi.updateState(com_state, com_id);
 		return "company1.action";
 	}
 	
