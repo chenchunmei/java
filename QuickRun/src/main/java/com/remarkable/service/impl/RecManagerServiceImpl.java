@@ -38,4 +38,9 @@ public class RecManagerServiceImpl implements IRecManagerService {
 		return rmm.updateState(rec_state, rec_id);
 	}
 
+	@Override
+	public void insertRec(Rectime rectime) {
+		rmm.insertRec(rectime);
+	}
+
 }

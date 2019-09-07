@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
+import com.remarkable.entity.Company;
 import com.remarkable.entity.Rectime;
 import com.remarkable.entity.User;
 import com.remarkable.service.IRecManagerService;
@@ -37,6 +38,14 @@ public class RecManagerController {
 	public String updateRecState(Integer rec_state, String rec_id,HttpServletResponse res) {
 		ims.updateState(rec_state, rec_id);
 		return "RecManager.action";
+	}
+	
+	@RequestMapping("insertRec.action")
+	@ResponseBody
+	@CrossOrigin
+	public void insertRec(Rectime rectime,HttpServletResponse res){	
+		res.setHeader("Access-Control-Allow-Origin", "*");
+		ims.insertRec(rectime);
 	}
 	
 

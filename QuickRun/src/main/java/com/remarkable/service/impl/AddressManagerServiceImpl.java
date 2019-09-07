@@ -50,4 +50,9 @@ public class AddressManagerServiceImpl implements IAddressManagerService {
 		return amm.updateEmpid(emp_id, add_id);
 	}
 
+	@Override
+	public void insertAddress(Address address) {
+		amm.insertAddress(address);
+	}
+
 }

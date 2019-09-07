@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Address;
+import com.remarkable.entity.Company;
 import com.remarkable.entity.Emp;
 
 public interface IAddressManagerService {
@@ -17,5 +18,7 @@ public interface IAddressManagerService {
 	List<Emp> SelectEmpName();
 	
 	int updateEmpid(Integer emp_id,String add_id);
+	
+	public void insertAddress(Address address);
 
 }

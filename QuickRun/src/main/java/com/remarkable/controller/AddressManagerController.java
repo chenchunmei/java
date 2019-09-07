@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
 import com.remarkable.entity.Address;
+import com.remarkable.entity.Company;
 import com.remarkable.entity.Emp;
 import com.remarkable.entity.Rectime;
 import com.remarkable.service.IAddressManagerService;
@@ -52,5 +53,13 @@ public class AddressManagerController {
 	public String updateAddStateEmpid(Integer emp_id, String add_id,HttpServletResponse res) {
 		iams.updateEmpid(emp_id, add_id);
 		return "AddManager.action";
+	}
+	
+	@RequestMapping("insertAddress.action")
+	@ResponseBody
+	@CrossOrigin
+	public void insertCompany(Address address,HttpServletResponse res){	
+		res.setHeader("Access-Control-Allow-Origin", "*");
+		iams.insertAddress(address);
 	}
 }
