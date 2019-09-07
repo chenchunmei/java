@@ -18,6 +18,7 @@ $(function() {
 		var oldpassword = $("#oldpassword").val();
 		var newpassword = $("#newpassword").val();
 		var emp_id=localStorage.getItem("emp_id");
+		
 		//json数据传输
 		var user = {
 			"u_id": u_id,
@@ -31,37 +32,47 @@ $(function() {
 			"emp_oldPwd": oldpassword
 		}
 		if(flag==1) {
-			$.ajax({
-				type: "post",
-				url: "http://127.0.0.1:8888/QuickRun/UserUpdatePwd.action",
-				data: user,
-				success: function(result) {
-					if(result == 1) {
-						$$.alert('修改成功！请重新登录', function () {
-				         window.location.href = "login.html";
-				      });
-					} else {
-						$$.toast("原密码不正确");
+			if(oldpassword.length>=6 && oldpassword.length<=12 && newpassword.length>=6 && newpassword.length<=12){
+				
+				$.ajax({
+					type: "post",
+					url: "http://127.0.0.1:8888/QuickRun/UserUpdatePwd.action",
+					data: user,
+					success: function(result) {
+						if(result == 1) {
+							$$.alert('修改成功！请重新登录', function () {
+					         window.location.href = "login.html";
+					      });
+						} else {
+							$$.toast("原密码不正确");
+						}
 					}
-				}
-			});
+				});
+			}else{
+				$$.toast("密码格式有误");
+			}
 
 		} else {
-			$.ajax({
-				type: "post",
-				url: "http://127.0.0.1:8888/QuickRun/EmpUpdatePwd.action",
-				data: emp,
-				success: function(result) {
-					if(result == 1) {
-						//$$.toast('操作成功，正在跳转...');
-						$$.alert('修改成功！请重新登录', function () {
-				         window.location.href = "login.html";
-				      });
-					} else {
-						$$.toast("原密码不正确");
+			if(oldpassword.length>=6 && oldpassword.length<=12 && newpassword.length>=6 && newpassword.length<=12){
+				$.ajax({
+					type: "post",
+					url: "http://127.0.0.1:8888/QuickRun/EmpUpdatePwd.action",
+					data: emp,
+					success: function(result) {
+						if(result == 1) {
+							//$$.toast('操作成功，正在跳转...');
+							$$.alert('修改成功！请重新登录', function () {
+					         window.location.href = "login.html";
+					      });
+						} else {
+							$$.toast("原密码不正确");
+						}
 					}
-				}
-			});
+				});
+				
+			}else{
+				$$.toast("密码格式有误");
+			}
 		}
 
 	});
