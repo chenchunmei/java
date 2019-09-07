@@ -41,7 +41,7 @@ public interface UserOrderShowMapper {
 	 * @param ord_code 订单编号
 	 * @return
 	 */
-	@Update("update tb_order set  ord_state = 4 where ord_code =#{ord_code} and order_state=5")
+	@Update("update tb_order set  ord_state = 4 where ord_code =#{ord_code} and ord_state=5")
 	public int deleteUserOrder(String ord_code);
 	
 	/**
