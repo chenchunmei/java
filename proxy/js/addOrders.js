@@ -59,6 +59,20 @@ var app = new Vue({
 		})
 	}
 	
+	//取货码格式
+	window.onload = function() {
+			var pick_code = document.getElementById('ord_pick_code');
+			var myreg = /^[a-zA-Z0-9_\\-\u4e00-\u9fa5]+$/;
+			pick_code.onblur = function() {
+				var inpVal = this.value;
+				if(!myreg.exec(inpVal)) {
+					window.$$ = window.Zepto = Zepto;
+					$$.toast("取货码输入错误");
+				} 
+			}
+		}
+	
+	//手机号格式
 	window.onload = function() {
 		var inpEle = document.getElementById('ord_phone');
 		var myreg = /^1[3456789]\d{9}$/;
