@@ -7,7 +7,7 @@ public class Company {
 	//公司名称
 	private String com_name;
 	//状态
-	private int add_state;
+	private int com_state;
 	//内容
 	private String com_content;
 	
@@ -29,11 +29,11 @@ public class Company {
 	public void setCom_name(String com_name) {
 		this.com_name = com_name;
 	}
-	public int getAdd_state() {
-		return add_state;
+	public int getCom_state() {
+		return com_state;
 	}
-	public void setAdd_state(int add_state) {
-		this.add_state = add_state;
+	public void setCom_state(int com_state) {
+		this.com_state = com_state;
 	}
 	
 }
