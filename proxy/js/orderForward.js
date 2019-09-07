@@ -200,7 +200,9 @@ var app = new Vue({
 	
 	//加载骑手派送地址
 	function addressAll(){
-		$.post(server_url+"addressEmp.action",function(result){
+		//骑手id
+		var emp_id = localStorage.getItem("emp_id");
+		$.post(server_url+"addressEmp.action",{"emp_id":emp_id},function(result){
 			//创建一个数组装遍历的内容
 			var address = new Array();
 			address.push("全部");
