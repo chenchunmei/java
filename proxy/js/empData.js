@@ -6,6 +6,7 @@ $(function(){
 		el:"#app",
 		data:{
 			emp:{},
+			address:{}
 		},
 		methods: {
 			cancel: function(pccode) {
@@ -34,6 +35,7 @@ $(function(){
 			$("#u_birthday").val(time);
 			app.emp = result;
 		})
+		
 	}
 	
 	$("#back").click(function(){
@@ -45,21 +47,26 @@ $(function(){
 		var emp_dormitory = $("#emp_dormitory").val();
 		var emp_phone = $("#emp_phone").val();
 		var u_birthday = $("#u_birthday").val();
-		var emp={
+		var reg=/^[1][3,4,5,7,8][0-9]{9}$/;
+		var flag=reg.test(emp_phone);
+		if(flag){
+			var emp={
 				"emp_id":emp_id,
 				"emp_dormitory":emp_dormitory,
 				"emp_phone": emp_phone
-		}
-		$.ajax({
-			type:"post",
-			url:server_url+"updateEmp.action",
-			data:emp,
-			success:function(data){
-				$$.toast("修改成功");
-				window.location.href="empset.html";
 			}
-		});
-		
+			$.ajax({
+				type:"post",
+				url:server_url+"updateEmp.action",
+				data:emp,
+				success:function(data){
+					$$.toast("修改成功");
+					window.location.href="empset.html";
+				}
+			});
+		}else{
+			$$.toast("手机号码格式有误");
+		}
 	});
 	
 	function cancel() {
