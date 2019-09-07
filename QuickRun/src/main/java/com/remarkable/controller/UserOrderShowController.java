@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Update;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,18 @@ public class UserOrderShowController {
 	public int deleteUserOrder(String ord_code) {
 		int count=userOrderShowServiceImpl.deleteUserOrder(ord_code);
 		System.out.println(count);
+		return count;
+	}
+	
+	/**
+	 * 用户确认完成订单（根据订单编号修改订单状态为5）
+	 * @param ord_code 订单编号
+	 * @return
+	 */
+	@RequestMapping("/overSendOrder.action")
+	@ResponseBody
+	public int overSendOrder(String ord_code) {
+		int count=userOrderShowServiceImpl.overSendOrder(ord_code);
 		return count;
 	}
 }
