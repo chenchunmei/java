@@ -53,23 +53,24 @@ var app = new Vue({
 	
 	//加载接收地址信息数据
 	function loadTimeList() {
+		
 		$.post(server_url+"queryTime.action",function(result){
 			app.rec = result;
 		})
 	}
 	
-	//手机号格式
 	window.onload = function() {
-			var inpEle = document.getElementById('ord_phone');
-			var myreg = /^1[3456789]\d{9}$/;
-			inpEle.onblur = function() {
-				var inpVal = this.value;
-				if(!myreg.exec(inpVal)) {
-					window.$$ = window.Zepto = Zepto;
-					$$.toast("手机号输入错误");
-				} 
+		var inpEle = document.getElementById('ord_phone');
+		var myreg = /^1[3456789]\d{9}$/;
+		inpEle.onblur = function() {
+			var inpVal = this.value;
+			if(!myreg.exec(inpVal)) {
+				window.$$ = window.Zepto = Zepto;
+				$$.toast("手机号输入错误");
 			}
 		}
+	}
+
 
 	//添加发单信息
 	$("#sendOrder").click(function() {
@@ -106,10 +107,12 @@ var app = new Vue({
 		    },
 		    crossDomain: true,
 			success: function(data) {
-				window.$$ = window.Zepto = Zepto;
-				$$.toast("发布成功");
-				//location.reload();
-				window.location.href="userOrder.html";
+				//手机号格式
+				window.onload = function() {
+					window.$$ = window.Zepto = Zepto;
+					$$.toast("发布成功");
+					location.reload();
+				
 			}
 		});
 	});
