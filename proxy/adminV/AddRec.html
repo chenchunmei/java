@@ -1,0 +1,44 @@
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>接收时间添加</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="stylesheet" href="css/font.css">
+        <link rel="stylesheet" href="css/xadmin.css">
+        <script type="text/javascript" src="layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/xadmin.js"></script>     
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="AddRec.js"></script>        
+    </head>
+    <body>        
+        <div class="layui-fluid">
+            <div class="layui-row">
+		<div id="addCompany_app">
+			<div class="layui-form" style="width:80%;">
+				<div class="layui-form-item">
+					<label class="layui-form-label">接收时间详情</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input rec_detail" lay-verify="required|rec_detail" placeholder="接收时间详情">
+					</div>
+				</div>				
+				<div class="layui-form-item">
+				    <label class="layui-form-label">状态</label>
+					    <div class="layui-input-block">
+					      <select name="rec_state" class="rec_state" lay-verify="required">
+					        <option value="0">正常</option>
+					        <option value="1">不配送</option>
+					      </select>
+					    </div>
+  				</div>
+				<div class="layui-form-item">
+				    <div class="layui-input-block">
+				      <button class="layui-btn" lay-submit lay-filter="addRec">立即提交</button>
+				    </div>
+				</div>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

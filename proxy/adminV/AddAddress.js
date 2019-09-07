@@ -28,9 +28,16 @@ layui.use(['form','laydate','layer','jquery'],function(){
 				//表单重新渲染
 				form.render('select');
 		});
-		$("button[lay-filter='UpdateEmpAdd']").click(function() {
+		$("button[lay-filter='addAddress']").click(function() {
 		var emp_id = $("#emp").val();
-		$.post("http://localhost:8888/QuickRun/AddManagerEmpid.action",{"add_id":getQueryString("add_id"),"emp_id":emp_id},
+		var add_detail = $(".add_detail").val();
+		var add_state = $(".add_state").val();
+		var address = {
+			"add_detail": add_detail,
+			"add_state": add_state,
+			"emp_id": emp_id
+		}
+		$.post("http://localhost:8888/QuickRun/insertAddress.action",address,
 			function(result) {	
 //					layer.closeAll("iframe");
 					setTimeout(function(){//设置定时器
@@ -38,7 +45,7 @@ layui.use(['form','laydate','layer','jquery'],function(){
 						var index = parent.layer.getFrameIndex(window.name);获取当前弹窗的Id
 						parent.layer.close(index);关闭
 					},500);
-					layer.msg("修改成功");
+					layer.msg("添加成功");
 			});
 	});
 	})

@@ -1,0 +1,53 @@
+<<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>公司添加</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="stylesheet" href="css/font.css">
+        <link rel="stylesheet" href="css/xadmin.css">
+        <script type="text/javascript" src="layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/xadmin.js"></script>     
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/ajaxutil.js"></script>
+		<script type="text/javascript" src="AddAddress.js"></script>        
+    </head>
+    <body>        
+        <div class="layui-fluid">
+            <div class="layui-row">
+		<div id="addCompany_app">
+			<div class="layui-form" style="width:80%;">
+				<div class="layui-form-item">
+					<label class="layui-form-label">详细地址</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input add_detail" lay-verify="required|add_detail" placeholder="详细地址">
+					</div>
+				</div>				
+				<div class="layui-form-item">
+				    <label class="layui-form-label">地址状态</label>
+					    <div class="layui-input-block">
+					      <select name="add_state" class="add_state" lay-verify="required">
+					        <option value="0">正常</option>
+					        <option value="1">不营业</option>
+					      </select>
+					    </div>
+  				</div>
+				<div class="layui-form-item">
+	                <label class="layui-form-label"> <span class="x-red">*</span>骑手名称</label>
+						<div class="layui-input-block">
+							<select name="emp_name"  lay-filter="test" onchange="alert(this.value)"  class="layui-select fileTypeSelect" required="" lay-verify="required" id="emp">
+								<option value=-1></option>
+							</select>
+						</div>
+	             </div>
+				<div class="layui-form-item">
+				    <div class="layui-input-block">
+				      <button class="layui-btn" lay-submit lay-filter="addAddress">立即提交</button>
+				    </div>
+				</div>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

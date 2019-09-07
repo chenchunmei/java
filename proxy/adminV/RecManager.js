@@ -18,6 +18,9 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 				//调用自已的
 				deleteRec(rec_id);
 			},
+			addRec: function(){
+				addRec();
+			},
 		},
 		created: function() {
 			//调用加载数据
@@ -99,5 +102,14 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			});
 		});
 
+	}
+	function addRec(){
+		var index = layui.layer.open({
+			title: "添加接受时间",
+			area: ['500px', '400px'],
+			type: 2,
+			content: "addRec.html"
+		})
+		
 	}
 })

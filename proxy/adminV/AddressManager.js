@@ -21,6 +21,9 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			updateAdd: function(add_id){
 				updateAdd(add_id);
 			},
+			addAddress: function(add_id){
+				addAddress(add_id);
+			},
 		},
 		created: function() {
 			//调用加载数据
@@ -112,4 +115,14 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 		})
 		
 	}
+	function addAddress(add_id){
+		var index = layui.layer.open({
+			title: "添加公司",
+			area: ['500px', '400px'],
+			type: 2,
+			content: "AddAddress.html?add_id="+add_id
+		})
+		
+	}
+
 })
