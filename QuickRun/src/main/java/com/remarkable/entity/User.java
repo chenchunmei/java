@@ -29,7 +29,6 @@ public class User {
 	
 	private List<Order> orderList;
 	
-	
 	public List<Order> getOrderList() {
 		return orderList;
 	}

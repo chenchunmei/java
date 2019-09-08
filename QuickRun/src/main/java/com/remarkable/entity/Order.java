@@ -23,7 +23,7 @@ public class Order {
 	//取件人姓名
 	private String ord_rec_name;
 	//包裹重量
-	private int ord_wight;
+	private double ord_wight;
 	//备注
 	private String ord_remark;
 	//投诉订单
@@ -134,10 +134,10 @@ public class Order {
 	public void setOrd_rec_name(String ord_rec_name) {
 		this.ord_rec_name = ord_rec_name;
 	}
-	public int getOrd_wight() {
+	public double getOrd_wight() {
 		return ord_wight;
 	}
-	public void setOrd_wight(int ord_wight) {
+	public void setOrd_wight(double ord_wight) {
 		this.ord_wight = ord_wight;
 	}
 	public String getOrd_remark() {
