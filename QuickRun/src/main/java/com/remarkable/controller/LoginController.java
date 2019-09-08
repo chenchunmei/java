@@ -122,16 +122,23 @@ public class LoginController {
 	}
 	
 	
-	
-	@RequestMapping("/returnPwd.action")
+	@RequestMapping("/returnEmpPwd.action")
 	@ResponseBody
-	public Integer returnPwd(@RequestParam("phone")String phone,@RequestParam("repeatpwd")String repeatpwd){
-		Integer count=loginService.returnPwd(phone,repeatpwd);
+	public Integer returnEmpPwd(@RequestParam("emp_sno")String emp_sno,@RequestParam("repeatpwd")String repeatpwd){
+		Integer count=loginService.returnEmpPwd(emp_sno,repeatpwd);
 		//成功返回1 失败返回0，用于前端提示用户信息
 		return count;
 	}
 	
-	@RequestMapping("/EmpUpdatePwd")
+	@RequestMapping("/returnPwd.action")
+	@ResponseBody
+	public Integer returnPwd(@RequestParam("phone")String phone,@RequestParam("repeatpwd")String repeatpwd){
+		Integer count=loginService.returnEmpPwd(phone,repeatpwd);
+		//成功返回1 失败返回0，用于前端提示用户信息
+		return count;
+	}
+	
+	@RequestMapping("/EmpUpdatePwd.action")
 	@ResponseBody
 	public Integer updateEmpPwd(@RequestParam("emp_id")Integer emp_id,@RequestParam("emp_pwd")String emp_pwd,@RequestParam("emp_oldPwd")String emp_oldPwd,HttpServletResponse res,HttpServletRequest request){
 		//跨域设置
