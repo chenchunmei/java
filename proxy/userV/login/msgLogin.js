@@ -26,7 +26,7 @@ function loginEmp() {
 		dataType: "JSON",
 		success: function(result) {
 			localStorage.setItem("emp_id",result.emp_id);
-			if(result != null) {
+			if(result == 1) {
 				//跳转到成功页面
 				location.href = "../orderEmp.html";
 			} else {
