@@ -10,13 +10,13 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			list: {} //定义一个数据
 		},
 		methods: { //定义VUE中函数
-			lockEmpState: function(emp_id, emp_state) {
+			lockEmpState: function(emp_id, emp_state,emp_name) {
 				//调用自已的
-				lockEmpState(emp_id, emp_state);
+				lockEmpState(emp_id, emp_state,emp_name);
 			},
-			deleteEmp: function(emp_id) {
+			deleteEmp: function(emp_id,emp_name) {
 				//调用自已的
-				deleteEmp(emp_id);
+				deleteEmp(emp_id,emp_name);
 			},
 			addEmp: function(){
 				addEmp();
@@ -70,28 +70,28 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 		loadList();
 	});
 
-	function lockEmpState(emp_id, emp_state) {
+	function lockEmpState(emp_id, emp_state,emp_name) {
 		//为0 则进行注销
 		if(emp_state == 1) {
-			layer.confirm('确定修改骑手编号为[' + emp_id + ']的骑手？', {
+			layer.confirm('确定启用骑手为[' + emp_name + ']的骑手？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
 				$.post("http://localhost:8888/QuickRun/EmpManagerUpdateState.action",{"emp_id":emp_id,"emp_state":0},
 				function(result) {					
-					layer.msg("修改为正常成功");						
+					layer.msg("启用成功");						
 					loadList();										
 					layer.close(index);
 				})
 			});
 		} else if(emp_state == 0){ //其它为1则进行复原
-			layer.confirm('确定修改骑手编号为[' + emp_id + ']的骑手？', {
+			layer.confirm('确定停用骑手为[' + emp_name + ']的骑手？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
 				$.post("http://localhost:8888/QuickRun/EmpManagerUpdateState.action",{"emp_id":emp_id,"emp_state":1},
 				function(result) {
-					layer.msg("修改为停用成功");						
+					layer.msg("停用成功");						
 					loadList();	
 					layer.close(index);
 				})
@@ -101,8 +101,8 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 	}
 
 	//删除用户 
-	function deleteEmp(emp_id) {
-		layer.confirm('确定删除[' + emp_id + ']骑手？', {
+	function deleteEmp(emp_id,emp_name) {
+		layer.confirm('确定删除[' + emp_name + ']骑手？', {
 			icon: 3,
 			title: '提示信息'
 		}, function(index) {

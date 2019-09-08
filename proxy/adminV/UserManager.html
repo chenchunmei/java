@@ -90,11 +90,11 @@
 												</td>
 												<td>
 													<i>&nbsp;&nbsp;</i>
-													<a v-if="list.u_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockUserState(list.u_id,list.u_state)"><i class="layui-icon"></i>
-													{{list.u_state==0?"停用":"恢复"}}</a>
-													<a v-if="list.u_state==1" class='layui-btn layui-btn-mini layui-btn-danger' @click="lockUserState(list.u_id,list.u_state)"><i class="layui-icon"></i>
-													{{list.u_state==0?"停用":"恢复"}}</a>
-													<a href="javascript:void(0)" title="删除" @click="deleteUser(list.u_id)" id="deletUser" :u_id="list.u_id" class="">
+													<a v-if="list.u_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockUserState(list.u_id,list.u_state,list.u_nickname)"><i class="layui-icon"></i>
+													{{list.u_state==0?"停用":"启用"}}</a>
+													<a v-if="list.u_state==1" class='layui-btn layui-btn-mini layui-btn-danger' @click="lockUserState(list.u_id,list.u_state,list.u_nickname)"><i class="layui-icon"></i>
+													{{list.u_state==0?"停用":"启用"}}</a>
+													<a href="javascript:void(0)" title="删除" @click="deleteUser(list.u_id,list.u_nickname)" id="deletUser" :u_id="list.u_id" class="">
 													<i class="layui-icon">&nbsp;&nbsp;&nbsp;&nbsp;&#xe640;</i></a>
 												</td>
 												</td>

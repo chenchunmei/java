@@ -65,11 +65,11 @@
 												</td>
 												<td>
 													<i>&nbsp;&nbsp;</i>
-													<a v-if="list.rec_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockRecState(list.rec_id,list.rec_state)"><i class="layui-icon"></i>
-													{{list.rec_state==0?"不配送":"配送中"}}</a>
-													<a v-if="list.rec_state==1" class='layui-btn layui-btn-mini layui-btn-danger' @click="lockRecState(list.rec_id,list.rec_state)"><i class="layui-icon"></i>
-													{{list.rec_state==0?"不配送":"配送中"}}</a>
-													<a href="javascript:void(0)" title="删除" @click="deleteRec(list.rec_id)" id="deleteRec" :rec_id="list.rec_id" class="">
+													<a v-if="list.rec_state==0" class='layui-btn layui-btn-mini layui-btn-info' @click="lockRecState(list.rec_id,list.rec_state,list.rec_detail)"><i class="layui-icon"></i>
+													{{list.rec_state==0?"停止配送":"启动配送"}}</a>
+													<a v-if="list.rec_state==1" class='layui-btn layui-btn-mini layui-btn-danger' @click="lockRecState(list.rec_id,list.rec_state,list.rec_detail)"><i class="layui-icon"></i>
+													{{list.rec_state==0?"停止配送":"启动配送"}}</a>
+													<a href="javascript:void(0)" title="删除" @click="deleteRec(list.rec_id,list.rec_detail)" id="deleteRec" :rec_id="list.rec_id" class="">
 													<i class="layui-icon">&nbsp;&nbsp;&nbsp;&nbsp;&#xe640;</i></a>
 												</td>
 												</td>

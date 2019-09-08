@@ -16,7 +16,7 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			},
 			deleteCompany: function(com_id,com_name) {
 				//调用自已的
-				deleteCompany(com_id);
+				deleteCompany(com_id,com_name);
 			},
 			showCompanycontent: function(com_id,com_name){
 				showCompanycontent(com_id);
@@ -74,7 +74,7 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 	function lockComoanyState(com_id, com_state,com_name) {
 		//为0 则进行注销
 		if(com_state == 1) {
-			layer.confirm('确定修改公司编号为[' + com_name + ']的公司？', {
+			layer.confirm('确定更改公司名为[' + com_name + ']的公司？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {

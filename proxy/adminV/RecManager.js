@@ -10,13 +10,13 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			list: {} //定义一个数据
 		},
 		methods: { //定义VUE中函数
-			lockRecState: function(rec_id, rec_state) {
+			lockRecState: function(rec_id, rec_state,rec_detail) {
 				//调用自已的
-				lockRecState(rec_id, rec_state);
+				lockRecState(rec_id, rec_state,rec_detail);
 			},
-			deleteRec: function(rec_id) {
+			deleteRec: function(rec_id,rec_detail) {
 				//调用自已的
-				deleteRec(rec_id);
+				deleteRec(rec_id,rec_detail);
 			},
 			addRec: function(){
 				addRec();
@@ -58,28 +58,28 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 		})
 	}
 
-	function lockRecState(rec_id, rec_state) {
+	function lockRecState(rec_id, rec_state,rec_detail) {
 		//为0 则进行注销
 		if(rec_state == 1) {
-			layer.confirm('确定修改时间编号为[' + rec_id + ']的时间？', {
+			layer.confirm('确定启用配送时间为[' + rec_detail + ']的时间？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
 				$.post("http://localhost:8888/QuickRun/RecManagerUpdate.action",{"rec_id":rec_id,"rec_state":0},
 				function(result) {					
-					layer.msg("修改为正常成功");						
+					layer.msg("启用成功");						
 					loadList();										
 					layer.close(index);
 				})
 			});
 		} else if(rec_state == 0){ //其它为1则进行复原
-			layer.confirm('确定修改时间编号为[' + rec_id + ']的时间？', {
+			layer.confirm('确定停止配送时间为[' + rec_detail + ']的时间？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
 				$.post("http://localhost:8888/QuickRun/RecManagerUpdate.action",{"rec_id":rec_id,"rec_state":1},
 				function(result) {
-					layer.msg("修改为注销成功");						
+					layer.msg("停止成功");						
 					loadList();	
 					layer.close(index);
 				})
@@ -89,8 +89,8 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 	}
 
 	//删除用户 
-	function deleteRec(rec_id) {
-		layer.confirm('确定删除[' + rec_id + ']用户？', {
+	function deleteRec(rec_id,rec_detail) {
+		layer.confirm('确定删除[' + rec_detail + ']用户？', {
 			icon: 3,
 			title: '提示信息'
 		}, function(index) {

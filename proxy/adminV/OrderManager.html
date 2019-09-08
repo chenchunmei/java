@@ -89,9 +89,12 @@
 												<td>{{list.ord_rec_name}}</td>
 												<td>{{list.ord_wight}}</td>											
 												<td>
-													<span v-if="list.ord_state==0">该快递暂无骑手接</span>
-													<span v-if="list.ord_state==1">该快递骑手未送达</span>
-													<span v-if="list.ord_state==2">该快递骑手送达</span>
+													<span v-if="list.ord_state==0">暂无骑手接</span>
+													<span v-if="list.ord_state==1">骑手未送达</span>
+													<span v-if="list.ord_state==2">骑手已送达</span>
+													<span v-if="list.ord_state==3">骑手已送达</span>
+													<span v-if="list.ord_state==4">用户已删除</span>
+													<span v-if="list.ord_state==5">用户已确认</span>
 												</td>
 												<td>
 													<i>&nbsp;&nbsp;</i>

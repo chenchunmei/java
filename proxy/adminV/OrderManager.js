@@ -108,7 +108,7 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 
 	//删除用户 
 	function deleteOrder(ord_code) {
-		layer.confirm('确定删除[' + ord_code + ']的订单？', {
+		layer.confirm('确定删除订单编号为[' + ord_code + ']的订单？', {
 			icon: 3,
 			title: '提示信息'
 		}, function(index) {

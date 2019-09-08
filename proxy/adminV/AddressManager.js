@@ -10,13 +10,13 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			list: {} //定义一个数据
 		},
 		methods: { //定义VUE中函数
-			lockAddState: function(add_id, add_state) {
+			lockAddState: function(add_id, add_state,add_detail) {
 				//调用自已的
-				lockAddState(add_id, add_state);
+				lockAddState(add_id, add_state,add_detail);
 			},
-			deleteAdd: function(add_id) {
+			deleteAdd: function(add_id,add_detail) {
 				//调用自已的
-				deleteAdd(add_id);
+				deleteAdd(add_id,add_detail);
 			},
 			updateAdd: function(add_id){
 				updateAdd(add_id);
@@ -61,28 +61,28 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 		})
 	}
 
-	function lockAddState(add_id, add_state) {
+	function lockAddState(add_id, add_state,add_detail) {
 		//为0 则进行注销
 		if(add_state == 1) {
-			layer.confirm('确定修改地址编号为[' + add_id + ']的地址？', {
+			layer.confirm('确定启用配送[' + add_detail + ']的地址？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
 				$.post("http://localhost:8888/QuickRun/AddManagerUpdate.action",{"add_id":add_id,"add_state":0},
 				function(result) {					
-					layer.msg("修改为正常成功");						
+					layer.msg("启用成功");						
 					loadList();										
 					layer.close(index);
 				})
 			});
 		} else if(add_state == 0){ //其它为1则进行复原
-			layer.confirm('确定修改时间编号为[' + add_id + ']的时间？', {
+			layer.confirm('确定停止配送[' + add_detail + ']的地址？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
 				$.post("http://localhost:8888/QuickRun/AddManagerUpdate.action",{"add_id":add_id,"add_state":1},
 				function(result) {
-					layer.msg("修改为注销成功");						
+					layer.msg("停止成功");						
 					loadList();	
 					layer.close(index);
 				})
@@ -92,8 +92,8 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 	}
 
 	//删除用户 
-	function deleteAdd(add_id) {
-		layer.confirm('确定删除[' + add_id + ']用户？', {
+	function deleteAdd(add_id,add_detail) {
+		layer.confirm('确定删除[' + add_detail + ']地址？', {
 			icon: 3,
 			title: '提示信息'
 		}, function(index) {

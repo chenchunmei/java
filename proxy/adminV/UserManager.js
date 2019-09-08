@@ -10,13 +10,13 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 			list: {} //定义一个数据
 		},
 		methods: { //定义VUE中函数
-			lockUserState: function(u_id, u_state) {
+			lockUserState: function(u_id, u_state,u_nickname) {
 				//调用自已的
-				lockUserState(u_id, u_state);
+				lockUserState(u_id, u_state,u_nickname);
 			},
-			deleteUser: function(u_id) {
+			deleteUser: function(u_id,u_nickname) {
 				//调用自已的
-				deleteUser(u_id);
+				deleteUser(u_id,u_nickname);
 			},
 		},
 		created: function() {
@@ -65,28 +65,28 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 	});
 	
 
-	function lockUserState(u_id, u_state) {
+	function lockUserState(u_id, u_state,u_nickname) {
 		//为0 则进行注销
 		if(u_state == 1) {
-			layer.confirm('确定修改用户编号为[' + u_id + ']的用户？', {
+			layer.confirm('确定启用用户为[' + u_nickname + ']的用户？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
 				$.post("http://localhost:8888/QuickRun/suibiangai.action",{"u_id":u_id,"u_state":0},
 				function(result) {					
-					layer.msg("修改为正常成功");						
+					layer.msg("启用成功");						
 					loadList();										
 					layer.close(index);
 				})
 			});
 		} else if(u_state == 0){ //其它为1则进行复原
-			layer.confirm('确定修改用户编号为[' + u_id + ']的用户？', {
+			layer.confirm('确定停用用户为[' + u_nickname + ']的用户？', {
 				icon: 3,
 				title: '提示信息'
 			}, function(index) {
 				$.post("http://localhost:8888/QuickRun/suibiangai.action",{"u_id":u_id,"u_state":1},
 				function(result) {
-					layer.msg("修改为注销成功");						
+					layer.msg("停止成功");						
 					loadList();	
 					layer.close(index);
 				})
@@ -96,8 +96,8 @@ layui.use(['form', 'layer', 'jquery', 'laypage'], function() {
 	}
 
 	//删除用户 
-	function deleteUser(u_id) {
-		layer.confirm('确定删除[' + u_id + ']用户？', {
+	function deleteUser(u_id,u_nickname) {
+		layer.confirm('确定删除[' + u_nickname + ']用户？', {
 			icon: 3,
 			title: '提示信息'
 		}, function(index) {
