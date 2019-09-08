@@ -40,13 +40,12 @@ function loginAdmin() {
 		dataType: "JSON",
 		success: function(result) {
 			
-			if(result != null) {
+			if(result == 1) {
 				//跳转到成功页面
 				location.href = "../../adminV/index.html";
 			} else {
 				alert("账号或者密码不正确!");
 			}
-			alert(adm_account);
 		}
 	});
 }
