@@ -37,9 +37,13 @@ public class LoginController {
 	 * @return
 	 */
 	@RequestMapping("/loginAdmin.action")
-	public @ResponseBody Admin selAdminByAccAndPwd(@RequestParam("adm_account") String adm_account, @RequestParam("adm_pwd") String adm_pwd) {
+	public @ResponseBody int selAdminByAccAndPwd(@RequestParam("adm_account") String adm_account, @RequestParam("adm_pwd") String adm_pwd) {
 		Admin admin = loginService.selAdminByAccAndPwd(adm_account, adm_pwd);
-		return admin;
+		if(admin!=null) {
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 	
 	/**
