@@ -75,6 +75,14 @@ public interface ILoginService {
 	 * @return
 	 */
 	public Integer returnPwd(String u_phone,String u_pwd);
+	
+	/**
+	 * 找回密码
+	 * @param emp_sno
+	 * @param emp_pwd
+	 * @return
+	 */
+	public Integer returnEmpPwd(String emp_sno,String emp_pwd);
 
 	/**
 	 * 根据骑手学号和密码查找骑手信息
