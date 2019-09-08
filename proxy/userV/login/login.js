@@ -16,12 +16,12 @@ function login() {
 	
 	var phone = $("#phone").val();
 	if(phone == "") {
-		$$.toast("手机号不能为空！");
+		alert("手机号不能为空！");
 		return;
 	};
 	var pwd = $("#pwd").val();
 	if(pwd == "") {
-		$$.toast("密码不能为空！");
+		alert("密码不能为空！");
 		return;
 	}
 
@@ -44,7 +44,7 @@ function login() {
 				//跳转到成功页面
 				location.href = "../addOrders.html";
 			} else {
-				$$.toast("用户名或者密码不正确!");
+				alert("用户名或者密码不正确!");
 			}
 		}
 	});
