@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<title>找回密码</title>
+
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+
+		<meta name="msapplication-TileColor" content="#0e90d2">
+
+		<link rel="stylesheet" href="../../AmazeUI-2.4.2/assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="register.css" />
+
+	</head>
+
+	<body>
+
+		<header>
+			<a href="login.html" class="am-icon-angle-left back"></a>
+			<p>骑手找回密码</p>
+		</header>
+		<div class="register">
+			<div class="res-item">
+
+				<input type="tel" placeholder="学号" class="input-item emp_sno" id="emp_sno">
+				<i class="res-icon am-icon-phone"></i>
+			</div>
+			<!--<div class="res-item">
+
+				<input type="text" placeholder="验证码" class="input-item yanzheng">
+				<i class="res-icon am-icon-mobile"></i>
+				<button type="button" class="yanzhengma">发送验证码</button>
+			</div>-->
+			<div class="res-item">
+
+				<input type="passWord" placeholder="请输入新密码" class="input-item emp_pwd" id="emp_pwd">
+				<i class="res-icon am-icon-check-square-o"></i>
+			</div>
+			<div class="res-item">
+
+				<input type="passWord" placeholder="再次确认密码" class="input-item repeatpwd" id="repeatpwd">
+				<i class="res-icon am-icon-check-circle-o"></i>
+			</div>
+			<div class="res-btn">
+				<button type="button" id="change" class="am-btn am-btn-block" onclick="change()">提交</button>
+				
+			</div>
+		</div>
+
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script src="../../js/jquery-3.4.1.js"></script>
+		<script type="text/javascript" src="returnEmpPwd.js"></script>
+
+	</body>
+
+</html>
