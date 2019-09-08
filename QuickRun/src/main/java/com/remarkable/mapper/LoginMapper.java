@@ -107,6 +107,13 @@ public interface LoginMapper {
 	@Update("update tb_user set u_pwd = #{u_pwd} where u_phone = #{u_phone}")
 	Integer returnPwd(@Param("u_phone")String u_phone,@Param("u_pwd")String u_pwd);
 
-	
+	/**
+	 * 根据骑手学号找回账号密码
+	 * @param emp_sno 骑手学号
+	 * @param emp_pwd用户密码
+	 * @return
+	 */
+	@Update("update tb_emp set emp_pwd = #{emp_pwd} where emp_sno = #{emp_sno}")
+	Integer returnEmpPwd(@Param("emp_sno")String emp_sno,@Param("emp_pwd")String emp_pwd);
 }
 
