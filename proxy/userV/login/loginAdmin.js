@@ -19,7 +19,7 @@ function loginAdmin() {
 		return;
 	};
 	var adm_pwd = $("#pwd").val();
-	if(pwd == "") {
+	if(adm_pwd == "") {
 		alert("密码不能为空！");
 		return;
 	}
