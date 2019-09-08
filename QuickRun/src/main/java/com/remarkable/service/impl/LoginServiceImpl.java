@@ -118,6 +118,17 @@ public class LoginServiceImpl implements ILoginService {
 	}
 	
 	/**
+	 * 根据骑手学号修改用户密码
+	 * @param emp_sno
+	 * @param u_pwd
+	 * @return
+	 */
+	public Integer returnEmpPwd(String emp_sno,String emp_pwd){
+		Integer row = loginMapper.returnEmpPwd(emp_sno, emp_pwd);
+		return row;
+	}
+	
+	/**
 	 * 骑手修改密码
 	 * @param emp_id 骑手id
 	 * @param emp_pwd 骑手新密码
