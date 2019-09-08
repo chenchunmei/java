@@ -53,9 +53,13 @@ public class LoginController {
 	 * @return
 	 */
 	@RequestMapping("/loginEmp.action")
-	public @ResponseBody Emp loginEmp(@RequestParam("emp_sno") String emp_sno, @RequestParam("pwd") String pwd) {
+	public @ResponseBody int loginEmp(@RequestParam("emp_sno") String emp_sno, @RequestParam("pwd") String pwd) {
 		Emp emp = loginService.loginEmp(emp_sno,pwd);
-		return emp;
+		if(emp!=null) {
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 	
 	/**
