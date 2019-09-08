@@ -12,17 +12,15 @@ function txt() {
 }
 
 function login() {
-	
+	window.$$ = window.Zepto = Zepto;
 	
 	var phone = $("#phone").val();
 	if(phone == "") {
-		window.$$ = window.Zepto = Zepto;
 		$$.toast("手机号不能为空！");
 		return;
 	};
 	var pwd = $("#pwd").val();
 	if(pwd == "") {
-		window.$$ = window.Zepto = Zepto;
 		$$.toast("密码不能为空！");
 		return;
 	}
@@ -46,7 +44,6 @@ function login() {
 				//跳转到成功页面
 				location.href = "../addOrders.html";
 			} else {
-				window.$$ = window.Zepto = Zepto;
 				$$.toast("用户名或者密码不正确!");
 			}
 		}
