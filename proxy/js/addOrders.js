@@ -152,7 +152,7 @@ var app = new Vue({
 				    crossDomain: true,
 					success: function(data) {
 						$$.toast("发布成功");
-						location.reload();
+						window.location.href = "userOrder.html";
 					}
 				});
 			}
