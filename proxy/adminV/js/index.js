@@ -1,14 +1,3 @@
 function exitLogin() {
-	localStorage.removeItem("accountjwt");
-	parent.location.href = "login/login.html"
+	parent.location.href = "../../userV/login/loginAdmin.html"
 }
-
-var accountjwt = localStorage.getItem("accountjwt");
-
-$(function() {
-		var accountjwt = localStorage.getItem("accountjwt");
-		if(accountjwt == null) {
-			//跳转
-			window.location.href = "login/login.html";
-		}
-	});
