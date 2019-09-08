@@ -66,7 +66,7 @@ $(function() {
 			var u_nickname = $("#u_nickname").val();
 			var u_birthday = $("#u_birthday").val();
 			var u_sex = $("#u_sex").val();
-			if(u_nickname.length >= 4 && u_nickname.length < 10) {
+			if(u_nickname.length >= 1 && u_nickname.length < 10) {
 				var user = {
 					"u_id": u_id,
 					"u_nickname": u_nickname,
@@ -84,7 +84,7 @@ $(function() {
 					}
 				});
 			}else{
-				$$.toast("昵称要4~10位");
+				$$.toast("昵称要1~10位");
 			}
 
 		});
